@@ -41,8 +41,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.28"
-     inkscape:cx="575.35119"
-     inkscape:cy="806.14787"
+     inkscape:cx="448.39806"
+     inkscape:cy="493.64787"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -132,7 +132,7 @@
          id="tspan4753"
          x="2.6203766"
          y="265.17322"
-         style="fill:#ffffff;stroke-width:0.18112031;font-size:5.29166667px">Just sleep lmao</tspan></text>
+         style="font-size:5.29166651px;fill:#ffffff;stroke-width:0.18112031">Sample text</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.13848209px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26769307;"
@@ -492,5 +492,49 @@
          x="5.160265"
          sodipodi:role="line"
          id="tspan5085-3">SAMPLE TEXT SAMPLE TEXT SAMPLE TEXT SAMPLE TEXT SAMPLE TEXT SAMPLE TEXT SAMPLE TEXT </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="19.637045"
+       y="117.16602"
+       id="text2037"><tspan
+         sodipodi:role="line"
+         id="tspan2035"
+         x="19.637045"
+         y="120.97922"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="18.389387"
+       y="117.2793"
+       id="text2041"><tspan
+         sodipodi:role="line"
+         x="18.389387"
+         y="117.2793"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;stroke-width:0.26458332"
+         id="tspan2039">Tillgängliga tider: 00:00 - 00:00</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="18.394554"
+       y="55.128071"
+       id="text2045"><tspan
+         sodipodi:role="line"
+         x="18.394554"
+         y="55.128071"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;stroke-width:0.26458332"
+         id="tspan2043">Tillgängliga tider: 00:00 - 00:00</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="18.405376"
+       y="187.39467"
+       id="text2049"><tspan
+         id="tspan2047"
+         sodipodi:role="line"
+         x="18.405376"
+         y="187.39467"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;stroke-width:0.26458332">Tillgängliga tider: 00:00 - 00:00</tspan></text>
   </g>
 </svg>
