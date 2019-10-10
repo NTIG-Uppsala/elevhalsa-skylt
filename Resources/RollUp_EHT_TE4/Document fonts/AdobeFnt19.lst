@@ -1,0 +1,74 @@
+%!Adobe-FontList 1.19
+%Locale:0x41d
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Soleto-Bold
+FamilyName:Soleto
+StyleName:Bold
+FullName:Soleto Bold
+MenuName:Soleto
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\RollUp_EHT_TE4\Document fonts\Dalton Maag - Soleto Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:102908
+FileModTime:1521070714
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Soleto Bold
+NameArray:0,Win,1,Soleto
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Soleto-Medium
+FamilyName:Soleto
+StyleName:Medium
+FullName:Soleto Medium
+MenuName:Soleto Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\RollUp_EHT_TE4\Document fonts\Dalton Maag - Soleto Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:102620
+FileModTime:1521070714
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Soleto Medium
+NameArray:0,Win,1,Soleto Medium
+NameArray:0,Win,16,Soleto
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Soleto-XBold
+FamilyName:Soleto
+StyleName:XBold
+FullName:Soleto XBold
+MenuName:Soleto XBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\RollUp_EHT_TE4\Document fonts\Dalton Maag - Soleto XBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:102868
+FileModTime:1521070718
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Soleto XBold
+NameArray:0,Win,1,Soleto XBold
+NameArray:0,Win,16,Soleto
+%EndFont
+
