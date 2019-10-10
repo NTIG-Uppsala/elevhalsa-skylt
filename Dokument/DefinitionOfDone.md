@@ -15,3 +15,5 @@
 7. Alla närvarande utvecklare ska godkänna att momentet är färdigt. Om ensam, fråga kasper om han godkänner vad du har gjort.
 
 8. Fundera över hur det ska presenteras.
+
+9. Inga commits efter clockan 12:00 på onsdagar.
