@@ -8,58 +8,143 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <style>
+        .c
+        {
+            background-image: linear-gradient(to top, #ab058b,indigo);
+            color: white;
+            height: 20rem;
+        }
+
+        .c .carousel-item
+        {
+            padding:12px;
+        }
+
+        #test
+        {
+            margin: 25px;
+            margin-bottom: 50px;
+        }
+
+        .person-info
+        {
+            margin-top: 600px;
+        }
+
+        body
+        {
+            background-color: #1a0f27;
+            margin: 25px;
+            font-size: 40px;
+            color: white;
+        }
+        h1
+        {          
+            font-size: 60px;
+        }
+
+        h2
+        {
+            font-size: 50px;
+        }
+    </style>
 
 </head>
+
+
 <body>
 
-    <div class="container">
+
+    <!--    <div style="width:768px; height:1366px; background-color:white;">-->
+    <div class="container-fluid">
         <header>
-            Hello, World.
+            <h1>Hello</h1>
         </header>
-
-
-        <div class="carousel slide" data-ride="carousel">
+        <div class="carousel slide person-info" data-ride="carousel" data-pause="false" style="height: 10rem">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <h1>Robin Kastberg</h1>
+                    <div>
+                        <h1>Robin Kastberg</h1>
+                    </div>
+                    <div class="row border">
+                        <div class="col">
+                            <p>
+                                Jag är här för att klaga på din kod och allt du gör.<br />
+                                Om du ger mig kaffe så kanske jag klagar lite mindre.
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                TEL: 0007774433<br />
+                                Mail: Robin.kastberg@ntig.se
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <h1>Sarah Hagberg</h1>
-                </div>
-                <div class="carousel-item">
-                    <h1>Dovahkiin</h1>
+                    <div class="border">
+                        <h1>Sarah Hagberg</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                Hej du..<br />
+                                Ha ha!<br />
+                                FUS RO DAH!!!!
+                            </p>
+                        </div>
+                        <div class="col">
+                            TEL: 0007774433<br />
+                            Mail: Robin.kastberg@ntig.se<br />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+
+        <div class="row fixed-bottom" id="test">
             <div class="col">
-                <div class="carousel slide" data-ride="carousel">
+                <div class="carousel slide c" data-ride="carousel" data-pause="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <h1>Problem med att sova?</h1>
+                            Lösning här.
                         </div>
                         <div class="carousel-item">
-                            <h1>Problem med att sluta röka?</h1>
+                            <h1>I can smell you.</h1>
+                        </div>
+                        <div class="carousel-item">
+                            <h1>Oj da.</h1>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="carousel slide" data-ride="carousel">
+                <div class="carousel slide c" data-ride="carousel" data-pause="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <h1>Hej 1</h1>
+                            <h2>Obi-Wan Kenobi:</h2>
+                            Hello There!
                         </div>
                         <div class="carousel-item">
-                            <h1>Hej 2</h1>
+                            <h2>General Grevious:</h2>
+                            General Kenobi!<br />
+                            You are a bold one.
                         </div>
                         <div class="carousel-item">
-                            <h1>Hej 3</h1>
+                            <h2>Obi-Wan Kenobi:</h2>
+                            Your move!
+                        </div>
+                        <div class="carousel-item">
+                            <h2>General Grevious:</h2>
+                            You fool, I've been trained in your jedi arts by Count Doku.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--    </div>-->
 </body>
 </html>
