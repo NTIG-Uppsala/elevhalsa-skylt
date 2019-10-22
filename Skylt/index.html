@@ -12,7 +12,8 @@
     <style>
         .c
         {
-            background-image: linear-gradient(to top, #ab058b,indigo);
+          
+            background-image: linear-gradient(to top, #ab058b,#4e0568, transparent);
             color: white;
             height: 20rem;
         }
@@ -20,45 +21,40 @@
         .c .carousel-item
         {
             padding:12px;
+            padding-top: 40px;
         }
 
-        #test
+        #box
         {
             margin: 25px;
             margin-bottom: 50px;
-        }
-
-        .person-info
-        {
-            margin-top: 100px;
         }
 
         body
         {
             background-color: #1a0f27;
             margin: 25px;
-            font-size: 40px;
+            font-size: 30px;
             color: white;
         }
-        h1
-        {          
-            font-size: 60px;
-        }
-
         h2
         {
-            font-size: 50px;
+            font-size: 40px;
         }
 
-        img
+        .profile-image
         {
-            height: 400px;
+            height: 300px;
             max-width: 100%;
         }
 
         .name
         {
-            background-image: linear-gradient(to right, #ab058b,indigo);
+            font-size: 40px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            background-image: linear-gradient(to right, indigo, transparent);
+                
         }
 
         header
@@ -93,7 +89,7 @@
                             </p>
                         </div>
                         <div class="col text-center">
-                            <img src="Img/Profile/susanne300.jpg" />
+                            <img class="profile-image" src="Img/Profile/susanne300.jpg" />
                         </div>
                     </div>
                     <p>
@@ -103,7 +99,7 @@
                 </div>
                 <div class="carousel-item">
                     <div>
-                        <h1>Sarah Hagberg</h1>
+                        <h1 class="name">Sarah Hagberg</h1>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -114,14 +110,14 @@
                             </p>
                         </div>
                         <div class="col text-center">
-                            <img src="Img/Profile/sarah300.2.jpg"/>
+                            <img class="profile-image" src="Img/Profile/sarah300.2.jpg"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row fixed-bottom" id="test">
+        <div class="row fixed-bottom" id="box">
             <div class="col">
                 <div class="carousel slide c" data-ride="carousel" data-pause="false">
                     <div class="carousel-inner">
