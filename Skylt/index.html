@@ -53,12 +53,19 @@
             font-size: 40px;
             padding-bottom: 10px;
             padding-left: 10px;
-            background-image: linear-gradient(to right, indigo, transparent);
-                
+            background-image: linear-gradient(to right, #ab058b,#4e0568, transparent);                
         }
 
-        header
+        .carousel-indicators li 
         {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: #4c0563;
+        }
+        .carousel-indicators 
+        {
+            bottom: -350px;
         }
 
     </style>
@@ -67,15 +74,19 @@
 
 
 <body>
-
-
-    <!--    <div style="width:768px; height:1366px; background-color:white;">-->
     <div class="container-fluid">
         <header class="text-center">
             <object data="Img/ElevHalsaLogo.svg" type="image/svg+xml" width="600">
             </object>
         </header>
-        <div class="carousel slide person-info" data-ride="carousel" data-pause="false" style="height: 10rem">
+        <div id="carouselExampleIndicators" class="carousel slide person-info" data-ride="carousel" data-pause="false" style="height: 10rem">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div>
@@ -99,6 +110,46 @@
                 </div>
                 <div class="carousel-item">
                     <div>
+                        <h1 class="name">Tobey Maguire</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                You get your rent when you fix this damn door!!!<br />
+                                Gonna cry?<br />
+
+                            </p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="profile-image" src="Img/tenor.gif" />
+                        </div>
+                    </div>
+                    <p>
+                        TEL: <br />
+                        Mail:
+                    </p>
+                </div>
+                <div class="carousel-item">
+                    <div>
+                        <h1 class="name">Tobey Maguire</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                Pizza time!
+                            </p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="profile-image" src="Img/giphy.gif" />
+                        </div>
+                    </div>
+                    <p>
+                        TEL: <br />
+                        Mail:
+                    </p>
+                </div>
+                <div class="carousel-item">
+                    <div>
                         <h1 class="name">Sarah Hagberg</h1>
                     </div>
                     <div class="row">
@@ -110,7 +161,7 @@
                             </p>
                         </div>
                         <div class="col text-center">
-                            <img class="profile-image" src="Img/Profile/sarah300.2.jpg"/>
+                            <img class="profile-image" src="Img/Profile/sarah300.2.jpg" />
                         </div>
                     </div>
                 </div>
@@ -343,6 +394,5 @@
             </div>
         </div>
     </div>
-    <!--    </div>-->
 </body>
 </html>
