@@ -16,4 +16,6 @@
 
 8. Fundera över hur det ska presenteras.
 
-9. Inga commits efter clockan 12:00 på onsdagar.
+9. Inga placeholders.
+
+10. Inga commits efter clockan 12:00 på onsdagar.
