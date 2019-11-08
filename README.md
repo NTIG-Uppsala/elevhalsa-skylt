@@ -1,6 +1,6 @@
 ## Where to change hardcoded data
 
-A carousel item found in index.html.
+A carousel item found in Skylt/index.html.
 Anything wrapped with curly brackets can be changed.
 
 ```html
