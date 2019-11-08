@@ -1,7 +1,7 @@
-
 ## Where to change hardcoded data
 
-A carousel item found in index.html
+A carousel item found in index.html.
+Anything wrapped with curly brackets can be changed.
 
 ```html
 <div class="carousel-item active">
@@ -20,12 +20,12 @@ A carousel item found in index.html
             </p>
         </div>
         <div class="col text-center">
-            <img class="profile-image" src="{Image source}" />
+            <img class="profile-image" src= {Image source} />
         </div>
     </div>
     <p class="contact">
-        E-post: {Email}<br />
-        Telefon: {Phone}<br />
+        E-post: {Email} <br />
+        Telefon: {Phone} <br />
         Arbetar: {Working days and hours}
     </p>
 </div>
