@@ -20,7 +20,7 @@ Anything wrapped with curly brackets can be changed.
             </p>
         </div>
         <div class="col text-center">
-            <img class="profile-image" src= {Image source} />
+            <img class="profile-image" src="{Image source}" />
         </div>
     </div>
     <p class="contact">
