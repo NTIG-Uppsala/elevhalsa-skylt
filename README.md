@@ -1,3 +1,18 @@
+## Raspberry Pi credentials
+    username: Pi  
+    password: TE4NordTech  
+    ip: 192.168.202.165  
+
+## How to remote control Raspberry Pi
+
+### Download/Install VNC Viewer
+    1. Go to https://www.realvnc.com/en/connect/download/viewer/
+    2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
+    
+### Connect to the Raspberry Pi 
+    1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
+    3. Enter the Raspberry Pi user credentials and all done! You should now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+
 ## Custom Shortcuts
 
     Ctrl + F11 : disables HDMI output and closes all chromium instances
@@ -216,7 +231,7 @@ Notice: You will get an error each time the autopull script runs that is as foll
 The autopull script will still run as intended.     
 		
 ***
-#### Remote Control:
+#### Enable Remote Control:
 	To be able to control your raspberry's graphical interface remotely, follow these steps.
 		1. Open the Command Line Interface and enter the following commands:
 				sudo apt-get update
