@@ -1,3 +1,10 @@
+## Custom Shortcuts
+
+### Ctrl + F11 : disables HDMI output and closes all chromium instances
+
+### Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
+
+
 ## Where to change hardcoded data
 
 A carousel item found in Skylt/index.html.
@@ -84,7 +91,38 @@ Change active directory to elevhalsa-digital-skylt using the command
     "cd /home/pi/git/elevhalsa-digital-skylt/"
 and then enter the following command
 
+
 ### Change active display times
+        1. Open the Command Line Interface and enter the following command:
+                sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
+
+        2. Find the <keyboard></keyboard> tags and add the following text between the tags to add a shortcut
+        
+               <keybind key="">
+                  <action name="Execute">
+                     <command>
+                     </command>
+                  </action>
+                </keybind>
+                
+        3. Add the shortcut in the <keybind> tag and command you want to run between the <command></command> tags
+
+               Example for running a bash script when Ctrl+F11 is pressed:
+
+               <keybind key="C-F11">
+                  <action name="Execute">
+                     <command>
+                         bash ~/shortcut/close
+                     </command>
+                  </action>
+                </keybind>
+
+                C - stands for control
+                A - stands for alt
+                S - stands for shift 
+            
+
+### Create shortcut
         1. Open the Command Line Interface and enter the following command:
                 crontab -e
 
@@ -92,16 +130,7 @@ and then enter the following command
         3. Go to the bottom of the opened document and type in the following commands:
                 * * * * * sudo vcgencmd display_power 0
                 * * * * * sudo reboot
-                
-                asterisk 1 = minutes (from 0 to 59)
-                asterisk 2 = hours (from 0 to 24)
-                asterisk 3 = day of month (from 1 to 31)
-                asterisk 4 = month (from 1 to 12)
-                asterisk 5 = day of week (from 0 to 7 where 0 to 6 is sunday to saturday and 7 is also sunday)
-                
-                example: 0 10 * * * sudo vcgencmd display_power 0
-                         5 10 * * * sudo reboot
-                         this will turn of HDMI output at 10:00 and start it agian at 10:05
+    
 
 ### Disable Black Border around Screen
         1. Open the Command Line Interface and type the following command:
