@@ -109,8 +109,28 @@ Change active directory to elevhalsa-digital-skylt using the command
     "cd /home/pi/git/elevhalsa-digital-skylt/"
 and then enter the following command
 
-
+***
 ### Change active display times
+        1. Open the Command Line Interface and enter the following command:
+                crontab -e
+
+        2. Type 1 to chose nano as your editor
+        3. Go to the bottom of the opened document and type in the following commands:
+                * * * * * sudo vcgencmd display_power 0
+                * * * * * sudo reboot
+                
+                asterisk 1 = minutes (from 0 to 59)
+                asterisk 2 = hours (from 0 to 24)
+                asterisk 3 = day of month (from 1 to 31)
+                asterisk 4 = month (from 1 to 12)
+                asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+                
+                example: 0 10 * * * sudo vcgencmd display_power 0
+                         5 10 * * * sudo reboot
+                         this will turn of HDMI output at 10:00 and start it agian at 10:05
+
+***    
+### Create shortcut
         1. Open the Command Line Interface and enter the following command:
                 sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
 
@@ -139,17 +159,7 @@ and then enter the following command
                 A - stands for alt
                 S - stands for shift 
             
-
-### Create shortcut
-        1. Open the Command Line Interface and enter the following command:
-                crontab -e
-
-        2. Type 1 to chose nano as your editor
-        3. Go to the bottom of the opened document and type in the following commands:
-                * * * * * sudo vcgencmd display_power 0
-                * * * * * sudo reboot
-    
-
+            
 ### Disable Black Border around Screen
         1. Open the Command Line Interface and type the following command:
                 sudo nano /boot/config.txt
