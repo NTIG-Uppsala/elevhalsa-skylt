@@ -159,7 +159,7 @@ and then enter the following command
                 A - stands for alt
                 S - stands for shift 
             
-            
+***            
 ### Disable Black Border around Screen
         1. Open the Command Line Interface and type the following command:
                 sudo nano /boot/config.txt
@@ -180,6 +180,7 @@ and then enter the following command
                 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 		2. Add the following lines at the bottom:
                 chromium-browser --start-fullscreen --kiosk /home/pi/Git/elevhalsa-digital-skylt/Skylt/index.html --incognito
+
 ***
 #### Remove Cursor:
 
@@ -206,6 +207,15 @@ and then enter the following command
 		4. Save and exit.
 
 ***
+### Disable Raspberry Pi sleep mode
+
+        1. Open the Command Line Interface and type in the following command:
+                sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+		2. Add the following lines at the bottom:
+                @xset -dpms
+                @xset s noblank
+
+***
 #### Remove Raspberry Icons:
 		1. Open Command Line Interface and type in the following command:
                 sudo nano /boot/cmdline.txt
@@ -227,19 +237,13 @@ and then enter the following command
 
 ***
 #### Remote Update Script:
-Already done if you followed the configuration step
 
 	To link the python file so it will run when you boot the Raspberry pi and continue to run follow these steps:
-		1. Configure git and clone down the prislista repository in /home/pi/Git
-		2. Open the Command Line Interface and write the following command:
+		1. Open the Command Line Interface and write the following command:
                 sudo nano /etc/profile
-		3. Add the following line at the bottom:
-             python3 /home/pi/Git/prislista/RaspberryPi/python/loop.py &
-    
-Notice: You will get an error each time the autopull script runs that is as follows (Fatal: unable to get credential storage lock: File exists)
+		2. Add the following line at the bottom:
+             python3 /home/pi/Git/prislista/RaspberryPi/python/gitpull.py &
 
-The autopull script will still run as intended.     
-		
 ***
 #### Enable Remote Control:
 	To be able to control your raspberry's graphical interface remotely, follow these steps.
@@ -248,9 +252,3 @@ The autopull script will still run as intended.
 				sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
 		2. Write the command sudo raspi-config
 		3. Navigate to Interfacing Options and enable Vnc
-		4. Get your raspberry's private ip by writing ifconfig in the Command Line
-		5. Enter the ip in VNC viewer on your desktop and write the raspberry's username and password when promted:
-				Username: pi
-				Password: TE4NordTech
-
-***
