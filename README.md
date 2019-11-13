@@ -1,5 +1,5 @@
 ## Raspberry Pi credentials
-    username: Pi  
+    username: pi  
     password: TE4NordTech  
     ip: 192.168.202.165  
 
