@@ -1,9 +1,12 @@
 ## Custom Shortcuts
 
-### Ctrl + F11 : disables HDMI output and closes all chromium instances
+    Ctrl + F11 : disables HDMI output and closes all chromium instances
+    Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
 
-### Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
+## Git
 
+    The browser automatically restarts when new changes is detected in the elevhalsa-digital-skylt/Skylt folder
+    The browser automatically refresh once every hour
 
 ## Where to change hardcoded data
 
@@ -194,8 +197,8 @@ and then enter the following command
 #### Change Background Image:
 
 		1. Right-click on desktop and select desktop preferences.
-		2. Under the desktop tab, in the Picture setting, select the picture named purple-logo.png
-                /home/pi/Git/prislista/RaspberryPi/configuration/wallpaper.png
+		2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
+        3. Navigate to /home/pi/my_splash.png and press open and then press ok.
 
 ***
 #### Remote Update Script:
