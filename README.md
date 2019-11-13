@@ -77,8 +77,6 @@ Anything wrapped with curly brackets can be changed.
 
 [NOOBS OS](https://www.raspberrypi.org/downloads/noobs/)
 
-[Vnc Viewer](https://www.realvnc.com/en/connect/download/viewer/)
-
 ***
 ### Tutorial for NOOBS installation:
 		1. Install SD card formating tool
@@ -107,14 +105,13 @@ and then clone the git repostitory with the command
 Change active directory to elevhalsa-digital-skylt using the command
 
     "cd /home/pi/git/elevhalsa-digital-skylt/"
-and then enter the following command
 
 ***
 ### Change active display times
         1. Open the Command Line Interface and enter the following command:
                 crontab -e
 
-        2. Type 1 to chose nano as your editor
+        2. Type 1 to choose nano as your editor
         3. Go to the bottom of the opened document and type in the following commands:
                 * * * * * sudo vcgencmd display_power 0
                 * * * * * sudo reboot
@@ -134,7 +131,7 @@ and then enter the following command
         1. Open the Command Line Interface and enter the following command:
                 sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
 
-        2. Find the <keyboard></keyboard> tags and add the following text between the tags to add a shortcut
+        2. Find the <keyboard></keyboard> tags and add the following text between the tags
         
                <keybind key="">
                   <action name="Execute">
@@ -226,14 +223,14 @@ and then enter the following command
 #### Replace Boot Image:
 
 		1. Open Command Line Interface and type in the following command:
-                sudo cp /home/pi/Git/prislista/RaspberryPi/configuration/pix/splash.png /usr/share/plymouth/themes/pix/splash.png
+                sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
 #### Change Background Image:
 
-		1. Right-click on desktop and select desktop preferences.
-		2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
-        3. Navigate to /home/pi/my_splash.png and press open and then press ok.
+		1. Right-click on desktop and select desktop preferences.  
+		2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
+        3. Navigate to /home/pi/my_splash.png and press open and then press ok.  
 
 ***
 #### Remote Update Script:
@@ -242,7 +239,7 @@ and then enter the following command
 		1. Open the Command Line Interface and write the following command:
                 sudo nano /etc/profile
 		2. Add the following line at the bottom:
-             python3 /home/pi/Git/prislista/RaspberryPi/python/gitpull.py &
+             python3 /home/pi/gitpull.py &
 
 ***
 #### Enable Remote Control:
