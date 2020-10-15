@@ -1,5 +1,5 @@
-# Utvecklingsmiljö
-## Setup (Windows)
+# Utvecklingsmiljö (Windows)
+## Setup
 1) Installera Python
 2) Kör Test/setup_venv.bat
 3) Installera webbläsare (Chrome/Chromium)
