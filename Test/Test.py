@@ -38,7 +38,7 @@ if not os.path.exists("screenshots"):
 
 for i in range(slide_count):
 	# Försöker hitta slide med klassen "active"
-	carousel.find_element_by_xpath("ol/li[@data-slide-to='{}'][@class='{}']".format(i, "active"))
+	carousel.find_element_by_xpath("ol/li[@data-slide-to='{}'][@class='active']".format(i))
 
 	# Väntar på att övergången till sliden blir klar
 	time.sleep(0.5)

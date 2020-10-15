@@ -10,7 +10,9 @@
 8) Öppna `elevhalsa-digital-skylt.sln` i Visual Studio
 
 ## Skärmbildstest
-Skärmbilder genereras i mappen `Test/screenshots` när man kör Test-projektet i Visual Studio.
+Skärmbilder för varje slide genereras i mappen `Test/screenshots` när man kör Test-projektet i Visual Studio.
+
+Testet väntar 15 sekunder mellan varje slide.
 
 ### Ändra upplösningen för testet
-Ändra `WIDTH` och `HEIGHT` i `Test/Test.py` till önskad bredd och höjd
+Ändra `WIDTH` och `HEIGHT` i `Test/Test.py` till önskad bredd och höjd.
