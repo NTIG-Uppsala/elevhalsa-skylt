@@ -13,13 +13,13 @@ HEIGHT = 768
 
 chrome_options = Options()
 
-# Lägger till ett argument för att webbläsaren inte ska ha ett fönster
+# Lägger till ett argument för att webbläsaren inte ska ha ett synligt fönster
 chrome_options.add_argument("--headless")
 
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get("{}/../Skylt/index.html".format(os.getcwd()))
 
-driver.set_window_size(1366, 768)
+driver.set_window_size(WIDTH, HEIGHT)
 
 carousel = driver.find_element_by_class_name("carousel")
 
