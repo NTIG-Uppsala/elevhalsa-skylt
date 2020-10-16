@@ -30,6 +30,10 @@ Anything wrapped with curly brackets can be changed.
 
 ```html
 <div class="carousel-item active">
+    <header class="text-center">
+        <object data="{Logo image source}" type="image/svg+xml" width="218" height="218">
+        </object>
+    </header>
     <div class="name row justify-content-between">
         <div class="col-7">
             <!-- Name -->
