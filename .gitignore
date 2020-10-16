@@ -341,3 +341,12 @@ healthchecksdb
 
 # pytest cache
 .pytest_cache
+
+# Python virtual environment
+Test/env
+
+# Screenshot test
+Test/screenshots
+
+# Chrome/Chromium webdriver
+Test/chromedriver.exe
