@@ -1,6 +1,6 @@
 ## Raspberry Pi credentials
     username: pi  
-    password: TE4NordTech  
+    password: 9IHad98i32K
     ip: 192.168.202.165  
 
 ## How to remote control Raspberry Pi
