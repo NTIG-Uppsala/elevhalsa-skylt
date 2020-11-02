@@ -8,11 +8,11 @@
 + Code shall follow the coding conventions in place.
 + Content/Documentation shall go through spellchecker.
 
-# Before merging with main
+# Before Merging With Main
 + All code and documentation should be read by groupmembers onsite and approved.
 + Should be complete and ready to be shipped to customer.
 
-# Coding conventions
+# Coding Conventions
 + Spaces: 4
 + Comments: English, space between // and the comment, capitalized.
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
@@ -39,7 +39,7 @@
 + Branch names should use kebab-case
 + Needs to be approved by at least 2 members of the group before merging with main branch.
 
-## Raspberry Pi Credentials
+## Raspberry Pi Credentials/IP Address
     username: pi  
     password: 9IHad98i32K
     ip: 192.168.202.165  
@@ -64,6 +64,10 @@
     The browser automatically restarts when new changes is detected in the elevhalsa-digital-skylt/Skylt folder
     The browser automatically refresh once every hour
 
-## How to change the information currently displayed
+## How To Change The Information Currently Displayed
 
-While it is not yet fully implemented, changing the information that is displayed on the monitor will be done by changing the information in this  google spreadsheet: https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0.
+While it is not yet fully implemented, changing the information that is displayed on the monitor will be done by changing the information in [this google spreadsheet](https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0).
+
+# Further Documentation
+
+https://github.com/NTI-Gymnasieingenjor/elevhalsa-digital-skylt/blob/master/documentation.md
