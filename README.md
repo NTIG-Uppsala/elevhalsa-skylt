@@ -25,6 +25,10 @@
 + CSS3
 + Python3
 
+## Frameworks
++ Bootstrap 4
++ FontAwesome 5
+
 ## Static Site Generator
 + Jekyll
 
@@ -38,6 +42,8 @@
 + Feature branches
 + Branch names should use kebab-case
 + Needs to be approved by at least 2 members of the group before merging with main branch.
+
+# Raspberry Pi
 
 ## Raspberry Pi Credentials/IP Address
     username: pi  
@@ -54,7 +60,7 @@
     1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
     3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
-## Custom Shortcuts
+<!-- ## Custom Shortcuts
 
     Ctrl + F11 : disables HDMI output and closes all chromium instances
     Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
@@ -62,7 +68,7 @@
 ## Git
 
     The browser automatically restarts when new changes is detected in the elevhalsa-digital-skylt/Skylt folder
-    The browser automatically refresh once every hour
+    The browser automatically refresh once every hour -->
 
 ## How To Change The Information Currently Displayed
 
