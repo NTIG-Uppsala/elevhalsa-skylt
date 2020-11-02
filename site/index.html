@@ -14,310 +14,78 @@ layout: default
             <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350"></object>
-                </header>
-                <div class="name row justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Mathias Laveno</h2>
+            {% for member in site.data.eht %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                {% else %}
+                <div class="carousel-item">
+                {% endif %}
+                    <header class="text-center">
+                        <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
+                        </object>
+                    </header>
+                    <div class="name row justify-content-between">
+                        <div class="col-7">
+                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
+                        </div>
+                        <div class="col-4 pl-0">
+                            <h2>{{ member.ARBETSROLL }}</h2>
+                        </div>
                     </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Rektor</h2>
+                    <div class="row">
+                        <div class="col-7">
+                            <p style="padding-left: 10px;">
+                                {{ member.INFO_TEXT }}
+                            </p>
+                        </div>
+                        <div class="col-4 text-center">
+                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.jpg" />
+                        </div>
                     </div>
+                    <p class="contact">
+                        <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
+                        <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                        <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
+                        <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
+                    </p>
                 </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Mathias är rektor och ytterst ansvarig för elevhälsoteamet. Rektor har ansvar för att eleverna får det stöd de har rätt till för att nå målen.
-                        </p>
+            {% endfor %}
+            {% for member in site.data.procivitas %}
+                <div class="carousel-item">
+                    <header class="text-center">
+                        <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
+                        </object>
+                    </header>
+                    <div class="procivitas name row justify-content-between">
+                        <div class="col-7">
+                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
+                        </div>
+                        <div class="col-4 pl-0">
+                            <h2>{{ member.ARBETSROLL }}</h2>
+                        </div>
                     </div>
-                    <div class="col-4 text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/mathias300.jpg" />
+                    <div class="row">
+                        <div class="col-7">
+                            <p style="padding-left: 10px;">
+                                {{ member.INFO_TEXT }}
+                            </p>
+                        </div>
+                        <div class="col-4 text-center">
+                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.jpg" />
+                        </div>
                     </div>
+                    <p class="contact">
+                        <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
+                        {% if member.INSTAGRAM %}
+                        <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
+                        {% else %}
+                        <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                        {% endif %}
+                        <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
+                        <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
+                    </p>
                 </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: mathias.laveno@ntig.se<br />
-                    <!-- Phone -->                    <i class="fa fa-phone"></i> Telefon: 018-18 22 72<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Alla dagar 08-17<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 126, våning 1 <br><br><br><br><br><br><br><br><br/>
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                    </object>
-                </header>
-                <div class="name row justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Susanne Stjernberg</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>SYV</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Susanne arbetar som studie- och yrkesvägledare. SYV vägleder dig inom de utbildningar som finns att välja mellan. Hon kan också hjälpa dig med att få aktuell information kring vidare studier, yrken och arbetsmarknad.
-                        </p>
-                    </div>
-                    <div class="col-4 text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/susanne300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: susanne.stjernberg@ntig.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-18 22 79<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Alla dagar 08-12<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 326, våning 3 <br><br><br><br><br><br />
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                    </object>
-                </header>
-                <div class="name row justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Megan Sundström</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Kurator</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Megan arbetar som skolkurator. En skolkurator arbetar med elevernas psykosociala hälsa som rör trygghet, trivsel, arbetsmiljö, relationer och den sociala situationen både i och utanför skolan. Megan arbetar bl.a. med samtalsstöd till elever och ger handledning och konsultation till övrig skolpersonal och vårdnadshavare. Kuratorer har tystnadsplikt.
-                        </p>
-                    </div>
-                    <div class="col-4 text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/megan300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: megan.sundstrom@ntig.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-18 22 93, 076-830 32 48<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Alla dagar utom tisdagar ca 08-16<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 327, våning 3 <br><br><br><br><br><br />
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                    </object>
-                </header>
-                <div class="name row justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Maud Enbom</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Skolsköterska</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Maud arbetar som skolsköterska. En skolsköterska erbjuder alla elever hälsobesök med hälsosamtal i årskurs 1.
-                            Som gymnasieelev förväntas man, med stöd av vårdnadshavare, att ta eget ansvar för mediciner som man eventuellt behöver ta under skoldagen. Skolsköterskor har tystnadsplikt.
-                        </p>
-                    </div>
-                    <div class="col text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/maud300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: maud.enbom@ntig.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-18 22 73, 076-820 11 72<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Måndagar, onsdagar, jämna fredagar 08-17<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 329, våning 3 <br><br><br><br><br><br />
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                    </object>
-                </header>
-                <div class="name row align-items-end justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Henrik Jonsson</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Specialpedagog</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Henrik är biträdande rektor och specialpedagog. En specialpedagog samarbetar med övrig personal för att göra skolan tillgänglig för alla elever. Om du behöver hjälp i dina studier och har svårt att nå målen kan specialpedagogen se över din studiesituation för att hitta vägar och den hjälp du behöver.
-                        </p>
-                    </div>
-                    <div class="col text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/henrik300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: henrik.jonsson@ntig.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-18 22 71<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Alla dagar 08-17<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 126, våning 1 <br><br><br><br><br><br />
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                    </object>
-                </header>
-                <div class="name row align-items-end justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Sarah Hagberg</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Specialpedagog</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Sarah arbetar som specialpedagog och ansvarig för elevhälsoteamet. En specialpedagog samarbetar med övrig personal för att göra skolan tillgänglig för alla elever. Om du behöver hjälp i dina studier kan specialpedagogen se över din studiesituation för att hitta vägar och den hjälp du behöver.
-                        </p>
-                    </div>
-                    <div class="col text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/sarah300.2.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: sarah.hagberg@ntig.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-18 22 77<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Alla dagar 08-17<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 127, våning 1 <br><br><br><br><br><br /> 
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
-                    </object>
-                </header>
-                <div class="procivitas row align-items-end justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Anna Ekroth</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Skolsköterska</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Anna arbetar som skolsköterska på Procivitas. Skolsköterskan erbjuder alla elever ett hälsobesök på gymnasiet och följer upp tidigare kontroller hos skolsköterska. 
-                            Boka tid hos Anna antingen genom att skicka ett mail eller kom förbi då hon är på skolan.
-                        </p>
-                    </div>
-                    <div class="col text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/anna300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post: anna.ekroth@procivitas.se<br />
-                    <!-- Phone -->
-                    <i class="fa fa-phone"></i> Telefon: 018-56 03 71<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Torsdagar 08-16<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 329, våning 3 <br><br><br><br><br><br />
-                </p>
-            </div>
-            <div class="carousel-item">
-                <header class="text-center">
-                    <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
-                    </object>
-                </header>
-                <div class="procivitas row align-items-end justify-content-between">
-                    <div class="col-7">
-                        <!-- Name -->
-                        <h2 style="padding-left: 10px;">Jasmine Fares</h2>
-                    </div>
-                    <div class="col-4 pl-0">
-                        <!-- Role -->
-                        <h2>Skolkurator</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">
-                        <p style="padding-left: 10px;">
-                            <!-- Info -->
-                            Jasmine arbetar som skolkurator på Procivitas. En skolkurator arbetar med elevernas psykosociala hälsa i frågor som rör trygghet, trivsel, arbetsmiljö, relationer och den sociala situationen både i och utanför skolan.
-                        </p>
-                    </div>
-                    <div class="col text-center">
-                        <!-- Image -->
-                        <img class="profile-image" src="assets/img/Profile/jasmine300.jpg" />
-                    </div>
-                </div>
-                <p class="contact">
-                    <!-- Email -->
-                    <i class="fa fa-envelope"></i> E-post:  jasmine.fares@procivitas.se<br />
-                    <!-- Phone -->
-                    <i class="fab fa-instagram"></i> Instagram: kurator.fares<br />
-                    <!-- Working days and hours -->
-                    <i class="fa fa-calendar-alt"></i> Arbetar: Torsdagar 08-16<br />
-                    <!-- room number/location -->
-                    <i class="fa fa-map-marker-alt"></i> Sal: 324, våning 3 <br><br><br><br><br><br /> 
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
