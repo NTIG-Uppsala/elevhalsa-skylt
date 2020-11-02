@@ -1,5 +1,13 @@
 # Student Health Monitor
 
+## Definition of Done
+
++ Tests should be green.
++ Code should be commented.
++ Code and documentation should be uploaded on GitHub.
++ Code should follow the coding conventions in place.
++ Content/Documentation should go through spellchecker.
+
 ## Raspberry Pi Credentials
     username: pi  
     password: 9IHad98i32K
