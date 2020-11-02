@@ -2,6 +2,6 @@
 Test/env
 Test/screenshots
 Test/chromedriver.exe
-site/_site
-site/.jekyll-cache
+_site
+.jekyll-cache
 logs.csv
