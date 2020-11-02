@@ -1,11 +1,11 @@
-# Elevhälsoskylt
+# Student Health Monitor
 
-## Raspberry Pi credentials
+## Raspberry Pi Credentials
     username: pi  
     password: 9IHad98i32K
     ip: 192.168.202.165  
 
-## How to remote control Raspberry Pi
+## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
     1. Go to https://www.realvnc.com/en/connect/download/viewer/
