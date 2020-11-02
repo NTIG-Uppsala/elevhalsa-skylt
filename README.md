@@ -29,7 +29,7 @@
 + Jekyll
 
 # Development Environment
-**Editor** - Personal preference
+**Editor** - Personal Preference
 **Version Control Host** - GitHub
 **OS** - WSL/Ubuntu(20.04)
 **Tests** - Python Selenium
