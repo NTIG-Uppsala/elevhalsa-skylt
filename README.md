@@ -1,6 +1,6 @@
 # Student Health Monitor
 
-# Definition of Done
+## Definition of Done
 + All group members shall understand the code.
 + Tests shall be green.
 + Code shall be commented.
@@ -8,11 +8,11 @@
 + Code shall follow the coding conventions in place.
 + Content/Documentation shall go through spellchecker.
 
-# Before merging with main
+## Before Merging With Main
 + All code and documentation should be read by groupmembers onsite and approved.
 + Should be complete and ready to be shipped to customer.
 
-# Coding conventions
+## Coding Conventions
 + Spaces: 4
 + Comments: English, space between // and the comment, capitalized.
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
@@ -25,11 +25,15 @@
 + CSS3
 + Python3
 
+## Frameworks
++ Bootstrap 4
++ FontAwesome 5
+
 ## Static Site Generator
 + Jekyll
 
 # Development Environment
-**Editor** - Personal preference
+**Editor** - Personal Preference
 **Version Control Host** - GitHub
 **OS** - WSL/Ubuntu(20.04)
 **Tests** - Python Selenium
@@ -39,7 +43,9 @@
 + Branch names should use kebab-case
 + Needs to be approved by at least 2 members of the group before merging with main branch.
 
-## Raspberry Pi Credentials
+# Raspberry Pi
+
+## Raspberry Pi Credentials/IP Address
     username: pi  
     password: 9IHad98i32K
     ip: 192.168.202.165  
@@ -54,7 +60,7 @@
     1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
     3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
-## Custom Shortcuts
+<!-- ## Custom Shortcuts
 
     Ctrl + F11 : disables HDMI output and closes all chromium instances
     Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
@@ -62,8 +68,12 @@
 ## Git
 
     The browser automatically restarts when new changes is detected in the elevhalsa-digital-skylt/Skylt folder
-    The browser automatically refresh once every hour
+    The browser automatically refresh once every hour -->
 
-## How to change the information currently displayed
+## How To Change The Information Currently Displayed
 
-While it is not yet fully implemented, changing the information that is displayed on the monitor will be done by changing the information in this  google spreadsheet: https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0.
+While it is not yet fully implemented, changing the information that is displayed on the monitor will be done by changing the information in [this google spreadsheet](https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0).
+
+# Further Documentation
+
+https://github.com/NTI-Gymnasieingenjor/elevhalsa-digital-skylt/blob/master/documentation.md
