@@ -2,11 +2,12 @@
 
 ## Definition of Done
 
-+ Tests should be green.
-+ Code should be commented.
-+ Code and documentation should be uploaded on GitHub.
-+ Code should follow the coding conventions in place.
-+ Content/Documentation should go through spellchecker.
++ All group members shall understand the code
++ Tests shall be green.
++ Code shall be commented.
++ Code and documentation shall be uploaded on GitHub.
++ Code shall follow the coding conventions in place.
++ Content/Documentation shall go through spellchecker.
 
 ## Raspberry Pi Credentials
     username: pi  
@@ -21,7 +22,7 @@
     
 ### Connect to the Raspberry Pi 
     1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
-    3. Enter the Raspberry Pi user credentials and all done! You should now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+    3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ## Custom Shortcuts
 
