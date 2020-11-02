@@ -1,6 +1,6 @@
 # Student Health Monitor
 
-# Definition of Done
+## Definition of Done
 + All group members shall understand the code.
 + Tests shall be green.
 + Code shall be commented.
@@ -8,11 +8,11 @@
 + Code shall follow the coding conventions in place.
 + Content/Documentation shall go through spellchecker.
 
-# Before Merging With Main
+## Before Merging With Main
 + All code and documentation should be read by groupmembers onsite and approved.
 + Should be complete and ready to be shipped to customer.
 
-# Coding Conventions
+## Coding Conventions
 + Spaces: 4
 + Comments: English, space between // and the comment, capitalized.
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
