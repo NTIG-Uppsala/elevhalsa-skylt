@@ -5,3 +5,4 @@ Test/chromedriver.exe
 site/_site
 site/.jekyll-cache
 logs.csv
+.jekyll-cache
