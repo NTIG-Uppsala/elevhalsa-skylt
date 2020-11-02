@@ -1,13 +1,43 @@
 # Student Health Monitor
 
-## Definition of Done
-
-+ All group members shall understand the code
+# Definition of Done
++ All group members shall understand the code.
 + Tests shall be green.
 + Code shall be commented.
 + Code and documentation shall be uploaded on GitHub.
 + Code shall follow the coding conventions in place.
 + Content/Documentation shall go through spellchecker.
+
+# Before merging with main
++ All code and documentation should be read by groupmembers onsite and approved.
++ Should be complete and ready to be shipped to customer.
+
+# Coding conventions
++ Spaces: 4
++ Comments: English, space between // and the comment, capitalized.
++ Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
++ HTML/CSS: Only use inline CSS with JavaScript actions.
++ JS: Use es6 features.
+
+# Programming Languages & Frameworks
+## Programming Languages
++ HTML5
++ CSS3
++ Python3
+
+## Static Site Generator
++ Jekyll
+
+# Development Environment
+**Editor** - Personal preference
+**Version Control Host** - GitHub
+**OS** - WSL/Ubuntu(20.04)
+**Tests** - Python Selenium
+**Documentation** - English
+**Git Branches**
++ Feature branches
++ Branch names should use kebab-case
++ Needs to be approved by at least 2 members of the group before merging with main branch.
 
 ## Raspberry Pi Credentials
     username: pi  
