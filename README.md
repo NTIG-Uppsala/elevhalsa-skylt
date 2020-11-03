@@ -21,7 +21,6 @@
 + Comments: English, space between // and the comment, capitalized.
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
 + HTML/CSS: Only use inline CSS with JavaScript actions.
-+ JS: Use es6 features.
 
 # Programming Languages & Frameworks
 ## Programming Languages
