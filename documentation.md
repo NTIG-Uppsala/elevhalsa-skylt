@@ -9,14 +9,14 @@
 ***
 
 ### Tutorial for NOOBS installation:
-		1. Install SD card formating tool
-		2. Insert SD card in computer
-		3. Format SD card with installed tool	
-		4. Download NOOBS from raspberry website
-		5. Unzip and transfer NOOBS directory content to SD card boot folder
-		6. Plug in SD card into raspberry pi and connect to a Wi-Fi
-		7. After connecting select Raspian and select install
-		8. Follow install wizard to install Raspian on SD card
+	1. Install SD card formating tool
+	2. Insert SD card in computer
+	3. Format SD card with installed tool	
+	4. Download NOOBS from raspberry website
+	5. Unzip and transfer NOOBS directory content to SD card boot folder
+	6. Plug in SD card into raspberry pi and connect to a Wi-Fi
+	7. After connecting select Raspian and select install
+	8. Follow install wizard to install Raspian on SD card
 
 ***
 
