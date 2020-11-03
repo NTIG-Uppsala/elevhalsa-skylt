@@ -1,12 +1,13 @@
-## Raspberry:
+# Raspberry Pi
 
 *Tool and OS that are necessary:*
 
-[SD formating tool](https://www.sdcard.org/downloads/formatter/eula_windows/)
+[SD formatting tool](https://www.sdcard.org/downloads/formatter/eula_windows/)
 
 [NOOBS OS](https://www.raspberrypi.org/downloads/noobs/)
 
 ***
+
 ### Tutorial for NOOBS installation:
 		1. Install SD card formating tool
 		2. Insert SD card in computer
@@ -18,6 +19,26 @@
 		8. Follow install wizard to install Raspian on SD card
 
 ***
+
+### Raspberry Pi Credentials/IP Address
+    username: pi  
+    password: 9IHad98i32K
+    ip: 192.168.202.165  
+
+***
+
+## How to Remote Control Raspberry Pi
+
+### Download/Install VNC Viewer
+    1. Go to https://www.realvnc.com/en/connect/download/viewer/
+    2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
+    
+### Connect to the Raspberry Pi 
+    1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
+    3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+
+***
+
 ### Configuration
 
 To change the resolution of the Raspberry outputs navigate to settings>screen configuration>configure>screens>HTMI-X>resolution>your desired resolution
@@ -56,6 +77,12 @@ Change active directory to elevhalsa-digital-skylt using the command
                          this will turn of HDMI output at 10:00 and start it agian at 10:05
 
 ***    
+
+## Custom Shortcuts
+
+    Ctrl + F11 : disables HDMI output and closes all chromium instances
+    Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
+
 ### Create shortcut
         1. Open the Command Line Interface and enter the following command:
                 sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
@@ -100,7 +127,7 @@ Change active directory to elevhalsa-digital-skylt using the command
         4. Exit Browser 
 
 ***
-#### Browser autostart:
+### Browser autostart:
 
 		1. Open the Command Line Interface and type in the following command:
                 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
@@ -108,7 +135,7 @@ Change active directory to elevhalsa-digital-skylt using the command
                 chromium-browser --start-fullscreen --kiosk /home/pi/Git/elevhalsa-digital-skylt/Skylt/index.html --incognito
 
 ***
-#### Remove Cursor:
+### Remove Cursor:
 
 		1. Open Command Line Interface and type in the following commands:
                 sudo apt-get install unclutter
@@ -117,13 +144,13 @@ Change active directory to elevhalsa-digital-skylt using the command
                 @unclutter -idle 3
 
 ***
-#### Hide Taskbar:
+### Hide Taskbar:
 
 		1. Right-click on the taskbar and select "Panel Settings"
 		2. Click on the "Advanced" tab, and check "Minimize panel when not in use"
 
 ***
-#### Remove Screensaver:
+### Remove Screensaver:
 
 		1. Open Command Line Interface and type in the following command:
                 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
@@ -142,20 +169,20 @@ Change active directory to elevhalsa-digital-skylt using the command
                 @xset s noblank
 
 ***
-#### Remove Raspberry Icons:
+### Remove Raspberry Icons:
 		1. Open Command Line Interface and type in the following command:
                 sudo nano /boot/cmdline.txt
 		2. In the editor, at the end of the line add:
                 logo.nologo
 
 ***
-#### Replace Boot Image:
+### Replace Boot Image:
 
 		1. Open Command Line Interface and type in the following command:
                 sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
-#### Change Background Image:
+### Change Background Image:
 
 		1. Right-click on desktop and select desktop preferences.  
 		2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
@@ -171,7 +198,7 @@ Change active directory to elevhalsa-digital-skylt using the command
              python3 /home/pi/gitpull.py & -->
 
 ***
-#### Enable Remote Control:
+### Enable Remote Control:
 	To be able to control your raspberry's graphical interface remotely, follow these steps.
 		1. Open the Command Line Interface and enter the following commands:
 				sudo apt-get update
