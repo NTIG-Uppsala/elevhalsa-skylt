@@ -26,6 +26,7 @@ else
 fi
 
 if [ "$IS_SAME" -eq "0" ]; then
+    sleep 2
     echo "RELOADING SITE"
     export DISPLAY=:0.0
     xdotool key F5

@@ -1,7 +1,8 @@
 .pytest_cache
-Test/env
-Test/screenshots
-Test/chromedriver.exe
+tests/env
+tests/screenshots
+tests/chromedriver.exe
+tests/geckodriver
 _site
 .jekyll-cache
 logs.csv
