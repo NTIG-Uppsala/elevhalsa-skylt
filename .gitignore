@@ -6,3 +6,4 @@ tests/geckodriver
 _site
 .jekyll-cache
 logs.csv
+geckodriver.log

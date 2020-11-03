@@ -1,11 +1,11 @@
-ARBETSROLL,NAMN,INFO TEXT,E-POST,TELEFON,ARBETSTIDER,SAL,INSTAGRAM
+ARBETSROLL,NAMN,INFO_TEXT,E-POST,TELEFON,ARBETSTIDER,SAL,INSTAGRAM,BILDER
 SKOLSKÖTERSKA,Anna Ekroth,"Anna arbetar som skolsköterska på Procivitas. Skolsköterskan erbjuder 
 alla elever ett hälsobesök på gymnasiet och följer upp tidigare 
 kontroller hos skolsköterska. 
                             Boka tid hos Anna antingen genom att skicka 
 ett mail eller kom förbi då hon är på skolan.
-                        ",anna.ekroth@procivitas.se,018-56 03 71,Torsdagar 08-16,"329, våning 3 ",
+                        ",anna.ekroth@procivitas.se,018-56 03 71,Torsdagar 08-16,"329, våning 3 ",,
 KURATOR,Jasmine Fares,"Jasmine arbetar som skolkurator på Procivitas. En skolkurator arbetar 
 med elevernas psykosociala hälsa i frågor som rör trygghet, trivsel, 
 arbetsmiljö, relationer och den sociala situationen både i och utanför 
-skolan.",jasmine.fares@procivitas.se,,Torsdagar 08-16,"324, våning 3",kurator.fares
+skolan.",jasmine.fares@procivitas.se,,Torsdagar 08-16,"324, våning 3",kurator.faress,
