@@ -33,6 +33,8 @@ pagesource = driver.page_source
 
 # Tries to find the new cell value on the live page
 if newcell in pagesource:
-    print("Data changed on page successfully!")
+    print("\u001b[32mTest successful\u001b[0m")
 else:
-    print("ERROR: Test failed")
+    print("\u001b[31mTest failed\u001b[0m")
+
+procivitas.update("H3", cell)
