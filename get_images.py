@@ -1,5 +1,4 @@
 import wget, os, openpyxl
-from PIL import Image
 from openpyxl_image_loader import SheetImageLoader
 
 def save_images(sheet):
