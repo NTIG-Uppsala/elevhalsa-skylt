@@ -26,7 +26,7 @@ newcell = procivitas.acell("H3").value
 # Runs get_csv.sh
 subprocess.call(["sh", "get_csv.sh"])
 
-# Opens website instance
+# Runs website instance
 driver.get("http://127.0.0.1:4000/")
 
 pagesource = driver.page_source
@@ -37,4 +37,5 @@ if newcell in pagesource:
 else:
     print("\u001b[31mTest failed\u001b[0m")
 
+# Reverts any changes
 procivitas.update("H3", cell)
