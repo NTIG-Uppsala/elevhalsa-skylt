@@ -16,8 +16,8 @@ chrome_options = Options()
 # Lägger till ett argument för att webbläsaren inte ska ha ett synligt fönster
 chrome_options.add_argument("--headless")
 
-driver = webdriver.Chrome(chrome_options=chrome_options)
-driver.get("{}/../Skylt/index.html".format(os.getcwd()))
+driver = webdriver.Chrome(executable_path="tests/chromedriver", chrome_options=chrome_options)
+driver.get("http://127.0.0.1:4000/")
 
 driver.set_window_size(WIDTH, HEIGHT)
 
