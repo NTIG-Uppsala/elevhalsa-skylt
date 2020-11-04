@@ -1,3 +1,19 @@
+# Setup/Installing dependencies
+Begin by cloning this repo to your computer. 
+After that you will need to install the requirements installed.
+
+Jekyll: Install jekyll following this [guide](https://jekyllrb.com/docs/installation/)
+
+Now install the required dependencies for your OS.
+```bash
+sudo apt install python3 pip3 xdotool
+```
+
+After installing the required dependencies for your OS.
+```bash
+pip3 install wget openpyxl openpyxl_image_loader
+```
+
 # Raspberry Pi
 
 *Tool and OS that are necessary:*
