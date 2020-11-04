@@ -24,7 +24,9 @@ change = procivitas.update("H3", cell + "s")
 newcell = procivitas.acell("H3").value
 
 # Runs get_csv.sh
-subprocess.call(["sh", "get_csv.sh"])
+subprocess.call(["sh", "get_csv.sh --not-refresh"])
+
+time.sleep(2)
 
 # Runs website instance
 driver.get("http://127.0.0.1:4000/")

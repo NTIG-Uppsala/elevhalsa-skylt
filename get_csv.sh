@@ -3,11 +3,20 @@ wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKv
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=1501224853" -O "site/_data/procivitas.csv"
 
 IS_SAME=1
+NOT_REFRESH=0
 EHT_HASH=$(cat "site/_data/eht_hash.txt")
 PROCIVITAS_HASH=$(cat "site/_data/procivitas_hash.txt")
 
 NEW_EHT_HASH=$(md5sum site/_data/eht.csv | awk '{ print $1 }')
 NEW_PROCIVITAS_HASH=$(md5sum site/_data/procivitas.csv | awk '{ print $1 }')
+
+for var in "$@"
+do
+    if [ "$var" = "--not-refresh" ]; then
+        NOT_REFRESH=1
+    fi
+done
+
 
 if [ "$NEW_EHT_HASH" = "$EHT_HASH" ]; then
     echo "EHT Data is same"
@@ -25,7 +34,7 @@ else
     echo "$NEW_PROCIVITAS_HASH" > site/_data/procivitas_hash.txt
 fi
 
-if [ "$IS_SAME" -eq "0" ]; then
+if [ "$IS_SAME" -eq "0" ] && [ "$NOT_REFRESH" -eq "0" ]; then
     sleep 2
     echo "RELOADING SITE"
     export DISPLAY=:0.0
