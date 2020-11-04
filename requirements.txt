@@ -1,0 +1,7 @@
+selenium==3.141.0
+setuptools==47.1.0
+urllib3==1.25.10
+gspread==3.6.0
+wget==3.2
+openpyxl==3.0.5
+openpyxl_image_loader==1.0.5
