@@ -9,3 +9,4 @@ logs.csv
 geckodriver.log
 geckodriver
 chromedriver
+site/_data
