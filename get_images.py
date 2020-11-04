@@ -4,8 +4,7 @@ from openpyxl_image_loader import SheetImageLoader
 
 def save_images(sheet):
     image_loader = SheetImageLoader(sheet)
-    print("Sheet maxrow" + str(sheet.max_row))
-    for col in range(2, sheet.max_row):
+    for col in range(2, sheet.max_row + 1):
         if(sheet["A" + str(col)].value != None):
             image = image_loader.get("I" + str(col))
             image_filename = sheet['B' + str(col)].value
