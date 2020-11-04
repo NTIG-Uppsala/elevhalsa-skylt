@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import wget, os, openpyxl
 from openpyxl_image_loader import SheetImageLoader
 
