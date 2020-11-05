@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import wget, os, openpyxl
 from openpyxl_image_loader import SheetImageLoader
-from PIL import Image
+from PIL import Image, ImageChops
 
 def save_images(sheet):
     image_loader = SheetImageLoader(sheet)
@@ -13,7 +13,12 @@ def save_images(sheet):
                 image.save(f"site/assets/img/Profile/{image_filename}.png")
             else:
                 image = image_loader.get("I" + str(col))
-                image.save(f"site/assets/img/Profile/{image_filename}.png")
+                try:
+                    old_image = Image.open(f"site/assets/img/Profile/{image_filename}.png")
+                    if not ImageChops.difference(image, old_image).getbbox() is None:
+                        image.save(f"site/assets/img/Profile/{image_filename}.png")
+                except IOError:
+                    image.save(f"site/assets/img/Profile/{image_filename}.png")
 
 print("DOWNLOADING EXCEL FILE")
 url = "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=xlsx"
