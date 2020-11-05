@@ -9,6 +9,8 @@ logs.csv
 geckodriver.log
 geckodriver
 chromedriver
-site/_data
-site/assets/img/Profile
+site/_data/*
+!site/_data/.gitkeep
+site/assets/img/Profile/*
+!site/assets/img/Profile/.gitkeep
 
