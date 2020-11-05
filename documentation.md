@@ -6,12 +6,12 @@ Jekyll: Install jekyll following this [guide](https://jekyllrb.com/docs/installa
 
 Now install the required dependencies for your OS.
 ```bash
-sudo apt install python3 pip3 xdotool
+sudo apt install python3 python3-pip xdotool
 ```
 
 After installing the required dependencies for your OS.
 ```bash
-pip3 install wget openpyxl openpyxl_image_loader
+pip3 install -r requirements.txt
 ```
 
 # Raspberry Pi
