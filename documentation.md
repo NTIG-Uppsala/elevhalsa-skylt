@@ -36,10 +36,9 @@ pip3 install -r requirements.txt
 
 ***
 
-### Raspberry Pi Credentials/IP Address
+### Raspberry Pi Credentials
     username: pi  
     password: 9IHad98i32K
-    ip: 192.168.202.165  
 
 ***
 
