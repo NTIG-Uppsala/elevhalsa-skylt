@@ -93,10 +93,10 @@ Change active directory to elevhalsa-digital-skylt using the command
 
 ***    
 
-## Custom Shortcuts
+<!-- ## Custom Shortcuts
 
     Ctrl + F11 : disables HDMI output and closes all chromium instances
-    Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt
+    Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt -->
 
 ### Create shortcut
         1. Open the Command Line Interface and enter the following command:
@@ -147,7 +147,9 @@ Change active directory to elevhalsa-digital-skylt using the command
 		1. Open the Command Line Interface and type in the following command:
                 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 		2. Add the following lines at the bottom:
-                chromium-browser --start-fullscreen --kiosk /home/pi/Git/elevhalsa-digital-skylt/Skylt/index.html --incognito
+		python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py &
+		jekyll serve -s /home/pi/Git/elevhalsa-digital-skylt/site
+                chromium-browser --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
 
 ***
 ### Remove Cursor:
@@ -204,7 +206,7 @@ Change active directory to elevhalsa-digital-skylt using the command
         3. Navigate to /home/pi/my_splash.png and press open and then press ok.  
 
 ***
-### Remote Update Script:
+<!-- ### Remote Update Script:
 
 	To link the python file so it will run when you boot the Raspberry pi and continue to run follow these steps:
 		1. Open the Command Line Interface and write the following command:
@@ -212,7 +214,7 @@ Change active directory to elevhalsa-digital-skylt using the command
 		2. Add the following line at the bottom:
              python3 /home/pi/Git/elevhalsa-digital-skylt/download_data.py &
 
-***
+*** -->
 ### Enable Remote Control:
 	To be able to control your raspberry's graphical interface remotely, follow these steps.
 		1. Open the Command Line Interface and enter the following commands:
