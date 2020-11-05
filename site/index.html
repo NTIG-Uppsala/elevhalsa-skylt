@@ -7,19 +7,6 @@ layout: default
 
 <div class="container-fluid">
     <div id="carouselExampleIndicators" class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000" style="height: 10rem">
-        <ol class="carousel-indicators">
-            {% for member in eht_members %}
-                {% if forloop.first %}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index0}}" class="active"></li>
-                {% else %}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index0}}"></li>
-                {% endif %}
-            {% endfor %}
-
-            {% for member in procivitas_members %}
-                <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index0 | plus: eht_members.size }}"></li>
-            {% endfor %}
-        </ol>
         <div class="carousel-inner">
             {% for member in eht_members %}
                 {% if forloop.first %}
@@ -49,12 +36,28 @@ layout: default
                             <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
                         </div>
                     </div>
-                    <p class="contact">
-                        <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                        <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
-                        <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                        <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
-                    </p>
+                    <div class="row">
+                        <div class="col-4">
+                            <p class="contact">
+                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
+                                {% if member.INSTAGRAM %}
+                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
+                                {% else %}
+                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                                {% endif %}
+                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
+                                <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
+                            </p>
+                        </div>
+                        {% if member.TIPS %}
+                        <div class="col-4">
+                            <h3 class="name tips">Tips</h3>
+                            <p class="tips-text">
+                                {{ member.TIPS }}
+                            </p>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
             {% for member in procivitas_members %}
@@ -81,16 +84,28 @@ layout: default
                             <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
                         </div>
                     </div>
-                    <p class="contact">
-                        <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                        {% if member.INSTAGRAM %}
-                        <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                        {% else %}
-                        <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                    <div class="row">
+                        <div class="col-4">
+                            <p class="contact">
+                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
+                                {% if member.INSTAGRAM %}
+                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
+                                {% else %}
+                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                                {% endif %}
+                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
+                                <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
+                            </p>
+                        </div>
+                        {% if member.TIPS %}
+                        <div class="col-6">
+                            <h3 class="procivitas name tips">Tips</h3>
+                            <p class="tips-text">
+                                {{ member.TIPS }}
+                            </p>
+                        </div>
                         {% endif %}
-                        <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                        <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
-                    </p>
+                    </div>
                 </div>
             {% endfor %}
         </div>
