@@ -7,19 +7,6 @@ layout: default
 
 <div class="container-fluid">
     <div id="carouselExampleIndicators" class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000" style="height: 10rem">
-        <ol class="carousel-indicators">
-            {% for member in eht_members %}
-                {% if forloop.first %}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index0}}" class="active"></li>
-                {% else %}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index0}}"></li>
-                {% endif %}
-            {% endfor %}
-
-            {% for member in procivitas_members %}
-                <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index0 | plus: eht_members.size }}"></li>
-            {% endfor %}
-        </ol>
         <div class="carousel-inner">
             {% for member in eht_members %}
                 {% if forloop.first %}
