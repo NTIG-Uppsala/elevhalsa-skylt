@@ -210,7 +210,7 @@ Change active directory to elevhalsa-digital-skylt using the command
 		1. Open the Command Line Interface and write the following command:
                 sudo nano /etc/profile
 		2. Add the following line at the bottom:
-             python3 /home/pi/git/elevhalsa-digital-skylt/download_data.py &
+             python3 /home/pi/Git/elevhalsa-digital-skylt/download_data.py &
 
 ***
 ### Enable Remote Control:
