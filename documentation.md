@@ -147,9 +147,9 @@ Change active directory to elevhalsa-digital-skylt using the command
 		1. Open the Command Line Interface and type in the following command:
                 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 		2. Add the following lines at the bottom:
-		python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py &
-		jekyll serve -s /home/pi/Git/elevhalsa-digital-skylt/site
-                chromium-browser --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
+			python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py &
+			jekyll serve -s /home/pi/Git/elevhalsa-digital-skylt/site
+                	chromium-browser --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
 
 ***
 ### Remove Cursor:
