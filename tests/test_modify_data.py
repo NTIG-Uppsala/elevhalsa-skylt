@@ -18,10 +18,10 @@ sh = gc.open_by_key("1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls")
 # Opens specific page on spreadsheet
 procivitas = sh.get_worksheet(1)
 # Opens specific cell
-cell = procivitas.acell("H3").value
+cell = procivitas.acell("F3").value
 # Updates cell
-change = procivitas.update("H3", cell + "s")
-newcell = procivitas.acell("H3").value
+change = procivitas.update("F3", cell + "s")
+newcell = procivitas.acell("F3").value
 
 # Runs get_csv.sh
 subprocess.call(["sh", "get_csv.sh --not-refresh"])
@@ -40,4 +40,4 @@ else:
     print("\u001b[31mTest failed\u001b[0m")
 
 # Reverts any changes
-procivitas.update("H3", cell)
+procivitas.update("F3", cell)
