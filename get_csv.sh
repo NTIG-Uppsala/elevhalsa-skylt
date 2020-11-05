@@ -5,11 +5,11 @@ wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKv
 
 IS_SAME=1
 NOT_REFRESH=0
-EHT_HASH=$(cat "site/_data/eht_hash.txt")
-PROCIVITAS_HASH=$(cat "site/_data/procivitas_hash.txt")
+EHT_HASH=$(cat `pwd`/site/_data/eht_hash.txt)
+PROCIVITAS_HASH=$(cat `pwd`/site/_data/procivitas_hash.txt)
 
-NEW_EHT_HASH=$(md5sum site/_data/eht.csv | awk '{ print $1 }')
-NEW_PROCIVITAS_HASH=$(md5sum site/_data/procivitas.csv | awk '{ print $1 }')
+NEW_EHT_HASH=$(md5sum `pwd`/site/_data/eht.csv | awk '{ print $1 }')
+NEW_PROCIVITAS_HASH=$(md5sum `pwd`/site/_data/procivitas.csv | awk '{ print $1 }')
 
 for var in "$@"
 do
@@ -24,7 +24,7 @@ if [ "$NEW_EHT_HASH" = "$EHT_HASH" ]; then
 else
     IS_SAME=0
     echo "EHT Data is different"
-    echo "$NEW_EHT_HASH" > "site/_data/eht_hash.txt"
+    echo "$NEW_EHT_HASH" > `pwd`/site/_data/eht_hash.txt
 fi
 
 if [ "$NEW_PROCIVITAS_HASH" = "$PROCIVITAS_HASH" ]; then
@@ -32,7 +32,7 @@ if [ "$NEW_PROCIVITAS_HASH" = "$PROCIVITAS_HASH" ]; then
 else
     IS_SAME=0
     echo "Procivitas Data is different"
-    echo "$NEW_PROCIVITAS_HASH" > site/_data/procivitas_hash.txt
+    echo "$NEW_PROCIVITAS_HASH" > `pwd`/site/_data/procivitas_hash.txt
 fi
 
 if [ "$IS_SAME" -eq "0" ] && [ "$NOT_REFRESH" -eq "0" ]; then
