@@ -6,7 +6,7 @@ layout: default
 {% assign procivitas_members = site.data.procivitas %}
 
 <div class="container-fluid">
-    <div id="carouselExampleIndicators" class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000" style="height: 10rem">
+    <div class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000">
         <div class="carousel-inner">
             {% for member in eht_members %}
                 {% if forloop.first %}
@@ -22,7 +22,7 @@ layout: default
                         <div class="col-7">
                             <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
                         </div>
-                        <div class="col-4 pl-0">
+                        <div class="col-5 pl-0 text-center">
                             <h2>{{ member.ARBETSROLL }}</h2>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ layout: default
                                 {{ member.INFO_TEXT }}
                             </p>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-5 d-flex justify-content-center">
                             <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
                         </div>
                     </div>
