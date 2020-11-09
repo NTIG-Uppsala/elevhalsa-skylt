@@ -10,7 +10,6 @@
 + Code shall be commented.
 + Code and documentation shall be uploaded on GitHub.
 + Code shall follow the coding conventions in place.
-+ Content/Documentation shall go through spellchecker.
 
 ## Before Merging With Main
 + All code and documentation should be read by groupmembers onsite and approved.
