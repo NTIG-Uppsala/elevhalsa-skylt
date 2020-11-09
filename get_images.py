@@ -8,16 +8,16 @@ PATH = pathlib.Path(__file__).parent.absolute()
 
 def save_images(sheet, image_loader):
     refresh = False
-    for col in range(2, sheet.max_row + 1):
-        if(sheet["A" + str(col)].value != None):
-            image_filename = sheet["B" + str(col)].value
+    for row in range(2, sheet.max_row + 1):
+        if(sheet["A" + str(row)].value != None):
+            image_filename = sheet["B" + str(row)].value
             # Checks if the cell contains an image
-            if not image_loader.image_in("I" + str(col)):
+            if not image_loader.image_in("I" + str(row)):
                 image = Image.open(f"site/assets/img/avatar.png")
                 image.save(f"site/assets/img/Profile/{image_filename}.png")
                 refresh = True
             else:
-                image = image_loader.get("I" + str(col))
+                image = image_loader.get("I" + str(row))
                 try:
                     old_image = Image.open(f"site/assets/img/Profile/{image_filename}.png")
                     # Checks if the images are different
