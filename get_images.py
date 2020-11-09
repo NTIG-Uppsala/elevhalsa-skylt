@@ -29,7 +29,7 @@ def save_images(sheet, image_loader):
                     image.save(f"site/assets/img/Profile/{image_filename}.png")
                     refresh = True
     if refresh:
-        subprocess.run(["xdotool", "key F5"])
+        subprocess.run(["xdotool", "key", "F5"])
 
 print("DOWNLOADING EXCEL FILE")
 url = "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=xlsx"
