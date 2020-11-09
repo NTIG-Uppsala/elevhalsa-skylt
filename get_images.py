@@ -28,7 +28,7 @@ filename = wget.download(url)
 
 pxl_doc = openpyxl.load_workbook(filename)
 
-eht_sheet = pxl_doc["EHT - NTI"]
+eht_sheet = pxl_doc["NTI"]
 proc_sheet = pxl_doc["PROCIVITAS"]
 
 save_images(eht_sheet)
