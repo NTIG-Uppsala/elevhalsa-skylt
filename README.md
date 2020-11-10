@@ -26,6 +26,7 @@
 + HTML5
 + CSS3
 + Python3
++ JavaScript
 
 ## Frameworks
 + Bootstrap 4
