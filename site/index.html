@@ -18,8 +18,8 @@ layout: default
                         <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
                         </object>
                     </header>
-                    {% if member.DROP-IN_SLUT %}
-                    <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}">
+                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
+                    <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
                     {% endif %}
@@ -74,8 +74,8 @@ layout: default
                         <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
                         </object>
                     </header>
-                    {% if member.DROP-IN_SLUT %}
-                    <div class="drop-in procivitas name" data-dropin-end="{{ member.DROP-IN_SLUT }}">
+                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
+                    <div class="drop-in procivitas name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
                     {% endif %}
@@ -141,7 +141,8 @@ layout: default
 <script>
     const displayDropins = () => {
         let all = $(".drop-in").each(function() {
-            let date_and_time = this.dataset.dropinEnd.split(" ");
+            let date_and_time_end = this.dataset.dropinEnd.split(" ");
+            let date_and_time_start = this.dataset.dropinStart.split(" ");
             let today = new Date();
             let date = ("0" + today.getDate()).slice(-2);
             let month = ("0" + (today.getMonth() + 1)).slice(-2);
@@ -150,12 +151,20 @@ layout: default
             let minutes = ("0" + today.getMinutes()).slice(-2);
             let todaysDate = year + "-" + month + "-" + date;
 
-            if(todaysDate == date_and_time[0]){
-                let endHour = date_and_time[1].split(":")[0]
-                let endMin = date_and_time[1].split(":")[1]
-                if(hour > endHour || (hour == endHour && minutes >= endMin)){
+            if(todaysDate == date_and_time_end[0] && todaysDate == date_and_time_start[0]){
+                let endHour = date_and_time_end[1].split(":")[0]
+                let endMin = date_and_time_end[1].split(":")[1]
+
+                let startHour = date_and_time_start[1].split(":")[0]
+                let startMin = date_and_time_start[1].split(":")[1]
+
+                let hasEnded = hour > endHour || (hour == endHour && minutes >= endMin)
+                let hasStarted = hour > startHour || (hour == startHour && minutes >= startMin)
+                if(hasEnded || !hasStarted ){
                     this.style.display = "none"
                 }
+            } else {
+                this.style.display = "none"
             }
         })
     }
