@@ -6,66 +6,100 @@ from PIL import Image, ImageChops
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
+img_path = f"{PATH}/site/assets/img"
+avatar_img_path = img_path + "/avatar.png"
+profile_img_path = img_path + "/Profile/{}.png"
+
 # Function to calculate if the images are the same
 # https://stackoverflow.com/questions/1927660/compare-two-images-the-python-linux-way/6204954#6204954
 def img_equal(img1, img2):
     return ImageChops.difference(img1.convert("RGBA"), img2.convert("RGBA")).getbbox() is None
 
-def save_images(sheet, image_loader):
-    refresh = False
+def has_changed(sheet, should_save=True):
+    """
+    This function checks if the images have changed.
+
+    Parameters:
+
+    sheet (Worksheet): Excel worksheet to check.
+
+    should_save (bool): Whether or not to save new images if changed.
+
+    Returns:
+    
+    bool: Whether or not any image has changed.
+    """
+
+    # Clear _images because the variable is stored as a class variable instead of an instance variable
+    SheetImageLoader._images = {}
+
+    image_loader = SheetImageLoader(sheet)
+
+    changed = False
+
     for row in range(2, sheet.max_row + 1):
         if(sheet["A" + str(row)].value != None):
             image_filename = sheet["B" + str(row)].value
+            image_path = profile_img_path.format(image_filename)
+
             # Checks if the cell does not contain an image
             if not image_loader.image_in("I" + str(row)):
-                image = Image.open(f"site/assets/img/avatar.png")
-                
+                image = Image.open(avatar_img_path)
+
                 try:
                     # Saves avatar image as profile image if it isn't already in use
-                    with Image.open(f"site/assets/img/Profile/{image_filename}.png") as old_image:
+                    with Image.open(image_path) as old_image:
                         if (not img_equal(image, old_image)):
-                            raise IOError
+                            if (should_save):
+                                image.save(image_path)
+                            changed = True
 
                 # Runs if there was no existing image file
                 except IOError:
-                    image.save(f"site/assets/img/Profile/{image_filename}.png")
-                    refresh = True
+                    if (should_save):
+                        image.save(image_path)
+                    changed = True
 
-            # The cell contains
+            # Runs if the cell contains an image
             else:
                 image = image_loader.get("I" + str(row))
+                
                 try:
-                    old_image = Image.open(f"site/assets/img/Profile/{image_filename}.png")
+                    old_image = Image.open(image_path)
+
                     # Checks if the images are different
                     if not img_equal(image, old_image):
-                        image.save(f"site/assets/img/Profile/{image_filename}.png")
-                        refresh = True
+                        # Saves new image as profile image
+                        if (should_save):
+                            image.save(image_path)
+                        changed = True
 
+                # Runs if there was no existing image file
                 except IOError:
-                    image.save(f"site/assets/img/Profile/{image_filename}.png")
-                    refresh = True
-    return refresh
+                    # Saves new image as profile image
+                    if (should_save):
+                        image.save(image_path)
+                    changed = True
+    return changed
 
-print("DOWNLOADING EXCEL FILE")
-url = "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=xlsx"
-filename = wget.download(url)
+def get_images(url):
+    print("DOWNLOADING EXCEL FILE")
+    filename = wget.download(url)
 
-pxl_doc = openpyxl.load_workbook(filename)
+    pxl_doc = openpyxl.load_workbook(filename)
 
-refresh = False
+    refresh = False
 
-nti_sheet = pxl_doc["NTI"]
-nti_image_loader = SheetImageLoader(nti_sheet)
-refresh = refresh or save_images(nti_sheet, nti_image_loader)
+    # Sets refresh to True if any of the images have changed
+    for sheet in pxl_doc:
+        print(refresh)
+        refresh = has_changed(sheet) or refresh
+        print(refresh)
 
-# Empties the dictionary the images are stored in
-SheetImageLoader._images = {}
+    os.remove(filename)
 
-proc_sheet = pxl_doc["PROCIVITAS"]
-proc_image_loader = SheetImageLoader(proc_sheet)
-refresh = refresh or save_images(proc_sheet, proc_image_loader)
+    if refresh:
+        subprocess.run(["xdotool", "key", "F5"])
 
-os.remove(filename)
-
-if refresh:
-    subprocess.run(["xdotool", "key", "F5"])
+if __name__ == "__main__":
+    get_images("https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=xlsx")
