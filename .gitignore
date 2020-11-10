@@ -13,4 +13,5 @@ site/_data/*
 !site/_data/.gitkeep
 site/assets/img/Profile/*
 !site/assets/img/Profile/.gitkeep
+*.xlsx
 
