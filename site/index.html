@@ -18,6 +18,11 @@ layout: default
                         <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
                         </object>
                     </header>
+                    {% if member.DROP-IN_SLUT %}
+                    <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}">
+                        <h2>Tillgänglig för drop-in just nu</h2>
+                    </div>
+                    {% endif %}
                     <div class="name row justify-content-between">
                         <div class="col-7">
                             <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
@@ -69,6 +74,11 @@ layout: default
                         <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
                         </object>
                     </header>
+                    {% if member.DROP-IN_SLUT %}
+                    <div class="drop-in procivitas name" data-dropin-end="{{ member.DROP-IN_SLUT }}">
+                        <h2>Tillgänglig för drop-in just nu</h2>
+                    </div>
+                    {% endif %}
                     <div class="procivitas name row justify-content-between">
                         <div class="col-7">
                             <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
@@ -128,6 +138,31 @@ layout: default
         {% endif %}
     </div>
 </div>
+<script>
+    const displayDropins = () => {
+        let all = $(".drop-in").each(function() {
+            let date_and_time = this.dataset.dropinEnd.split(" ");
+            let today = new Date();
+            let date = ("0" + today.getDate()).slice(-2);
+            let month = ("0" + (today.getMonth() + 1)).slice(-2);
+            let year = today.getFullYear();
+            let hour = ("0" + today.getHours()).slice(-2);
+            let minutes = ("0" + today.getMinutes()).slice(-2);
+            let todaysDate = year + "-" + month + "-" + date;
+
+            if(todaysDate == date_and_time[0]){
+                let endHour = date_and_time[1].split(":")[0]
+                let endMin = date_and_time[1].split(":")[1]
+                if(hour > endHour || (hour == endHour && minutes >= endMin)){
+                    this.style.display = "none"
+                }
+            }
+        })
+    }
+    displayDropins();
+
+    setInterval(displayDropins, 1000*60);
+</script>
 <div style="position:absolute; right:15px; top:25px;">
     <img src="assets/img/TE4-logo-transparent.png" alt="TE4" height="60px">
 </div>
