@@ -1,7 +1,6 @@
 import gspread
 import subprocess
 import time
-import os
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as options

@@ -30,6 +30,7 @@
 ## Frameworks
 + Bootstrap 4
 + FontAwesome 5
++ Selenium (for testing)
 
 ## Static Site Generator
 + Jekyll
