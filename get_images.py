@@ -44,8 +44,6 @@ def save_images(sheet, image_loader):
                 except IOError:
                     image.save(f"site/assets/img/Profile/{image_filename}.png")
                     refresh = True
-    #if refresh:
-    #    subprocess.run(["xdotool", "key", "F5"])
     return refresh
 
 print("DOWNLOADING EXCEL FILE")
@@ -54,15 +52,20 @@ filename = wget.download(url)
 
 pxl_doc = openpyxl.load_workbook(filename)
 
+refresh = False
+
 nti_sheet = pxl_doc["NTI"]
 nti_image_loader = SheetImageLoader(nti_sheet)
-print(save_images(nti_sheet, nti_image_loader))
+refresh = refresh or save_images(nti_sheet, nti_image_loader)
 
 # Empties the dictionary the images are stored in
 SheetImageLoader._images = {}
 
 proc_sheet = pxl_doc["PROCIVITAS"]
 proc_image_loader = SheetImageLoader(proc_sheet)
-print(save_images(proc_sheet, proc_image_loader))
+refresh = refresh or save_images(proc_sheet, proc_image_loader)
 
 os.remove(filename)
+
+if refresh:
+    subprocess.run(["xdotool", "key", "F5"])
