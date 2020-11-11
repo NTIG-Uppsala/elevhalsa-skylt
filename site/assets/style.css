@@ -1,0 +1,112 @@
+@font-face {
+    font-family: Soleto;
+    src: url('assets/fonts/soleto/soleto-light-webfont.woff2') format('woff2'), url('assets/fonts/soleto/soleto-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+.c {
+    background-image: linear-gradient(to top, #ab058b,#4e0568, transparent);
+    color: white;
+    height: 20rem;
+}
+
+    .c .carousel-item {
+        padding: 12px;
+        padding-top: 40px;
+    }
+
+#box {
+    margin: 25px;
+    margin-bottom: 50px;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    background-color:black;
+    margin: 25px;
+    margin-top: 0px;
+    font-size: 30px;
+    color: white;
+}
+
+.profile-image {
+    position:absolute;
+    left: 25%;
+    height: 375px;
+    width: 285;
+    max-width: 100%;
+    z-index: 2;
+}
+
+.name {
+    font-size: 40px;
+    background-image: linear-gradient(to right, #ab058b,#4e0568, transparent);
+}
+
+.name h2 {
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #8f1170;
+}
+
+.carousel-indicators {
+    bottom: -588px;
+}
+
+.contact {
+    font-size: 20px;
+}
+
+i
+{
+    font-weight: 100;
+}
+
+.procivitas{
+    font-size: 40px;
+    background-image: linear-gradient(to right,#d8091a,#0161a5, transparent);
+}
+
+.tips {
+    z-index: -1;
+    font-size: 1em;
+    padding: 5px;
+}
+
+.tips-text {
+    font-size: 0.6em;
+}
+
+.countdown-box p{
+    font-size: 23px;
+    padding-left: .5rem;
+}
+
+.countdown-box h2{
+    font-size: 28px;
+}
+
+.drop-in {
+    position: absolute;
+    top: 75px;
+    left: 0px;
+    width: 500px;
+}
+
+.drop-in h2 {
+    font-size: 30px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
