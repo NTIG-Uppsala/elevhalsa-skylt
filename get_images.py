@@ -92,9 +92,7 @@ def get_images(url):
 
     # Sets refresh to True if any of the images have changed
     for sheet in pxl_doc:
-        print(refresh)
         refresh = has_changed(sheet) or refresh
-        print(refresh)
 
     os.remove(filename)
 
