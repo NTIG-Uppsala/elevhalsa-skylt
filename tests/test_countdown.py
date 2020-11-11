@@ -29,6 +29,7 @@ def test_specific_date(test_date, expected_timer):
         print("\u001b[31mTest failed\u001b[0m")
         print(err)
 
+
 print("[*] Testing same date as SACO")
 test_specific_date("2020-11-24", "Idag")
 
