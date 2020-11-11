@@ -20,7 +20,7 @@ def test_specific_date(test_date, expected_timer):
         time.sleep(1)
         countdown_boxes = driver.find_elements(By.CLASS_NAME, "countdown-box")
         timer = countdown_boxes[0].find_element("timer")
-        if timer.text == expected_timer:
+        if expected_timer in timer.text:
             print("\u001b[32mTest successful\u001b[0m")
         else:
             print("\u001b[31mTest failed\u001b[0m")
