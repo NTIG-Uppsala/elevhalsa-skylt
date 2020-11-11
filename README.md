@@ -59,6 +59,8 @@ function onEdit(e) {
   var limit = 355;
   if(e.range.getColumn() == 10){
     limit = 185;
+  } else if(e.range.getColumn() == 2){
+    limit = 245;
   }
   if(e.value.length > limit) {
     let richTextValue = e.range.getRichTextValue()
