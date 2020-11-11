@@ -79,11 +79,11 @@ layout: default
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
                     {% endif %}
-                    <div class="procivitas name row justify-content-between">
+                    <div class="name procivitas row justify-content-between">
                         <div class="col-7">
                             <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
                         </div>
-                        <div class="col-4 pl-0">
+                        <div class="col-5 pl-0 text-center">
                             <h2>{{ member.ARBETSROLL }}</h2>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ layout: default
                                 {{ member.INFO_TEXT }}
                             </p>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-5 d-flex justify-content-center">
                             <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
                         </div>
                     </div>
@@ -101,10 +101,9 @@ layout: default
                         <div class="col-4">
                             <p class="contact">
                                 <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.TELEFON %}
+                                {% if .TELEFON %}
                                 <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
                                 {% endif %}
-
                                 {% if member.INSTAGRAM %}
                                 <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
                                 {% endif %}
