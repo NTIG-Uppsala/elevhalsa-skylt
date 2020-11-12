@@ -121,51 +121,21 @@ layout: default
                     </div>
                 </div>
             {% endfor %}
-            <div class="carousel-item">
+            <div id="events" class="carousel-item">
                 <header class="text-center">
                     <img src="assets/img/NTI-logo.png" height="218" />
                 </header>
                 <div class="row">
 
-                    <div class="countdown-box col-6 pb-3">
-                        <div class="name p-1 pl-2 pr-5 d-flex justify-content-between">
-                            <h2>SACO-Mässan</h2>
-                            <h2 class="timer">14 dagar kvar</h2>
-                        </div>
-                        <p class="pr-5">
-                            Sista anmälning för SACO-mässan är 2020-12-31. Kom ihåg att anmäla er hos Therese!
-                        </p>
-                    </div>
-
-                    <div class="countdown-box col-6 pb-3">
-                        <div class="name p-1 pl-2 pr-5 d-flex justify-content-between">
-                            <h2>SACO-Mässan</h2>
-                            <h2 class="timer">14 dagar kvar</h2>
-                        </div>
-                        <p class="pr-5">
-                            Sista anmälning för SACO-mässan är 2020-12-31. Kom ihåg att anmäla er hos Therese!
-                        </p>
-                    </div>
-
+                    {% for i in (1..4) %}
                     <div class="countdown-box col-6">
                         <div class="name p-1 pl-2 pr-5 d-flex justify-content-between">
-                            <h2>Högskoleprov</h2>
-                            <h2 class="timer">3 veckor kvar</h2>
+                            <h2 class="event"></h2>
+                            <h2 class="timer"></h2>
                         </div>
-                        <p class="pr-5">
-                            Sista anmälning för högskoleprovet är 2021-01-01. Kom ihåg att anmäla er på www.hogskolaprovet.se
-                        </p>
+                        <p class="pr-5"></p>
                     </div>
-
-                    <div class="countdown-box col-6">
-                        <div class="name p-1 pl-2 pr-5 d-flex justify-content-between">
-                            <h2>Högskoleprov</h2>
-                            <h2 class="timer">3 veckor kvar</h2>
-                        </div>
-                        <p class="pr-5">
-                            Sista anmälning för högskoleprovet är 2021-01-01. Kom ihåg att anmäla er på www.hogskolaprovet.se
-                        </p>
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
