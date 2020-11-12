@@ -15,6 +15,11 @@ def get_salary(profession):
         print(err)
         return "Okänt"
 
+def makeUrlFriendly(text):
+    text = text.lower()
+    new_text = text.replace("å", "a").replace("ä", "a").replace("ö", "o")
+    return new_text
+
 subprocess.call(["sh", "get_csv.sh", "--not-refresh"])
 
 data = []
@@ -27,7 +32,7 @@ with open("site/_data/professions.csv") as csvfile:
                 headings.append(heading)
         else:
             current_row = " ".join(row)
-            profession = current_row.split(",")[0]
+            profession = makeUrlFriendly(current_row.split(",")[0])
             salary = get_salary(profession)
             current_row += "," + salary
             data.append(current_row)
