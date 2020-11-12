@@ -127,9 +127,6 @@ i
     justify-content: center;
 }
 
-.title-text {
-}
-
 .title-underline {
     display: block;
     margin: 0 auto;
@@ -137,4 +134,8 @@ i
     height: 3px;
     background: radial-gradient(#ab058b, #4e0568, transparent);
     width: 25%;
+}
+
+.copyright-text {
+    font-size: 1rem !important;
 }
