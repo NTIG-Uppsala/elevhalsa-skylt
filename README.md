@@ -57,10 +57,15 @@ We use google app scripts for features in the google sheet. The code in the shee
 // If the text limit is reached all characters over the limit gets marked with red text color
 function onEdit(e) {
   var limit = 355;
+ 
   if(e.range.getColumn() == 10){
     limit = 185;
   } else if(e.range.getColumn() == 2){
-    limit = 245;
+    if(e.range.getSheet().getName() == "VIKTIGA_DATUM"){
+      limit = 245;
+    } else {
+      limit = 500;
+    }
   }
   if(e.value.length > limit) {
     let richTextValue = e.range.getRichTextValue()
