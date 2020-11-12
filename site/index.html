@@ -4,6 +4,7 @@ layout: default
 
 {% assign eht_members = site.data.eht %}
 {% assign procivitas_members = site.data.procivitas %}
+{% assign professions = site.data.professions %}
 
 <div class="container-fluid">
     <div id ="carouselExampleControls" class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000">
@@ -120,6 +121,45 @@ layout: default
                     </div>
                 </div>
             {% endfor %}
+            <div id="dagens-yrke" class="carousel-item">
+                <header class="text-center">
+                    <img style="position: absolute; left: 0px;" src="assets/img/NTI-logo.png" height="148" />
+                    <div>
+                        <h1 id="dagens-yrke-yrke"></h1>
+                        <div class="title-underline"></div>
+                    </div>
+                </header>
+                <div class="row">
+                    <div class="col-7">
+                        <h3 class="name">Beskrivning</h3>
+                        <p id="dagens-yrke-beskrivning">
+                        </p>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="name">Genomsnittlig bruttolön</h3>
+                                <p id="dagens-yrke-lon">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="name">Utbildning</h3>
+                                <p id="dagens-yrke-utbildning">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="name">Framtidsutsikter</h3>
+                                <p id="dagens-yrke-framtidsutsikter">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="carousel-item">
                 <header class="text-center">
                     <img src="assets/img/NTI-logo.png" height="218" />
@@ -182,6 +222,36 @@ layout: default
         {% endif %}
     </div>
 </div>
+<script>
+    function displayProfession(profession){
+        {% for yrke in professions %}
+            if("{{yrke.YRKE}}" == profession){
+                $("#dagens-yrke-yrke").html("{{yrke.YRKE}}")
+                $("#dagens-yrke-beskrivning").html("{{yrke.BESKRIVNING}}")
+                $("#dagens-yrke-utbildning").html("{{yrke.UTBILDNING}}")
+                $("#dagens-yrke-framtidsutsikter").html("{{yrke.FRAMTIDSUTSIKTER}}")
+                $("#dagens-yrke-lon").html("{{yrke.BRUTTOLON}}")
+            }
+        {% endfor %}
+    }
+
+    let date = new Date();
+    let dayOfWeek = date.getDay();
+    let professions = []
+    let todaysProfession = "";
+    {% for yrke in professions %}
+        professions.push("{{yrke.YRKE}}")
+    {% endfor %}
+    if(professions[dayOfWeek - 1] == undefined){
+        let indx = dayOfWeek - professions.length;
+        todaysProfession = professions[indx]
+    } else {
+        todaysProfession = professions[dayOfWeek - 1]
+    }
+    if(todaysProfession != ""){
+        displayProfession(todaysProfession);
+    }
+</script>
 <script>
     const displayDropins = () => {
         let all = $(".drop-in").each(function() {

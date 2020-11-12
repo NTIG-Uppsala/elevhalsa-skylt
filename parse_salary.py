@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests, csv, subprocess
 from bs4 import BeautifulSoup
 

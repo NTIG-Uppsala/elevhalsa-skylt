@@ -110,3 +110,31 @@ i
     padding-left: 10px;
     padding-right: 10px;
 }
+
+#dagens-yrke .name {
+    font-size: 26px;
+    padding: 5px;
+}
+
+#dagens-yrke p {
+    font-size: 22px;
+}
+
+#dagens-yrke header {
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-text {
+}
+
+.title-underline {
+    display: block;
+    margin: 0 auto;
+    margin-top: -5px;
+    height: 3px;
+    background: radial-gradient(#ab058b, #4e0568, transparent);
+    width: 25%;
+}
