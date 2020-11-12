@@ -45,13 +45,11 @@ layout: default
                         <div class="col-4">
                             <p class="contact">
                                 <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.INSTAGRAM and member.TELEFON %}
+                                {% if member.TELEFON %}
                                 <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
+                                {% endif %}
+                                {% if member.INSTAGRAM %}
                                 <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% elsif member.INSTAGRAM %}
-                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% else %}
-                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
                                 {% endif %}
                                 <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
                                 <i class="fa fa-map-marker-alt"></i> Sal: {{ member.SAL }} <br><br><br><br><br><br />
@@ -101,7 +99,7 @@ layout: default
                         <div class="col-4">
                             <p class="contact">
                                 <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if .TELEFON %}
+                                {% if member.TELEFON %}
                                 <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
                                 {% endif %}
                                 {% if member.INSTAGRAM %}
