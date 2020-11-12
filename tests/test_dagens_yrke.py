@@ -16,6 +16,10 @@ def test_yrke(yrke, expected_salary):
     sheet = sh.get_worksheet(3)
 
     placeholder_text = "TEST"
+    old_a6 = sheet.acell("A6").value
+    old_b6 = sheet.acell("A6").value
+    old_c6 = sheet.acell("A6").value
+    old_d6 = sheet.acell("A6").value
     sheet.update("A6", yrke)
     sheet.update("B6", placeholder_text)
     sheet.update("C6", placeholder_text)
@@ -38,10 +42,10 @@ def test_yrke(yrke, expected_salary):
     else:
         print("\u001b[31mTest failed\u001b[0m")
 
-    sheet.update("A6", "")
-    sheet.update("B6", "")
-    sheet.update("C6", "")
-    sheet.update("D6", "")
+    sheet.update("A6", old_a6)
+    sheet.update("B6", old_b6)
+    sheet.update("C6", old_c6)
+    sheet.update("D6", old_d6)
 
 yrke = "borrtekniker"
 expected_salary = "31 600 kr"
