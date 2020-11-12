@@ -64,7 +64,7 @@ function onEdit(e) {
     if(e.range.getSheet().getName() == "VIKTIGA_DATUM"){
       limit = 245;
     } else {
-      limit = 500;
+      limit = 1500;
     }
   }
   if(e.value.length > limit) {
