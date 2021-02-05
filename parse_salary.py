@@ -20,8 +20,6 @@ def makeUrlFriendly(text):
     new_text = text.replace("å", "a").replace("ä", "a").replace("ö", "o")
     return new_text
 
-subprocess.call(["sh", "get_csv.sh", "--not-refresh"])
-
 data = []
 with open("site/_data/professions.csv") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
