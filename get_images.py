@@ -91,8 +91,9 @@ def get_images(url):
     refresh = False
 
     # Sets refresh to True if any of the images have changed
-    for sheet in pxl_doc:
-        refresh = has_changed(sheet) or refresh
+
+    refresh = has_changed(pxl_doc["NTI"]) or refresh
+    refresh = has_changed(pxl_doc["PROCIVITAS"]) or refresh
 
     os.remove(filename)
 

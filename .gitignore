@@ -15,4 +15,4 @@ site/assets/img/Profile/*
 !site/assets/img/Profile/.gitkeep
 *.xlsx
 .vscode
-
+tmp
