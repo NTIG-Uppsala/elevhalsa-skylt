@@ -6,6 +6,7 @@ if [ ! -d tmp ]; then
 fi
 
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=0" -O "tmp/eht.csv"
+wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=431694755" -O "tmp/maud.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=1501224853" -O "tmp/procivitas.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=517548157" -O "tmp/important_events.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=1645773200" -O "tmp/professions.csv"
@@ -19,9 +20,11 @@ done
 IS_SAME=1
 NOT_REFRESH=0
 EHT_HASH=$(cat `pwd`/site/_data/eht_hash.txt)
+MAUD_HASH=$(cat `pwd`/site/_data/maud_hash.txt)
 PROCIVITAS_HASH=$(cat `pwd`/site/_data/procivitas_hash.txt)
 
 NEW_EHT_HASH=$(md5sum `pwd`/site/_data/eht.csv | awk '{ print $1 }')
+NEW_MAUD_HASH=$(md5sum `pwd`/site/_data/maud.csv | awk '{ print $1 }')
 NEW_PROCIVITAS_HASH=$(md5sum `pwd`/site/_data/procivitas.csv | awk '{ print $1 }')
 
 for var in "$@"
@@ -38,6 +41,14 @@ else
     IS_SAME=0
     echo "EHT Data is different"
     echo "$NEW_EHT_HASH" > `pwd`/site/_data/eht_hash.txt
+fi
+
+if [ "$NEW_MAUD_HASH" = "$MAUD_HASH" ]; then
+    echo "MAUD Data is same"
+else
+    IS_SAME=0
+    echo "MAUD Data is different"
+    echo "$NEW_MAUD_HASH" > `pwd`/site/_data/maud_hash.txt
 fi
 
 if [ "$NEW_PROCIVITAS_HASH" = "$PROCIVITAS_HASH" ]; then
