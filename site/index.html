@@ -20,8 +20,8 @@ layout: default
                         </object>
                     </header>
                     {% if member.DROP-IN_START and member.DROP-IN_SLUT %}
-                    <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                        {{ "now" | date: "%Y-%m-%d %H:%M" }}
+                    {% if {{ "now" | date: %H }} > member.DROP-IN_START %}
+                    <div class="drop-in name">
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
                     {% endif %}
@@ -76,7 +76,6 @@ layout: default
                     </header>
                     {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
                     <div class="drop-in procivitas name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                        {{ "now" | date: "%Y-%m-%d %H:%M" }}
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
                     {% endif %}
