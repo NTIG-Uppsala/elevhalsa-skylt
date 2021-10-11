@@ -5,7 +5,7 @@ if [ ! -d tmp ]; then
     mkdir tmp
 fi
 
-wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=0" -O "tmp/eht.csv"
+wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0" -O "tmp/eht.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=431694755" -O "tmp/maud.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=1501224853" -O "tmp/procivitas.csv"
 wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=csv&gid=517548157" -O "tmp/important_events.csv"
