@@ -20,9 +20,11 @@ layout: default
                         <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
                         </object>
                     </header>
-                    <div class="drop-in name">
+                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
+                    <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
                         <h2>Tillgänglig för drop-in just nu</h2>
                     </div>
+                    {% endif %}
                     <div class="name row justify-content-between">
                         <div class="col-7">
                             <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
@@ -192,7 +194,7 @@ layout: default
                     {% endfor %}
 
                 </div>
-            </div>2
+            </div>
             <!--Write the headlines in the job slide-->
             <div id="dagens-yrke" class="carousel-item">
                 <header class="text-center">
@@ -281,7 +283,7 @@ layout: default
     if(todaysProfession != ""){
         displayProfession(todaysProfession);
     }
-</script>2
+</script>
 <!--Move between slides-->
 <script>
     const displayDropins = () => {
