@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% assign eht_members = site.data.eht %}
-{% assign maud = site.data.maud %}
+{% assign maud_members = site.data.maud %}
 {% assign procivitas_members = site.data.procivitas %}
 {% assign professions = site.data.professions %}
 
@@ -66,7 +66,7 @@ layout: default
                     </div>
                 </div>
             {% endfor %}
-            {% for member in maud %}
+            {% for member in maud_members %}
                 <div class="carousel-item">
                     <header class="text-center">
                         <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
@@ -233,7 +233,7 @@ layout: default
                         </div>
                     </div>
                 </div>
-            </div>
+           . </div>
         </div>
 
         {% if jekyll.environment == "dev" %}
