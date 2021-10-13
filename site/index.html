@@ -288,8 +288,8 @@ layout: default
 <script>
     const displayDropins = () => {
         let all = $(".drop-in").each(function() {
-            let date_and_time_end = this.dataset.dropinEnd.split(" ");
-            let date_and_time_start = this.dataset.dropinStart.split(" ");
+            let date_and_time_end = this.data-dropin-end.split(" ");
+            let date_and_time_start = this.data-dropin-start.split(" ");
             let today = new Date();
             let date = ("0" + today.getDate()).slice(-2);
             let month = ("0" + (today.getMonth() + 1)).slice(-2);
@@ -311,7 +311,7 @@ layout: default
                     this.style.display = "none"
                 }
             } else {
-                this.style.display = "none"
+                this.style.display = "inline block"
             }
         })
     }
