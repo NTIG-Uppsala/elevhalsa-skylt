@@ -21,6 +21,12 @@
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
 + HTML/CSS: Only use inline CSS with JavaScript actions.
 
+## Connecting to Rasberry
+### To keep the cloned repo in Rasberry up to date with the Github repo: 
++ Code locally 
++ Push to the Github repo
++ Pull from the Rasberry 
+
 # Programming Languages & Frameworks
 ## Programming Languages
 + HTML5
@@ -86,10 +92,11 @@ function onEdit(e) {
 function clearDropin(){
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var nti_sheet = ss.getSheetByName("NTI");
+  var maud_sheet =ss.getSheetbyName("MAUD";)
   var proc_sheet = ss.getSheetByName("PROCIVITAS");
   var col_start = "K";
   var col_end = "L";
-  let sheets = [nti_sheet, proc_sheet];
+  let sheets = [nti_sheet, maud_sheets, proc_sheet];
   sheets.forEach((sh)=> {
       for(let i = 2; i <= sh.getLastRow() + 1; i++){
           end_time = sh.getRange(col_end + i).getValue();
