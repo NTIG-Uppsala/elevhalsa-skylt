@@ -77,6 +77,11 @@ i
     background-image: linear-gradient(to right,#d8091a,#0161a5, transparent);
 }
 
+.maud{
+    font-size: 40px;
+    background-image: linear-gradient(to right,#ab058b,#0161a5, transparent);
+}
+
 .tips {
     z-index: -1;
     font-size: 1em;
