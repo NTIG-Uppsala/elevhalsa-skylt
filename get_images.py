@@ -93,6 +93,7 @@ def get_images(url):
     # Sets refresh to True if any of the images have changed
 
     refresh = has_changed(pxl_doc["NTI"]) or refresh
+    refresh = has_changed(pxl_doc["MAUD"]) or refresh
     refresh = has_changed(pxl_doc["PROCIVITAS"]) or refresh
 
     os.remove(filename)
