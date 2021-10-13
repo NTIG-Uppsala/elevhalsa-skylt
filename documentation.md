@@ -2,20 +2,28 @@
 Begin by cloning this repo to your computer. 
 After that you will need to install the requirements installed.
 
-Jekyll: Install jekyll following this [guide](https://jekyllrb.com/docs/installation/)
+Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/)
 
-Now install the required dependencies for your OS.
+Now install the required dependencies which is python for your OS.
+Linux:
 ```bash
 sudo apt install python3 python3-pip xdotool
 ```
+Windows: 
+Follow this link and download the latest version of python [Download] (https://www.python.org/downloads/)
+- Make sure to mark Add to PATH while installing python
 
-After installing the required dependencies for your OS.
+After installing the required dependencies for your OS. Run the following code in your CMD while you are in python folder. 
 ```bash
+cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
+
 pip3 install -r requirements.txt
 ```
 
 # Raspberry Pi
 
+```
+These steps are already done so you dont need to do them unless you are starting from scrtach, so to say starting with a new Rasberry
 *Tool and OS that are necessary:*
 
 [SD formatting tool](https://www.sdcard.org/downloads/formatter/eula_windows/)
@@ -35,11 +43,7 @@ pip3 install -r requirements.txt
 	8. Follow install wizard to install Raspian on SD card
 
 ***
-
-### Raspberry Pi Credentials
-    username: pi  
-    password: 9IHad98i32K
-
+```
 ***
 
 ## How to Remote Control Raspberry Pi
@@ -50,7 +54,16 @@ pip3 install -r requirements.txt
     
 ### Connect to the Raspberry Pi 
     1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
-    3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+    ```
+    Run the following code to get the IP adress : hostname -I 
+    IP adress = 192.168.203.25
+    ```
+    2. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+    ```
+    Raspberry Pi Credentials
+    username: pi  
+    password: 9IHad98i32K
+    ```
 
 ***
 
@@ -66,10 +79,10 @@ Change active directory to the Git directory with the command
     "cd /home/pi/Git"
 and then clone the git repostitory with the command
 
-    "git clone https://gitlab.com/nordtech/elevhalsa-digital-skylt.git"
-Change active directory to elevhalsa-digital-skylt using the command
+    "git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt"
+Change active directory to elevhalsa-skylt using the command
 
-    "cd /home/pi/git/elevhalsa-digital-skylt/"
+    "cd /home/pi/git/elevhalsa-skylt/"
 
 ***
 ### Change active display times
