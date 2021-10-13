@@ -21,7 +21,7 @@ layout: default
                         </object>
                     </header>
                     {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                        <div class="drop-in name">
+                        <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
                             <h2>Tillgänglig för drop-in just nu</h2>
                         </div>
                     {% endif %}
@@ -284,7 +284,7 @@ layout: default
         displayProfession(todaysProfession);
     }
 </script>
-<!--Move between slides-->
+<!--Drop in function-->
 <script>
     const displayDropins = () => {
         let all = $(".drop-in").each(function() {
