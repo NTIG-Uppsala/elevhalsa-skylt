@@ -1,6 +1,6 @@
 # Student Health Monitor
 
-[Raspberry Pi Documentation](https://github.com/NTI-Gymnasieingenjor/elevhalsa-digital-skylt/blob/master/documentation.md)
+[Raspberry Pi Documentation](https://github.com/NTIG-Uppsala/elevhalsa-skylt/blob/master/documentation.md)
 
 ***
 
