@@ -2,19 +2,24 @@
 Begin by cloning this repo to your computer. 
 After that you will need to install the requirements installed.
 
-Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/)
+1. Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/)
 
-Now install the required dependencies which is python for your OS.
+2. Now install the required dependencies which is python for your OS.
+
 Linux:
-```bash
+```
 sudo apt install python3 python3-pip xdotool
 ```
-Windows: 
-Follow this link and download the latest version of python [Download] (https://www.python.org/downloads/)
-- Make sure to mark Add to PATH while installing python
 
-After installing the required dependencies for your OS. Run the following code in your CMD while you are in python folder. 
-```bash
+Windows: 
+```
+Follow this link https://www.python.org/downloads/ and download the latest version of python 
+
+Make sure to mark Add to PATH while installing python
+```
+
+3. After installing the required dependencies for your OS. Run the following code in your CMD while you are in python folder. 
+```
 cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
 
 pip3 install -r requirements.txt
@@ -23,16 +28,14 @@ pip3 install -r requirements.txt
 # Raspberry Pi
 
 ```
-These steps are already done so you dont need to do them unless you are starting from scrtach, so to say starting with a new Rasberry
-*Tool and OS that are necessary:*
+These steps are already done so you dont have to do them unless you are starting from scrtach, so to say starting with a new Rasberry
 
-[SD formatting tool](https://www.sdcard.org/downloads/formatter/eula_windows/)
+Tool and OS that are necessary:
 
-[NOOBS OS](https://www.raspberrypi.org/downloads/noobs/)
+SD formatting tool https://www.sdcard.org/downloads/formatter/eula_windows/
+NOOBS OS https://www.raspberrypi.org/downloads/noobs/
 
-***
-
-### Tutorial for NOOBS installation:
+Tutorial for NOOBS installation:
 	1. Install SD card formating tool
 	2. Insert SD card in computer
 	3. Format SD card with installed tool	
@@ -41,26 +44,23 @@ These steps are already done so you dont need to do them unless you are starting
 	6. Plug in SD card into raspberry pi and connect to a Wi-Fi
 	7. After connecting select Raspian and select install
 	8. Follow install wizard to install Raspian on SD card
-
-***
 ```
 ***
 
 ## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
-    1. Go to https://www.realvnc.com/en/connect/download/viewer/
-    2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
+1. Go to https://www.realvnc.com/en/connect/download/viewer/
+2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
     
 ### Connect to the Raspberry Pi 
-    1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
+1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
     ```
     Run the following code to get the IP adress : hostname -I 
     IP adress = 192.168.203.25
     ```
-    2. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+2. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
     ```
-    Raspberry Pi Credentials
     username: pi  
     password: 9IHad98i32K
     ```
@@ -71,7 +71,7 @@ These steps are already done so you dont need to do them unless you are starting
 
 To change the resolution of the Raspberry outputs navigate to settings>screen configuration>configure>screens>HTMI-X>resolution>your desired resolution
 
-To start Configuring your Raspberry Pi 4 Model B, Create a directory named "Git" in /home/pi/. 
+To start Configuring your Raspberry Pi 4 Model B, Create a directory named "Git" in your Rasberry file manager /home/pi/. 
 
 
 Change active directory to the Git directory with the command 
