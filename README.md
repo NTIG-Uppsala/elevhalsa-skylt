@@ -21,6 +21,12 @@
 + Variable naming: CSS/HTML: kebab-case, JS: camelCase, classes: UpperCamelCase, Python: snake_case
 + HTML/CSS: Only use inline CSS with JavaScript actions.
 
+## Connecting to Rasberry
+### To keep the cloned repo in Rasberry up to date with the Github repo: 
++ Code locally 
++ Push to the Github repo
++ Pull from the Rasberry 
+
 # Programming Languages & Frameworks
 ## Programming Languages
 + HTML5
