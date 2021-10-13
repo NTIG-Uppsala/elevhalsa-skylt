@@ -83,6 +83,19 @@ and then clone the git repostitory with the command
 Change active directory to elevhalsa-skylt using the command
 
     "cd /home/pi/git/elevhalsa-skylt/"
+    
+***
+### New Repostitory
+
+If you create a new repostitory and clone it then you need to modify tow files in the rasberry which are: 
+
+1. autostart : This file builds the site using jekyll and opne the chromium browser and show the websiete in fullscreen
+- Write the following code to open it "sudo nano /etc/xdg/lxsession/LXDE-pi/autostart "
+- Change the path from the old repostitory folder to the new one you cloned
+
+2. crontab -e: This file re-upload the site vid midnight 
+- Write the files name (crontab -e) in the CLI to open it
+- Change the path from the old repostitory folder to the new one you cloned
 
 ***
 ### Change active display times
