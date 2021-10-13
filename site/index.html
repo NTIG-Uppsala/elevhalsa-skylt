@@ -21,12 +21,9 @@ layout: default
                         </object>
                     </header>
                     {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                        {{ time = "now" | date: %H% }}
-                            {% if time >= member.DROP-IN_START and time <= member.DROP-IN_SLUT %}
-                                <div class="drop-in name">
-                                    <h2>Tillgänglig för drop-in just nu</h2>
-                                </div>
-                            {% endif %}
+                        <div class="drop-in name">
+                            <h2>Tillgänglig för drop-in just nu</h2>
+                        </div>
                     {% endif %}
                     <div class="name row justify-content-between">
                         <div class="col-7">
