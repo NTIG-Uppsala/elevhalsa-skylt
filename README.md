@@ -5,11 +5,7 @@
 ***
 
 ## Definition of Done
-+ All group members shall understand the code.
-+ Tests shall be green.
-+ Code shall be commented.
-+ Code and documentation shall be uploaded on GitHub.
-+ Code shall follow the coding conventions in place.
++ https://docs.google.com/document/d/1oLyPqJwN76pdIZRc8FyYE1W91b1bqy2K/edit
 
 ## Before Merging With Main
 + All code and documentation should be read by groupmembers onsite and approved.
