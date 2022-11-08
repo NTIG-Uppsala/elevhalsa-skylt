@@ -3,8 +3,7 @@ layout: default
 ---
 
 {% assign eht_members = site.data.eht %}
-{% assign maud_members = site.data.maud %}
-{% assign procivitas_members = site.data.procivitas %}
+<!-- {% assign procivitas_members = site.data.procivitas %} -->
 {% assign professions = site.data.professions %}
 
 <div class="container-fluid">
@@ -40,7 +39,7 @@ layout: default
                             </p>
                         </div>
                         <div class="col-5 d-flex justify-content-center">
-                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
+                            <img class="profile-image" src="assets/img/Profile/{{member.FILNAMN}}.png" />
                         </div>
                     </div>
                     <div class="row">
@@ -70,63 +69,7 @@ layout: default
                     </div>
                 </div>
             {% endfor %}
-            {% for member in maud_members %}
-                <div class="carousel-item">
-                    <header class="text-center">
-                        <object data="assets/img/combined-logos.svg" type="image/svg+xml" width="350">
-                        </object>
-                    </header>
-                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                    <div class="drop-in maud name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                        <h2>Tillgänglig för drop-in just nu</h2>
-                    </div>
-                    {% endif %}
-                    <div class="name maud row justify-content-between">
-                        <div class="col-7">
-                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
-                        </div>
-                        <div class="col-5 pl-0 text-center">
-                            <h2>{{ member.ARBETSROLL }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <p style="padding-left: 10px;">
-                                {{ member.INFO_TEXT }}
-                            </p>
-                        </div>
-                        <div class="col-5 d-flex justify-content-center">
-                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="contact" style="padding-left: 10px;">
-                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.TELEFON %}
-                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
-                                {% endif %}
-                                {% if member.INSTAGRAM %}
-                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% endif %}
-                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                                {% if member.SAL %}
-                                <i class="fa fa-map-marker-alt"></i> {{ member.SAL }} <br><br><br><br><br><br />
-                                {% endif %}
-                            </p>
-                        </div>
-                        {% if member.TIPS %}
-                        <div class="col-6">
-                            <h3 class="maud name tips">Tips</h3>
-                            <p class="tips-text">
-                                {{ member.TIPS }}
-                            </p>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            {% for member in procivitas_members %}
+            <!-- {% for member in procivitas_members %}
                 <div class="carousel-item">
                     <header class="text-center">
                         <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
@@ -181,7 +124,7 @@ layout: default
                         {% endif %}
                     </div>
                 </div>
-            {% endfor %}
+            {% endfor %} -->
             <!--show information from important events-->
             <div id="events" class="carousel-item">
                 <header class="text-center">

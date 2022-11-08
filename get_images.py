@@ -18,13 +18,9 @@ def img_equal(img1, img2):
 def has_changed(sheet, should_save=True):
     """
     This function checks if the images have changed.
-
     Parameters:
-
     sheet (Worksheet): Excel worksheet to check.
-
     should_save (bool): Whether or not to save new images if changed.
-
     Returns:
     
     bool: Whether or not any image has changed.
@@ -39,7 +35,7 @@ def has_changed(sheet, should_save=True):
 
     for row in range(2, sheet.max_row + 1):
         if(sheet["A" + str(row)].value != None):
-            image_filename = sheet["B" + str(row)].value
+            image_filename = sheet["K" + str(row)].value
             image_path = profile_img_path.format(image_filename)
 
             # Checks if the cell does not contain an image
@@ -93,8 +89,6 @@ def get_images(url):
     # Sets refresh to True if any of the images have changed
 
     refresh = has_changed(pxl_doc["NTI"]) or refresh
-    refresh = has_changed(pxl_doc["MAUD"]) or refresh
-    refresh = has_changed(pxl_doc["PROCIVITAS"]) or refresh
 
     os.remove(filename)
 
@@ -102,4 +96,4 @@ def get_images(url):
         subprocess.run(["xdotool", "key", "F5"])
 
 if __name__ == "__main__":
-    get_images("https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/export?format=xlsx")
+    get_images("https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs/export?format=xlsx")
