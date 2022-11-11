@@ -3,284 +3,71 @@ layout: default
 ---
 
 {% assign eht_members = site.data.eht %}
-{% assign maud_members = site.data.maud %}
-{% assign procivitas_members = site.data.procivitas %}
-{% assign professions = site.data.professions %}
 
-<div class="container-fluid">
-    <div id ="carouselExampleControls" class="carousel slide person-info" data-ride="carousel" data-pause="false" data-interval="15000">
-        <div class="carousel-inner">
-            {% for member in eht_members %}
-                {% if forloop.first %}
-                <div class="carousel-item active">
-                {% else %}
-                <div class="carousel-item">
-                {% endif %}
-                    <header class="text-center">
-                        <object data="assets/img/ElevHalsaLogo.svg" type="image/svg+xml" width="350">
-                        </object>
-                    </header>
-                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                        <div class="drop-in name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                            <h2>Tillgänglig för drop-in just nu</h2>
-                        </div>
-                    {% endif %}
-                    <div class="name row justify-content-between">
-                        <div class="col-7">
-                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
-                        </div>
-                        <div class="col-5 pl-0 text-center">
-                            <h2>{{ member.ARBETSROLL }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <p style="padding-left: 10px;">
-                                {{ member.INFO_TEXT }}
-                            </p>
-                        </div>
-                        <div class="col-5 d-flex justify-content-center">
-                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="contact" style="padding-left: 10px;">
-                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.TELEFON %}
-                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
-                                {% endif %}
-                                {% if member.INSTAGRAM %}
-                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% endif %}
-                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                                {% if member.SAL %}
-                                <i class="fa fa-map-marker-alt"></i> {{ member.SAL }} <br><br><br><br><br><br />
-                                {% endif %}
-                            </p>
-                        </div>
-                        {% if member.TIPS %}
-                        <div class="col-4">
-                            <h3 class="name tips">Tips</h3>
-                            <p class="tips-text">
-                                {{ member.TIPS }}
-                            </p>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            {% for member in maud_members %}
-                <div class="carousel-item">
-                    <header class="text-center">
-                        <object data="assets/img/combined-logos.svg" type="image/svg+xml" width="350">
-                        </object>
-                    </header>
-                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                    <div class="drop-in maud name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                        <h2>Tillgänglig för drop-in just nu</h2>
-                    </div>
-                    {% endif %}
-                    <div class="name maud row justify-content-between">
-                        <div class="col-7">
-                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
-                        </div>
-                        <div class="col-5 pl-0 text-center">
-                            <h2>{{ member.ARBETSROLL }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <p style="padding-left: 10px;">
-                                {{ member.INFO_TEXT }}
-                            </p>
-                        </div>
-                        <div class="col-5 d-flex justify-content-center">
-                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="contact" style="padding-left: 10px;">
-                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.TELEFON %}
-                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
-                                {% endif %}
-                                {% if member.INSTAGRAM %}
-                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% endif %}
-                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                                {% if member.SAL %}
-                                <i class="fa fa-map-marker-alt"></i> {{ member.SAL }} <br><br><br><br><br><br />
-                                {% endif %}
-                            </p>
-                        </div>
-                        {% if member.TIPS %}
-                        <div class="col-6">
-                            <h3 class="maud name tips">Tips</h3>
-                            <p class="tips-text">
-                                {{ member.TIPS }}
-                            </p>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            {% for member in procivitas_members %}
-                <div class="carousel-item">
-                    <header class="text-center">
-                        <object data="assets/img/ProCivitas_logotyp.png" type="image/svg+xml" width="218" height="218">
-                        </object>
-                    </header>
-                    {% if member.DROP-IN_SLUT and member.DROP-IN_START %}
-                    <div class="drop-in procivitas name" data-dropin-end="{{ member.DROP-IN_SLUT }}" data-dropin-start="{{ member.DROP-IN_START }}">
-                        <h2>Tillgänglig för drop-in just nu</h2>
-                    </div>
-                    {% endif %}
-                    <div class="name procivitas row justify-content-between">
-                        <div class="col-7">
-                            <h2 style="padding-left: 10px;">{{ member.NAMN }}</h2>
-                        </div>
-                        <div class="col-5 pl-0 text-center">
-                            <h2>{{ member.ARBETSROLL }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <p style="padding-left: 10px;">
-                                {{ member.INFO_TEXT }}
-                            </p>
-                        </div>
-                        <div class="col-5 d-flex justify-content-center">
-                            <img class="profile-image" src="assets/img/Profile/{{member.NAMN}}.png" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="contact" style="padding-left: 10px;">
-                                <i class="fa fa-envelope"></i> E-post: {{ member.E-POST }}<br />
-                                {% if member.TELEFON %}
-                                <i class="fa fa-phone"></i> Telefon: {{ member.TELEFON }}<br />
-                                {% endif %}
-                                {% if member.INSTAGRAM %}
-                                <i class="fab fa-instagram"></i> Instagram: {{ member.INSTAGRAM }}<br />
-                                {% endif %}
-                                <i class="fa fa-calendar-alt"></i> Arbetar: {{ member.ARBETSTIDER }}<br />
-                                {% if member.SAL %}
-                                <i class="fa fa-map-marker-alt"></i> {{ member.SAL }} <br><br><br><br><br><br />
-                                {% endif %}
-                            </p>
-                        </div>
-                        {% if member.TIPS %}
-                        <div class="col-6">
-                            <h3 class="procivitas name tips">Tips</h3>
-                            <p class="tips-text">
-                                {{ member.TIPS }}
-                            </p>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            <!--show information from important events-->
-            <div id="events" class="carousel-item">
-                <header class="text-center">
-                    <img src="assets/img/NTI-logo.png" height="218" />
-                </header>
-                <div class="row">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
 
-                    {% for i in (1..4) %}
-                    <div class="countdown-box col-6">
-                        <div class="name p-1 pl-2 pr-5 d-flex justify-content-between">
-                            <h2 class="event"></h2>
-                            <h2 class="timer"></h2>
-                        </div>
-                        <p class="pr-5"></p>
-                    </div>
-                    {% endfor %}
+<div class="logo">
+  <img src="assets/img/nti-logo.svg" alt="TE4" height="150px">
+  <p><b>Elev</b>hälsan</p>
+</div>                              
 
-                </div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  
+    <!-- Creates div for all members -->
+    {% for member in eht_members %}
+      {% if forloop.first %}
+      <div class="item active">
+      {% else %}
+      <div class="item">
+      {% endif %}
+        <div class="background-grid-layout">
+          <div class="grid-item-image">
+            <img src="assets/img/Profile/{{member.FILNAMN}}.png">
+          </div>
+          <div class="grid-item-information">
+            <div class="info">
+              <h1>{{ member.NAMN }}</h1>
+              <p id="role">{{ member.ARBETSROLL }}</p>
             </div>
+            <div class="info">
+              <p>
+                <img src="assets/img/mail.svg">
+                E-post: {{ member.E-POST }}
+              </p>
+              <p>
+                <img src="assets/img/phone.svg">
+                Telefon: {{ member.TELEFON }} 
+              </p>
+              <p>
+                <img src="assets/img/calendar.svg">
+                Arbetstider: {{ member.ARBETSTIDER }} 
+              </p>
+              <p>
+                <img src="assets/img/location.svg">
+                Sal: {{ member.SAL}} 
+              </p>
+            </div>
+          </div>
         </div>
-
-        {% if jekyll.environment == "dev" %}
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        {% endif %}
-    </div>
-</div>
-<!--Gets info from the google sheet ?-->
-<script>
-    function displayProfession(profession){
-        {% for yrke in professions %}
-            if("{{yrke.YRKE}}" == profession){
-                $("#dagens-yrke-yrke").html("{{yrke.YRKE}}")
-                $("#dagens-yrke-beskrivning").html("{{yrke.BESKRIVNING}}")
-                $("#dagens-yrke-utbildning").html("{{yrke.UTBILDNING}}")
-                $("#dagens-yrke-framtidsutsikter").html("{{yrke.FRAMTIDSUTSIKTER}}")
-                $("#dagens-yrke-lon").html("{{yrke.BRUTTOLON}}")
-            }
-        {% endfor %}
-    }
-
-    let date = new Date();
-    let dayOfWeek = date.getDay();
-    let professions = []
-    let todaysProfession = "";
-    {% for yrke in professions %}
-        professions.push("{{yrke.YRKE}}")
+      </div>
     {% endfor %}
-    if(professions[dayOfWeek - 1] == undefined){
-        let indx = dayOfWeek - professions.length;
-        todaysProfession = professions[indx]
-    } else {
-        todaysProfession = professions[dayOfWeek - 1]
-    }
-    if(todaysProfession != ""){
-        displayProfession(todaysProfession);
-    }
-</script>
-<!--Drop in function-->
-<script>
-    const displayDropins = () => {
-        let all = $(".drop-in").each(function() {
-            let date_and_time_end = this.data-dropin-end.split(" ");
-            let date_and_time_start = this.data-dropin-start.split(" ");
-            let today = new Date();
-            let date = ("0" + today.getDate()).slice(-2);
-            let month = ("0" + (today.getMonth() + 1)).slice(-2);
-            let year = today.getFullYear();
-            let hour = ("0" + today.getHours()).slice(-2);
-            let minutes = ("0" + today.getMinutes()).slice(-2);
-            let todaysDate = year + "-" + month + "-" + date;
 
-            if(todaysDate == date_and_time_end[0] && todaysDate == date_and_time_start[0]){
-                let endHour = date_and_time_end[1].split(":")[0]
-                let endMin = date_and_time_end[1].split(":")[1]
-
-                let startHour = date_and_time_start[1].split(":")[0]
-                let startMin = date_and_time_start[1].split(":")[1]
-
-                let hasEnded = hour > endHour || (hour == endHour && minutes >= endMin)
-                let hasStarted = hour > startHour || (hour == startHour && minutes >= startMin)
-                if(hasEnded || !hasStarted ){
-                    this.style.display = "none"
-                }
-            } else {
-                this.style.display = "inline block"
-            }
-        })
-    }
-    displayDropins();
-
-    setInterval(displayDropins, 1000*60);
-</script>
-<div style="position:absolute; right:15px; top:25px;">
-    <img src="assets/img/TE4-logo-transparent.png" alt="TE4" height="60px">
+  </div>
 </div>
+
+<!-- Stops carousel from pausing on mousehover -->
+<script>
+  $('.carousel').carousel({
+    pause: "false"
+  });
+</script>
