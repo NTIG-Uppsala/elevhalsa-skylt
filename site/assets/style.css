@@ -1,146 +1,96 @@
 @font-face {
-    font-family: Soleto;
-    src: url('assets/fonts/soleto/soleto-light-webfont.woff2') format('woff2'), url('assets/fonts/soleto/soleto-light-webfont.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-
-.c {
-    background-image: linear-gradient(to top, #ab058b,#4e0568, transparent);
-    color: white;
-    height: 20rem;
-}
-
-    .c .carousel-item {
-        padding: 12px;
-        padding-top: 40px;
-    }
-
-#box {
-    margin: 25px;
-    margin-bottom: 50px;
-}
-
-html, body {
-    overflow: hidden;
+  font-family: Soleto;
+  src: url("../fonts/Soleto.ttf");
 }
 
 body {
-    background-color:black;
-    margin: 25px;
-    margin-top: 0px;
-    font-size: 30px;
-    color: white;
+  font-family: Soleto;
+  margin: 0;
+  background-image: url(img/backgroundNTI.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.profile-image {
-    position:absolute;
-    left: 25%;
-    height: 375px;
-    width: 285;
-    max-width: 100%;
-    z-index: 2;
+.item {
+  height: 100vh;
+  width: 100vw;
 }
 
-.name {
-    font-size: 40px;
-    background-image: linear-gradient(to right, #ab058b,#4e0568, transparent);
+.background-grid-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1650px;
+  height: 900px;
+  padding: 50px;
+  background-color: rgb(0, 0, 0, 0.6);
+  border: 5px solid white;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: center;
 }
 
-.name h2 {
-    margin-bottom: 3px;
-    margin-top: 3px;
+.grid-item-image {
+  width: 100%;
+  height: 85%;
 }
 
-.carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background-color: #8f1170;
+.grid-item-image > img {
+  width: 95%;
+  height: 100%;
+  border-radius: 15px;
 }
 
-.carousel-indicators {
-    bottom: -588px;
+.grid-item-information {
+  width: 100%;
+  height: 80%;
+  margin-left: 50px;
+  color: white;
 }
 
-.contact {
-    font-size: 20px;
+.info {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-i
-{
-    font-weight: 100;
+.info > h1 {
+  font-size: 5em;
+  padding: 0;
+  margin: 0;
 }
 
-.procivitas{
-    font-size: 40px;
-    background-image: linear-gradient(to right,#d8091a,#0161a5, transparent);
+#role {
+  font-size: 3.5em;
 }
 
-.maud{
-    font-size: 40px;
-    background-image: linear-gradient(to right,#ab058b,#0161a5, transparent);
+.info > p { 
+  font-size: 3em;
 }
 
-.tips {
-    z-index: -1;
-    font-size: 1em;
-    padding: 5px;
+.logo {
+  position: absolute; 
+  left: 15px; 
+  top: 25px;
+  color: white;
+  font-size: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.tips-text {
-    font-size: 0.6em;
+.logo > p {
+  margin-left: -15px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.countdown-box p{
-    font-size: 23px;
-    padding-left: .5rem;
-}
-
-.countdown-box h2{
-    font-size: 28px;
-}
-
-.drop-in {
-    position: absolute;
-    top: 75px;
-    left: 0px;
-    width: 500px;
-}
-
-.drop-in h2 {
-    font-size: 30px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#dagens-yrke .name {
-    font-size: 26px;
-    padding: 5px;
-}
-
-#dagens-yrke p {
-    font-size: 22px;
-}
-
-#dagens-yrke header {
-    height: 168px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.title-underline {
-    display: block;
-    margin: 0 auto;
-    margin-top: -5px;
-    height: 3px;
-    background: radial-gradient(#ab058b, #4e0568, transparent);
-    width: 25%;
-}
-
-.copyright-text {
-    font-size: 1rem !important;
+p > img {
+  margin: 0 5px 7px 0;
 }
