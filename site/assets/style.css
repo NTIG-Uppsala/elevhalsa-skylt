@@ -72,6 +72,12 @@ body {
   font-size: 3em;
 }
 
+.latestChange {
+  font-size: 18px;
+  padding: 0 25px;
+  margin-top: -10px;
+}
+
 .logo {
   position: absolute; 
   left: 15px; 

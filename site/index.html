@@ -10,6 +10,7 @@ layout: default
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -39,24 +40,34 @@ layout: default
               <h1 class="name">{{ member.NAMN }}</h1>
               <p id="role">{{ member.ARBETSROLL }}</p>
               <p class="status"></p>
+              <div class="latestChange">
+              </div>
             </div>
             <div class="info">
+              {% if member.E-POST %}
               <p>
                 <img src="assets/img/mail.svg">
                 E-post: {{ member.E-POST }}
               </p>
+              {% endif %}
+              {% if member.TELEFON %}
               <p>
                 <img src="assets/img/phone.svg">
                 Telefon: {{ member.TELEFON }} 
               </p>
+              {% endif %}
+              {% if member.ARBETSTIDER %}
               <p>
                 <img src="assets/img/calendar.svg">
                 Arbetstider: {{ member.ARBETSTIDER }} 
               </p>
+              {% endif %}
+              {% if member.SAL %}
               <p>
                 <img src="assets/img/location.svg">
                 Sal: {{ member.SAL}} 
               </p>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -74,16 +85,19 @@ layout: default
 
   let names = document.getElementsByClassName('name');
   let status = document.getElementsByClassName('status');
-  console.log(status)
+  let latestChanges = document.getElementsByClassName('latestChange');
+  console.log(status);
+  moment.locale('sv');
 
-  setInterval(() => {
+  function updateDisplayedInfo(names, status, latestChanges) {
     $.getJSON('https://narvaro.ntig.net/api/get/users', function(data) {
       for (let i = 0; i < data.length; i++) {
         for (let x = 0; x < names.length; x++) {
           if (data[i].name == names[x].innerHTML) {
+            latestChanges[x].innerHTML = 'Uppdaterad ' + moment(data[i].latest_change).fromNow();
             if (data[i].status == true) {
               status[x].innerHTML = '&bull; Tillgänglig';
-              status[x].style.color = "green"
+              status[x].style.color = "#52FF42"
             } else {
               status[x].innerHTML = '&bull; Inte tillgänglig'
               status[x].style.color = "red"
@@ -92,5 +106,10 @@ layout: default
         }
       }
     });
-  }, 5000);
+  }
+  
+  updateDisplayedInfo(names, status, latestChanges);
+  setInterval(() => {
+    updateDisplayedInfo(names, status, latestChanges);
+  }, 60000);
 </script>
