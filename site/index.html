@@ -36,8 +36,9 @@ layout: default
           </div>
           <div class="grid-item-information">
             <div class="info">
-              <h1>{{ member.NAMN }}</h1>
+              <h1 class="name">{{ member.NAMN }}</h1>
               <p id="role">{{ member.ARBETSROLL }}</p>
+              <p class="status"></p>
             </div>
             <div class="info">
               <p>
@@ -70,4 +71,26 @@ layout: default
   $('.carousel').carousel({
     pause: "false"
   });
+
+  let names = document.getElementsByClassName('name');
+  let status = document.getElementsByClassName('status');
+  console.log(status)
+
+  setInterval(() => {
+    $.getJSON('https://narvaro.ntig.net/api/get/users', function(data) {
+      for (let i = 0; i < data.length; i++) {
+        for (let x = 0; x < names.length; x++) {
+          if (data[i].name == names[x].innerHTML) {
+            if (data[i].status == true) {
+              status[x].innerHTML = '&bull; Tillgänglig';
+              status[x].style.color = "green"
+            } else {
+              status[x].innerHTML = '&bull; Inte tillgänglig'
+              status[x].style.color = "red"
+            }
+          }
+        }
+      }
+    });
+  }, 5000);
 </script>
