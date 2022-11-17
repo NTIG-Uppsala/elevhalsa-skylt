@@ -2,7 +2,7 @@
 Begin by cloning this repo to your computer. 
 After that you will need to install the requirements installed.
 
-1. Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/)
+1. Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/).
 
 2. Now install the required dependencies which is python for your OS.
 
@@ -13,12 +13,12 @@ sudo apt install python3 python3-pip xdotool
 
 Windows: 
 ```
-Follow this link https://www.python.org/downloads/ and download the latest version of python 
+Follow this link https://www.python.org/downloads/ and download the latest version of python
 
 Make sure to mark Add to PATH while installing python
 ```
 
-3. After installing the required dependencies for your OS. Run the following code in your CMD while you are in python folder. 
+3. After installing the required dependencies for your OS, run the following code in your CMD while you are in python folder:
 ```
 cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
 
@@ -28,7 +28,7 @@ pip3 install -r requirements.txt
 # Raspberry Pi
 
 ```
-These steps are already done so you dont have to do them unless you are starting from scrtach, so to say starting with a new Rasberry
+These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Rasberry
 
 Tool and OS that are necessary:
 
@@ -57,7 +57,7 @@ Tutorial for NOOBS installation:
 1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
     ```
     Run the following code to get the IP adress : hostname -I 
-    IP adress = 192.168.203.25
+    IP adress = 192.168.203.118
     ```
 2. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
     ```
@@ -69,53 +69,57 @@ Tutorial for NOOBS installation:
 
 ### Configuration
 
-To change the resolution of the Raspberry outputs navigate to settings>screen configuration>configure>screens>HTMI-X>resolution>your desired resolution
+To change the resolution of the Raspberry outputs navigate to settings>screen configuration>configure>screens>HTMI-X>resolution>your desired resolution.
 
 To start Configuring your Raspberry Pi 4 Model B, Create a directory named "Git" in your Rasberry file manager /home/pi/. 
 
 
-Change active directory to the Git directory with the command 
+Change active directory to the Git directory with the command:
 
-    "cd /home/pi/Git"
-and then clone the git repostitory with the command
+    cd /home/pi/Git
+and then clone the git repostitory with the command:
 
-    "git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt"
-Change active directory to elevhalsa-skylt using the command
+    git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
+Change active directory to elevhalsa-skylt using the command:
 
-    "cd /home/pi/git/elevhalsa-skylt/"
+    cd /home/pi/git/elevhalsa-skylt/
     
 ***
 ### New Repostitory
 
 If you create a new repostitory and clone it then you need to modify tow files in the rasberry which are: 
 
-1. autostart : This file builds the site using jekyll and opne the chromium browser and show the websiete in fullscreen
-- Write the following code to open it "sudo nano /etc/xdg/lxsession/LXDE-pi/autostart "
-- Change the path from the old repostitory folder to the new one you cloned
+1. autostart : This file builds the site using jekyll and open the chromium browser and show the website in fullscreen.
+- Write the following code to open it:
 
-2. crontab -e: This file re-upload the site vid midnight 
-- Write the files name (crontab -e) in the CLI to open it
-- Change the path from the old repostitory folder to the new one you cloned
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+- Change the path from the old repostitory folder to the new one you cloned.
+
+2. crontab -e: This file re-uploads the site at midnight.
+- Write the file's name (crontab -e) in the CLI to open it.
+- Change the path from the old repostitory folder to the new one you cloned.
 
 ***
 ### Change active display times
-        1. Open the Command Line Interface and enter the following command:
-                crontab -e
+1. Open the Command Line Interface and enter the following command:
 
-        2. Type 1 to choose nano as your editor
-        3. Go to the bottom of the opened document and type in the following commands:
-                * * * * * sudo vcgencmd display_power 0
-                * * * * * sudo reboot
-                
-                asterisk 1 = minutes (from 0 to 59)
-                asterisk 2 = hours (from 0 to 24)
-                asterisk 3 = day of month (from 1 to 31)
-                asterisk 4 = month (from 1 to 12)
-                asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
-                
-                example: 0 10 * * * sudo vcgencmd display_power 0
-                         5 10 * * * sudo reboot
-                         this will turn of HDMI output at 10:00 and start it agian at 10:05
+        crontab -e
+
+2. Type 1 to choose nano as your editor.
+3. Go to the bottom of the opened document and type in the following commands:
+
+        * * * * * sudo vcgencmd display_power 0
+        * * * * * sudo reboot
+        
+        asterisk 1 = minutes (from 0 to 59)
+        asterisk 2 = hours (from 0 to 24)
+        asterisk 3 = day of month (from 1 to 31)
+        asterisk 4 = month (from 1 to 12)
+        asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+        
+        example: 0 10 * * * sudo vcgencmd display_power 0
+                    5 10 * * * sudo reboot
+    This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 ***    
 
@@ -125,44 +129,49 @@ If you create a new repostitory and clone it then you need to modify tow files i
     Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt -->
 
 ### Create shortcut
-        1. Open the Command Line Interface and enter the following command:
-                sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
-
-        2. Find the <keyboard></keyboard> tags and add the following text between the tags
+1. Open the Command Line Interface and enter the following command:
         
-               <keybind key="">
-                  <action name="Execute">
-                     <command>
-                     </command>
-                  </action>
-                </keybind>
-                
-        3. Add the shortcut in the <keybind> tag and command you want to run between the <command></command> tags
+        sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
 
-               Example for running a bash script when Ctrl+F11 is pressed:
+2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
 
-               <keybind key="C-F11">
-                  <action name="Execute">
-                     <command>
-                         bash ~/shortcut/close
-                     </command>
-                  </action>
-                </keybind>
+        <keybind key="">
+            <action name="Execute">
+                <command>
+                </command>
+            </action>
+        </keybind>
+        
+3. Add the shortcut in the `<keybind>` tag and command you want to run between the `<command></command>` tags
 
-                C - stands for control
-                A - stands for alt
-                S - stands for shift 
-            
+    Example for running a bash script when Ctrl+F11 is pressed:
+
+        <keybind key="C-F11">
+            <action name="Execute">
+                <command>
+                    bash ~/shortcut/close
+                </command>
+            </action>
+        </keybind>
+
+    C - stands for control
+
+    A - stands for alt
+
+    S - stands for shift 
+    
 ***            
 ### Disable Black Border around Screen
-        1. Open the Command Line Interface and type the following command:
-                sudo nano /boot/config.txt
-        2. Find the disable_overscan line and change it to:
-                disable_overscan=1
+1. Open the Command Line Interface and type the following command:
+
+        sudo nano /boot/config.txt
+2. Find the disable_overscan line and change it to:
+
+        disable_overscan=1
 
 ***
 ### Remove Chromium offer to Translate Page
-        1.  Open Chromium browser
+        1. Open Chromium browser
         2. Go to Settings --> Advanced Settings --> Language
         3. Untick Offer to Translate Page checkbox
         4. Exit Browser 
@@ -170,13 +179,22 @@ If you create a new repostitory and clone it then you need to modify tow files i
 ***
 ### Browser autostart:
 
-		1. Open the Command Line Interface and type in the following command:
-                sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-		2. Add the following lines at the bottom:
-			python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py &
-			jekyll serve -s /home/pi/Git/elevhalsa-digital-skylt/site
-                	chromium-browser --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
+1. Open the Command Line Interface and type in the following command:
+               
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+2. Add the following lines at the bottom:
+	
+        python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py
+        chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
+- `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
 
+3. Open the Command Line Interface and type in the following command:
+
+        nano /home/pi/.bashrc
+4. Add the following lines at the bottom:
+
+        jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
+- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
 ***
 ### Remove Cursor:
 
@@ -195,56 +213,64 @@ If you create a new repostitory and clone it then you need to modify tow files i
 ***
 ### Remove Screensaver:
 
-		1. Open Command Line Interface and type in the following command:
-                sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-		2. Comment out @xscreensaver -no-splash using a hashtag at the beginning of that line.
-		3. Then add this line:
-                @xset s off
-		4. Save and exit.
+1. Open Command Line Interface and type in the following command:
+
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+2. Comment out `@xscreensaver -no-splash` using a hashtag at the beginning of that line.
+3. Then add this line:
+        
+        @xset s off
+4. Save and exit.
 
 ***
 ### Disable Raspberry Pi sleep mode
 
-        1. Open the Command Line Interface and type in the following command:
-                sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-		2. Add the following lines at the bottom:
-                @xset -dpms
-                @xset s noblank
+1. Open the Command Line Interface and type in the following command:
+        
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+2. Add the following lines at the bottom:
+        
+        @xset -dpms
+        @xset s noblank
 
 ***
 ### Remove Raspberry Icons:
-		1. Open Command Line Interface and type in the following command:
-                sudo nano /boot/cmdline.txt
-		2. In the editor, at the end of the line add:
-                logo.nologo
+1. Open Command Line Interface and type in the following command:
+        
+        sudo nano /boot/cmdline.txt
+2. In the editor, at the end of the line add:
+        
+        logo.nologo
 
 ***
 ### Replace Boot Image:
 
-		1. Open Command Line Interface and type in the following command:
-                sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
+1. Open Command Line Interface and type in the following command:
+       
+        sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
 ### Change Background Image:
 
-		1. Right-click on desktop and select desktop preferences.  
-		2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
-        3. Navigate to /home/pi/my_splash.png and press open and then press ok.  
+1. Right-click on desktop and select desktop preferences.  
+2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
+3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
 
 ***
-<!-- ### Remote Update Script:
 
-	To link the python file so it will run when you boot the Raspberry pi and continue to run follow these steps:
-		1. Open the Command Line Interface and write the following command:
-                sudo nano /etc/profile
-		2. Add the following line at the bottom:
-             python3 /home/pi/Git/elevhalsa-digital-skylt/download_data.py &
-
-*** -->
 ### Enable Remote Control:
-	To be able to control your raspberry's graphical interface remotely, follow these steps.
-		1. Open the Command Line Interface and enter the following commands:
-				sudo apt-get update
-				sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
-		2. Write the command sudo raspi-config
-		3. Navigate to Interfacing Options and enable Vnc
+To be able to control your raspberry's graphical interface remotely, follow these steps.
+1. Open the Command Line Interface and enter the following commands:
+       
+        sudo apt-get update
+        sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+2. Write this command: 
+    
+        sudo raspi-config
+3. Navigate to Interfacing Options and enable VNC
+
+
+<!-- 
+don't forget that
+images must be jpg
+ -->

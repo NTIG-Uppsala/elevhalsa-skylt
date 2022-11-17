@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 import subprocess, time
 import pathlib
+import datetime
+
+updateHour = datetime.datetime.now().hour 
+updateMinute = datetime.datetime.now().minute
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
 while True:
-    subprocess.call(["python3", f"{PATH}/get_csv.py"])
     subprocess.call(["python3", f"{PATH}/get_images.py"])
+    subprocess.call(["python3", f"{PATH}/get_csv.py"])
     time.sleep(5)

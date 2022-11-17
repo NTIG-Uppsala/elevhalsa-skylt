@@ -28,12 +28,10 @@
 + HTML5
 + CSS3
 + Python3
-+ JavaScript
 
 ## Frameworks
 + Bootstrap 4
 + FontAwesome 5
-+ Selenium (for testing)
 + JQuery 3
 
 ## Static Site Generator
@@ -52,12 +50,7 @@
 
 # How To Change The Information Currently Displayed
 
-While it is not yet fully implemented, changing the information that is displayed on the monitor will be done by changing the information in [this google spreadsheet](https://docs.google.com/spreadsheets/d/1k0qCUQbKvipCa8dhFcFjccRAWVGSeYF_MJwcu1Fy5Ls/edit#gid=0). Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
-
-# Google Sheets scripts
-We use google app scripts for features in the google sheet like clearing cells. 
-
-The code is located in the google sheet and you can get access to it by opening the google sheet then clicking on [here](https://script.google.com/home/projects/1c5J7N0NKxksbroY-7yF8C70GwPLrWV0PCNjsZh6oDb6qIBdpQldNQKxp/edit) or by clicking on Verktyg then Skriptredigerare
+Changing the information that is displayed on the monitor will be done by changing the information in [this google spreadsheet](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs/edit#gid=0). Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
 
 # Copyright
 

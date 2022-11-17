@@ -3,97 +3,35 @@ import subprocess
 import wget, os, openpyxl, pathlib
 from openpyxl_image_loader import SheetImageLoader
 from PIL import Image, ImageChops
+import time
+import datetime
+
+updateTime = datetime.datetime.now().strftime('%H:%M')
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
 img_path = f"{PATH}/site/assets/img"
-avatar_img_path = img_path + "/avatar.png"
-profile_img_path = img_path + "/Profile/{}.png"
+avatar_img_path = img_path + "/avatar.jpg"
+profile_img_path = img_path + "/Profile/{}.jpg"
 
-# Function to calculate if the images are the same
-# https://stackoverflow.com/questions/1927660/compare-two-images-the-python-linux-way/6204954#6204954
-def img_equal(img1, img2):
-    return ImageChops.difference(img1.convert("RGBA"), img2.convert("RGBA")).getbbox() is None
+filename = wget.download("https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs/export?format=xlsx")
+pxl_doc = openpyxl.load_workbook(filename)
 
-def has_changed(sheet, should_save=True):
-    """
-    This function checks if the images have changed.
-    Parameters:
-    sheet (Worksheet): Excel worksheet to check.
-    should_save (bool): Whether or not to save new images if changed.
-    Returns:
-    
-    bool: Whether or not any image has changed.
-    """
-
-    # Clear _images because the variable is stored as a class variable instead of an instance variable
-    SheetImageLoader._images = {}
+def has_changed(sheet):
 
     image_loader = SheetImageLoader(sheet)
-
     changed = False
 
     for row in range(2, sheet.max_row + 1):
-        if(sheet["A" + str(row)].value != None):
-            image_filename = sheet["K" + str(row)].value
-            image_path = profile_img_path.format(image_filename)
-
-            # Checks if the cell does not contain an image
-            if not image_loader.image_in("I" + str(row)):
-                image = Image.open(avatar_img_path)
-
-                try:
-                    # Saves avatar image as profile image if it isn't already in use
-                    with Image.open(image_path) as old_image:
-                        if (not img_equal(image, old_image)):
-                            if (should_save):
-                                image.save(image_path)
-                            changed = True
-
-                # Runs if there was no existing image file
-                except IOError:
-                    if (should_save):
-                        image.save(image_path)
-                    changed = True
-
-            # Runs if the cell contains an image
-            else:
-                image = image_loader.get("I" + str(row))
-                
-                try:
-                    old_image = Image.open(image_path)
-
-                    # Checks if the images are different
-                    if not img_equal(image, old_image):
-                        # Saves new image as profile image
-                        if (should_save):
-                            image.save(image_path)
-                        changed = True
-
-                # Runs if there was no existing image file
-                except IOError:
-                    # Saves new image as profile image
-                    if (should_save):
-                        image.save(image_path)
-                    changed = True
-    return changed
-
-def get_images(url):
-    print("DOWNLOADING EXCEL FILE")
-    filename = wget.download(url)
-
-    pxl_doc = openpyxl.load_workbook(filename)
-
-    refresh = False
-
-    # Sets refresh to True if any of the images have changed
-
-    refresh = has_changed(pxl_doc["NTI"]) or refresh
-
-    os.remove(filename)
-
-    if refresh:
-        subprocess.run(["xdotool", "key", "F5"])
+        image_filename = sheet["K" + str(row)].value
+        image_path = profile_img_path.format(image_filename)
+        image = image_loader.get("I" + str(row))
+        image.save(image_path)
+        changed = True
+        return changed
 
 if __name__ == "__main__":
-    get_images("https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs/export?format=xlsx")
+    if updateTime == "17:00":
+        has_changed(pxl_doc["NTI"])
+        subprocess.run(["xdotool", "key", "F5"])
+        time.sleep(60)
