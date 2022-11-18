@@ -11,12 +11,10 @@ Linux:
 sudo apt install python3 python3-pip xdotool
 ```
 
-Windows: 
-```
-Follow this link https://www.python.org/downloads/ and download the latest version of python
+If needed on Windows:
 
+Follow this link `https://www.python.org/downloads/` and download the latest version of python.
 Make sure to mark Add to PATH while installing python
-```
 
 3. After installing the required dependencies for your OS, run the following code in your CMD while you are in python folder:
 ```
@@ -27,8 +25,7 @@ pip3 install -r requirements.txt
 
 # Raspberry Pi
 
-```
-These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Rasberry
+These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Raspberry Pi
 
 Tool and OS that are necessary:
 
@@ -36,15 +33,15 @@ SD formatting tool https://www.sdcard.org/downloads/formatter/eula_windows/
 NOOBS OS https://www.raspberrypi.org/downloads/noobs/
 
 Tutorial for NOOBS installation:
-	1. Install SD card formating tool
-	2. Insert SD card in computer
-	3. Format SD card with installed tool	
-	4. Download NOOBS from raspberry website
-	5. Unzip and transfer NOOBS directory content to SD card boot folder
-	6. Plug in SD card into raspberry pi and connect to a Wi-Fi
-	7. After connecting select Raspian and select install
-	8. Follow install wizard to install Raspian on SD card
-```
+1. Install SD card formatting tool
+2. Insert SD card in computer
+3. Format SD card with installed tool	
+4. Download NOOBS from Raspberry's website
+5. Unzip and transfer NOOBS directory content to SD card boot folder
+6. Plug in SD card into Raspberry Pi and connect to a Wi-Fi
+7. After connecting select Raspbian and select install
+8. Follow install wizard to install Raspbian on SD card
+
 ***
 
 ## How to Remote Control Raspberry Pi
@@ -53,52 +50,77 @@ Tutorial for NOOBS installation:
 1. Go to https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
     
-### Connect to the Raspberry Pi 
-1. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
-    ```
-    Run the following code to get the IP adress : hostname -I 
-    IP adress = 192.168.203.118
-    ```
-2. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
-    ```
-    username: pi  
-    password: 9IHad98i32K
-    ```
+### Remote control the Raspberry Pi
+1. On the Pi, run the following code to get the IP adress:
+```
+hostname -I 
+```
+2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials. 
+3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
+
+***
+### Enable Remote Control:
+To be able to control your raspberry's graphical interface remotely, follow these steps.
+1. Open the Command Line Interface and enter the following commands:
+       
+        sudo apt-get update
+        sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+2. Write this command: 
+    
+        sudo raspi-config
+3. Navigate to Interfacing Options and enable VNC
 
 ***
 
 ### Configuration
 
-To change the resolution of the Raspberry outputs navigate to settings>screen configuration>configure>screens>HTMI-X>resolution>your desired resolution.
+To change the resolution of the raspberry outputs navigate to settings > screen configuration > configure > screens > HTMI-X > resolution > your desired resolution.
 
-To start Configuring your Raspberry Pi 4 Model B, Create a directory named "Git" in your Rasberry file manager /home/pi/. 
-
+To start configuring your Raspberry Pi, create a directory named "Git" in your Raspberry file manager /home/pi/.
 
 Change active directory to the Git directory with the command:
 
-    cd /home/pi/Git
-and then clone the git repostitory with the command:
+	cd /home/pi/Git
+and then clone the git repository with the command:
 
-    git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
+   	git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 Change active directory to elevhalsa-skylt using the command:
 
-    cd /home/pi/git/elevhalsa-skylt/
+    	cd /home/pi/git/elevhalsa-skylt/
     
 ***
-### New Repostitory
+### New Repository
 
-If you create a new repostitory and clone it then you need to modify tow files in the rasberry which are: 
+If you create a new repository and clone it, you need to modify two files in the raspberry: 
 
-1. autostart : This file builds the site using jekyll and open the chromium browser and show the website in fullscreen.
+1. autostart: This file builds the site using jekyll and opens the chromium browser and shows the website in fullscreen.
 - Write the following code to open it:
 
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-- Change the path from the old repostitory folder to the new one you cloned.
+- Change the path from the old repository folder to the new one you cloned.
 
 2. crontab -e: This file re-uploads the site at midnight.
 - Write the file's name (crontab -e) in the CLI to open it.
-- Change the path from the old repostitory folder to the new one you cloned.
+- Change the path from the old repository folder to the new one you cloned.
+***
+### Browser autostart:
 
+1. Open the Command Line Interface and type in the following command:
+               
+        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+2. Add the following lines at the bottom:
+	
+        python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py
+        chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
+- `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
+
+3. Open the Command Line Interface and type in the following command:
+
+        nano /home/pi/.bashrc
+4. Add the following lines at the bottom:
+
+        jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
+- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
 ***
 ### Change active display times
 1. Open the Command Line Interface and enter the following command:
@@ -171,44 +193,28 @@ If you create a new repostitory and clone it then you need to modify tow files i
 
 ***
 ### Remove Chromium offer to Translate Page
-        1. Open Chromium browser
-        2. Go to Settings --> Advanced Settings --> Language
-        3. Untick Offer to Translate Page checkbox
-        4. Exit Browser 
+1. Open Chromium browser
+2. Go to Settings > Advanced Settings > Language
+3. Untick Offer to Translate Page checkbox
+4. Exit Browser 
 
-***
-### Browser autostart:
-
-1. Open the Command Line Interface and type in the following command:
-               
-        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-2. Add the following lines at the bottom:
-	
-        python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py
-        chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
-- `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
-
-3. Open the Command Line Interface and type in the following command:
-
-        nano /home/pi/.bashrc
-4. Add the following lines at the bottom:
-
-        jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
-- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
 ***
 ### Remove Cursor:
 
-		1. Open Command Line Interface and type in the following commands:
-                sudo apt-get install unclutter
-                sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-		2. Add the following line at the bottom:
-                @unclutter -idle 3
-
+1. Open Command Line Interface and type in the following commands:
+	```
+	sudo apt-get install unclutter
+	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+	```
+2. Add the following line at the bottom:
+	```
+	@unclutter -idle 3
+	```
 ***
 ### Hide Taskbar:
 
-		1. Right-click on the taskbar and select "Panel Settings"
-		2. Click on the "Advanced" tab, and check "Minimize panel when not in use"
+1. Right-click on the taskbar and select `Panel Settings`
+2. Click on the `Advanced` tab, and check `Minimize panel when not in use`
 
 ***
 ### Remove Screensaver:
@@ -257,17 +263,6 @@ If you create a new repostitory and clone it then you need to modify tow files i
 3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
 
 ***
-
-### Enable Remote Control:
-To be able to control your raspberry's graphical interface remotely, follow these steps.
-1. Open the Command Line Interface and enter the following commands:
-       
-        sudo apt-get update
-        sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
-2. Write this command: 
-    
-        sudo raspi-config
-3. Navigate to Interfacing Options and enable VNC
 
 
 <!-- 
