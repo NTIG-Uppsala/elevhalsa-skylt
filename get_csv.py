@@ -11,8 +11,9 @@ import time
 scope = ['https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive"]
 
+# TODO file path might not work on raspberry pi
 # Finds the json file with credentials for the service account, and authorizes the service account to gspread
-credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/pi/Git/elevhalsa-skylt/client_login.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('client_login.json', scope)
 client = gspread.authorize(credentials)
 
 # Opens the spreadsheet containing data and gets all the values from the first index (page) of the spreadsheet
@@ -20,7 +21,8 @@ sh = client.open_by_key("1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs")
 rows = sh.get_worksheet(0).get_all_values()
 
 # Opens the current csv file with data, then reads and saves every row in a list
-with open("/home/pi/Git/elevhalsa-skylt/site/_data/stored_data.csv", 'r', encoding="utf-8") as r:
+# TODO file path might not work on raspberry pi
+with open("site/_data/stored_data.csv", 'r', encoding="utf-8") as r:
     currentSheet = []
     csvreader = csv.reader(r)
     for row in csvreader:
@@ -29,7 +31,8 @@ with open("/home/pi/Git/elevhalsa-skylt/site/_data/stored_data.csv", 'r', encodi
 # Compares currently saved csv data with the data on the spreadsheet, and updates it if changes has been made
 if currentSheet != rows:
     print("Data changed, updating...")
-    with open("/home/pi/Git/elevhalsa-skylt/site/_data/stored_data.csv", "w", encoding="utf-8") as f:
+# TODO file path might not work on raspberry pi
+    with open("site/_data/stored_data.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
