@@ -20,7 +20,11 @@ Make sure to mark Add to PATH while installing python
 ```
 cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
 
-py -m pip install -r requirements.txt
+py -m pip install -r requirements.txt (For Windows)
+
+or
+
+pip install -r requirements.txt (For Linux)
 ```
 
 # Raspberry Pi
