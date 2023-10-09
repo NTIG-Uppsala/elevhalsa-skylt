@@ -16,11 +16,11 @@ If needed on Windows:
 Follow this link `https://www.python.org/downloads/` and download the latest version of python.
 Make sure to mark Add to PATH while installing python
 
-3. After installing the required dependencies for your OS, run the following code in your CMD while you are in python folder:
+3. After installing the required dependencies for your OS, run the following code in your CMD while you are in the project folder:
 ```
 cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
 
-pip3 install -r requirements.txt
+py -m pip install -r requirements.txt
 ```
 
 # Raspberry Pi
