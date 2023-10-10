@@ -273,3 +273,12 @@ If you create a new repository and clone it, you need to modify two files in the
 3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
 
 ***
+
+# Hardware used
+## Screen
+- Name: Voxicon VXM232HD
+- Size: 32 inches
+- Resolution: 1360 x 768
+- Touch screen: No
+- Number of HDMI-ports: 2
+## Raspberry Pi 4 Model B Rev 1.2
