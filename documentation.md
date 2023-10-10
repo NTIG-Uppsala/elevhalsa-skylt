@@ -16,7 +16,7 @@ If needed on Windows:
 Follow this link `https://www.python.org/downloads/` and download the latest version of python.
 Make sure to mark Add to PATH while installing python
 
-3. After installing the required dependencies for your OS, run the following code in your CMD while you are in the project folder:
+3. After installing the required dependencies for your OS, install the requirements by running the following code in your CMD while you are in the project folder:
 ```
 cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
 
