@@ -1,4 +1,4 @@
-# Setup/Installing dependencies
+# Set up development environment
 
 ## Step 1 - install WSL Ubuntu
 

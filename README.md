@@ -1,6 +1,6 @@
 # Student Health Monitor
 
-[Raspberry Pi Documentation](https://github.com/NTIG-Uppsala/elevhalsa-skylt/blob/master/documentation.md)
+[Raspberry Pi Documentation](documentation.md#raspberry-pi)
 
 ***
 
@@ -31,6 +31,8 @@
 + [w3schools JavaScript Style Guide](https://www.w3schools.com/js/js_conventions.asp) For JavaScript
 
 # Development Environment
+[How to set up a development environment](documentation.md#set-up-development-environment)
+<br><br>
 **Editor** - Visual Studio Code <br>
 Extension: Remote - SSH <br><br>
 **Version Control Host** - GitHub <br><br>
@@ -44,4 +46,5 @@ Extension: Remote - SSH <br><br>
 
 # How To Change The Information Currently Displayed
 
-Changing the information that is displayed on the monitor will be done by changing the information in a google spreadsheet. Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
+# How To Change The Information Currently Displayed
+Changing the information that is displayed on the monitor will be done by changing the information in [this](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs) google spreadsheet. Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
