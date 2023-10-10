@@ -159,11 +159,6 @@ If you create a new repository and clone it, you need to modify two files in the
 
 ***    
 
-<!-- ## Custom Shortcuts
-
-    Ctrl + F11 : disables HDMI output and closes all chromium instances
-    Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt -->
-
 ## Create shortcut
 1. Open the Command Line Interface and enter the following command:
         
@@ -197,6 +192,7 @@ If you create a new repository and clone it, you need to modify two files in the
     S - stands for shift 
     
 ***            
+
 ## Disable Black Border around Screen
 1. Open the Command Line Interface and type the following command:
 
@@ -277,9 +273,3 @@ If you create a new repository and clone it, you need to modify two files in the
 3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
 
 ***
-
-
-<!-- 
-don't forget that
-images must be jpg
- -->
