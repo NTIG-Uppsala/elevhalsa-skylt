@@ -36,15 +36,15 @@
 **Editor** - Visual Studio Code <br>
 Extension: Remote - SSH <br><br>
 **Version Control Host** - GitHub <br><br>
-**OS** - Windows 10 <br><br>
-**Documentation** - English <br>
+**OS** - Windows 10 <br>
 
-### Keeping the repo up to date in the Raspberry Pi: 
+## Keeping the repo up to date in the Raspberry Pi: 
 + Code locally, either on a development Raspberry Pi or on your personal computer
 + Push to the Github repo
 + Pull from the main Raspberry Pi
 
-# How To Change The Information Currently Displayed
+# Documentation
+The documentation should be written in english
 
 # How To Change The Information Currently Displayed
 Changing the information that is displayed on the monitor will be done by changing the information in [this](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs) google spreadsheet. Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
