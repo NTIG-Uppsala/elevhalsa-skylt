@@ -17,14 +17,13 @@
 + CSS3
 + Python3
 + JavaScript V8
-+ Ruby 2.7.4
 
 ## Frameworks
 + Bootstrap 3.4.1
 + JQuery 3.6.0
 
 ## Static Site Generator
-+ Jekyll 4.2.2
++ Jekyll 4.3.2 (Installed on Ruby 3.0.2)
 
 ## Coding Conventions
 + [pep8](https://peps.python.org/pep-0008/) For Python 
