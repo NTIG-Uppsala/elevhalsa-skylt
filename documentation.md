@@ -1,31 +1,41 @@
 # Setup/Installing dependencies
-Begin by cloning this repo to your computer. 
-After that you will need to install the requirements installed.
 
-1. Jekyll: Install jekyll (if you dont have it installed already) following this [guide](https://jekyllrb.com/docs/installation/).
+## Step 1 - install WSL Ubuntu
 
-2. Now install the required dependencies which is python for your OS.
+- Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
 
-Linux:
+- Check the Windows-subsystem box (commonly found at the bottom) and press OK. Windows will prompt a restart and press restart 
+
+- Press (Windows) + R
+
+- write "cmd" and press enter
+
+- write the command: wsl --install (and run it)
+
+- Follow the instructions shown on the screen
+
+
+## Step 2 - install Ruby and jekyll
+
+- Open Visual Studio Code and open the terminal with Ubuntu. The directory should be "elevhalsa-skylt" (the directory for the repo)
+
+**Run the following command in an Ubuntu terminal (WSL)**
 ```
-sudo apt install python3 python3-pip xdotool
+sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to \~/gems' >> \~/.bashrc ; echo 'export GEM\_HOME="$HOME/gems"' >> \~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> \~/.bashrc ; source \~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-If needed on Windows:
+## Step 3 - Running it
 
-Follow this link `https://www.python.org/downloads/` and download the latest version of python.
-Make sure to mark Add to PATH while installing python
+Run the following commands
 
-3. After installing the required dependencies for your OS, install the requirements by running the following code in your CMD while you are in the project folder:
 ```
-cd C:\Users\user.name\AppData\Local\Programs\Python\Python39
+touch ./site/_data/stored_data.csv
 
-py -m pip install -r requirements.txt (For Windows)
+python3 get_csv.py
 
-or
-
-pip install -r requirements.txt (For Linux)
+jekyll serve -s site
 ```
+"jekyll serve -s site" runs the site locally and let's you preview it.
 
 # Raspberry Pi
 
@@ -76,7 +86,7 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 ***
 
-### Configuration
+## Configuration
 
 To change the resolution of the raspberry outputs navigate to settings > screen configuration > configure > screens > HTMI-X > resolution > your desired resolution.
 
@@ -93,7 +103,7 @@ Change active directory to elevhalsa-skylt using the command:
     	cd /home/pi/git/elevhalsa-skylt/
     
 ***
-### New Repository
+## New Repository
 
 If you create a new repository and clone it, you need to modify two files in the raspberry: 
 
@@ -107,14 +117,14 @@ If you create a new repository and clone it, you need to modify two files in the
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
 ***
-### Browser autostart:
+## Browser autostart:
 
 1. Open the Command Line Interface and type in the following command:
                
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
 	
-        python3 /home/pi/Git/elevhalsa-digital-skylt/download-data.py
+        python3 /home/pi/Git/elevhalsa-skylt/download_data.py
         chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
 - `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
 
@@ -126,7 +136,7 @@ If you create a new repository and clone it, you need to modify two files in the
         jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
 - This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
 ***
-### Change active display times
+## Change active display times
 1. Open the Command Line Interface and enter the following command:
 
         crontab -e
@@ -154,7 +164,7 @@ If you create a new repository and clone it, you need to modify two files in the
     Ctrl + F11 : disables HDMI output and closes all chromium instances
     Ctrl + F12 : enables HDMI output and opens the index file in elevhalsa-digital-skylt -->
 
-### Create shortcut
+## Create shortcut
 1. Open the Command Line Interface and enter the following command:
         
         sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
@@ -187,7 +197,7 @@ If you create a new repository and clone it, you need to modify two files in the
     S - stands for shift 
     
 ***            
-### Disable Black Border around Screen
+## Disable Black Border around Screen
 1. Open the Command Line Interface and type the following command:
 
         sudo nano /boot/config.txt
@@ -196,14 +206,14 @@ If you create a new repository and clone it, you need to modify two files in the
         disable_overscan=1
 
 ***
-### Remove Chromium offer to Translate Page
+## Remove Chromium offer to Translate Page
 1. Open Chromium browser
 2. Go to Settings > Advanced Settings > Language
 3. Untick Offer to Translate Page checkbox
 4. Exit Browser 
 
 ***
-### Remove Cursor:
+## Remove Cursor:
 
 1. Open Command Line Interface and type in the following commands:
 	```
@@ -215,13 +225,13 @@ If you create a new repository and clone it, you need to modify two files in the
 	@unclutter -idle 3
 	```
 ***
-### Hide Taskbar:
+## Hide Taskbar:
 
 1. Right-click on the taskbar and select `Panel Settings`
 2. Click on the `Advanced` tab, and check `Minimize panel when not in use`
 
 ***
-### Remove Screensaver:
+## Remove Screensaver:
 
 1. Open Command Line Interface and type in the following command:
 
@@ -233,7 +243,7 @@ If you create a new repository and clone it, you need to modify two files in the
 4. Save and exit.
 
 ***
-### Disable Raspberry Pi sleep mode
+## Disable Raspberry Pi sleep mode
 
 1. Open the Command Line Interface and type in the following command:
         
@@ -244,7 +254,7 @@ If you create a new repository and clone it, you need to modify two files in the
         @xset s noblank
 
 ***
-### Remove Raspberry Icons:
+## Remove Raspberry Icons:
 1. Open Command Line Interface and type in the following command:
         
         sudo nano /boot/cmdline.txt
@@ -253,14 +263,14 @@ If you create a new repository and clone it, you need to modify two files in the
         logo.nologo
 
 ***
-### Replace Boot Image:
+## Replace Boot Image:
 
 1. Open Command Line Interface and type in the following command:
        
         sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
-### Change Background Image:
+## Change Background Image:
 
 1. Right-click on desktop and select desktop preferences.  
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
