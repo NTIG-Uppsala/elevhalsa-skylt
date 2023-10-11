@@ -2,6 +2,7 @@
 from oauth2client.service_account import ServiceAccountCredentials
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
+import os
 import pathlib
 import requests
 
@@ -20,21 +21,18 @@ access_token = credentials.create_delegated(credentials._service_account_email).
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
-res = requests.get(url, headers={"Authorization": "Bearer " + access_token})
+response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
 with open("info.xlsx", 'wb') as file:
-    file.write(res.content)
+    file.write(response.content)
 
-exel_document = openpyxl.load_workbook("info.xlsx")
+exel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
+image_loader = SheetImageLoader(exel_spreadsheet)
 
-def has_changed(sheet):
-    image_loader = SheetImageLoader(sheet)
+for row in range(2, exel_spreadsheet.max_row + 1):
+    image_filename = exel_spreadsheet["K" + str(row)].value
+    image_path = profile_img_path.format(image_filename)
+    image = image_loader.get("I" + str(row))
+    image.save(image_path)
 
-    for row in range(2, sheet.max_row + 1):
-        image_filename = sheet["K" + str(row)].value
-        image_path = profile_img_path.format(image_filename)
-        image = image_loader.get("I" + str(row))
-        image.save(image_path)
-
-if __name__ == "__main__":
-    has_changed(exel_document["NTI"])
+os.remove("info.xlsx")
