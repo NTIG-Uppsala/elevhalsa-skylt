@@ -4,6 +4,8 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+# make sure to have a jekyll server up and running before running the tests
+# (run "jekyll serve -s site" in an Ubuntu terminal)
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
     def setUp(self):
