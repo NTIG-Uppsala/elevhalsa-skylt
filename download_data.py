@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-import subprocess, time
+import subprocess
+import time
 import pathlib
 
 PATH = pathlib.Path(__file__).parent.absolute()
