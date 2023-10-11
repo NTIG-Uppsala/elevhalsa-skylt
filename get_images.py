@@ -6,6 +6,10 @@ import os
 import pathlib
 import requests
 
+import csv
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
 SPREADSHEET_ID = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
 CREDENTIALS_JSON_FILE = "client_login.json"
 
@@ -13,17 +17,25 @@ file_path = pathlib.Path(__file__).parent.absolute()
 img_path = f"{file_path}/site/assets/img"
 profile_img_path = img_path + "/Profile/{}.jpg"
 
-scope = ['https://www.googleapis.com/auth/spreadsheets',
-         "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_JSON_FILE, scope)
+scope = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+]
+credentials = ServiceAccountCredentials.from_json_keyfile_name(
+    CREDENTIALS_JSON_FILE, scope
+)
 # from https://stackoverflow.com/a/69776579
-access_token = credentials.create_delegated(credentials._service_account_email).get_access_token().access_token
+access_token = (
+    credentials.create_delegated(credentials._service_account_email)
+    .get_access_token()
+    .access_token
+)
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
 response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
-with open("info.xlsx", 'wb') as file:
+with open("info.xlsx", "wb") as file:
     file.write(response.content)
 
 exel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
