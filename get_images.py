@@ -2,6 +2,7 @@
 from oauth2client.service_account import ServiceAccountCredentials
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
+import os
 import pathlib
 import requests
 
@@ -33,3 +34,5 @@ for row in range(2, exel_spreadsheet.max_row + 1):
     image_path = profile_img_path.format(image_filename)
     image = image_loader.get("I" + str(row))
     image.save(image_path)
+
+os.remove("info.xlsx")
