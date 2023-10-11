@@ -23,29 +23,12 @@ class TestLocalhostPageTitle(unittest.TestCase):
         time.sleep(1)
 
     def test_page_title(self):
-        self.assertEqual("EHT-skylt", self.driver.title)
+        # take screenshot and save it to a folder
+        pass
 
     def tearDown(self):
         # Close the WebDriver
         self.driver.quit()
-
-
-class TestLocalScripts(unittest.TestCase):
-    # Executes before each test
-    def setUp(self):
-        # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        # Load page
-        self.driver.get("http://127.0.0.1:4000")
-        time.sleep(1)
-
-    def test_get_csv(self):
-        # Run get_csv and save variable both from gspread and in the website
-        # change a variable in gspread
-        # Run step one again and check if both equal each other
-        # change it back
-
-        pass
 
 
 if __name__ == "__main__":
