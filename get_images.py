@@ -1,37 +1,38 @@
 #!/usr/bin/python3
-import subprocess
-import wget, os, openpyxl, pathlib
+from oauth2client.service_account import ServiceAccountCredentials
+import openpyxl
 from openpyxl_image_loader import SheetImageLoader
-from PIL import Image, ImageChops
-import time
-import datetime
+import os
+import pathlib
+import requests
 
-updateTime = datetime.datetime.now().strftime('%H:%M')
+SPREADSHEET_ID = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
+CREDENTIALS_JSON_FILE = "client_login.json"
 
-PATH = pathlib.Path(__file__).parent.absolute()
-
-img_path = f"{PATH}/site/assets/img"
-avatar_img_path = img_path + "/avatar.jpg"
+file_path = pathlib.Path(__file__).parent.absolute()
+img_path = f"{file_path}/site/assets/img"
 profile_img_path = img_path + "/Profile/{}.jpg"
 
-filename = wget.download("https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs/export?format=xlsx")
-pxl_doc = openpyxl.load_workbook(filename)
+scope = ['https://www.googleapis.com/auth/spreadsheets',
+         "https://www.googleapis.com/auth/drive"]
+credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_JSON_FILE, scope)
+# from https://stackoverflow.com/a/69776579
+access_token = credentials.create_delegated(credentials._service_account_email).get_access_token().access_token
+# MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
+mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
+response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
-def has_changed(sheet):
+with open("info.xlsx", 'wb') as file:
+    file.write(response.content)
 
-    image_loader = SheetImageLoader(sheet)
-    changed = False
+exel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
+image_loader = SheetImageLoader(exel_spreadsheet)
 
-    for row in range(2, sheet.max_row + 1):
-        image_filename = sheet["K" + str(row)].value
-        image_path = profile_img_path.format(image_filename)
-        image = image_loader.get("I" + str(row))
-        image.save(image_path)
-        changed = True
-        return changed
+for row in range(2, exel_spreadsheet.max_row + 1):
+    image_filename = exel_spreadsheet["K" + str(row)].value
+    image_path = profile_img_path.format(image_filename)
+    image = image_loader.get("I" + str(row))
+    image.save(image_path)
 
-if __name__ == "__main__":
-    if updateTime == "17:00":
-        has_changed(pxl_doc["NTI"])
-        subprocess.run(["xdotool", "key", "F5"])
-        time.sleep(60)
+os.remove("info.xlsx")

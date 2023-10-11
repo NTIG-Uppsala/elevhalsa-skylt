@@ -1,10 +1,6 @@
-#!/usr/bin/python3
-import subprocess, time
+import subprocess
+import time
 import pathlib
-import datetime
-
-updateHour = datetime.datetime.now().hour 
-updateMinute = datetime.datetime.now().minute
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
