@@ -54,25 +54,13 @@ class TestLocalScripts(unittest.TestCase):
         self.helper_check_name(4, "Angelica Wadström")
 
     def test_get_images(self):
-        # List all files in the folder
-        folder_path = "site/assets"
-
+        subprocess.call(["python", "get_images.py"])
+        folder_path = "site/assets/img/Profile"
         files = os.listdir(folder_path)
 
-        # Filter for files with the .jpg extension
-        jpg_files = [file for file in files if file.lower().endswith(".jpg")]
-
-        for jpg_file in jpg_files:
-            file_path = os.path.join(folder_path, jpg_file)
-
-            try:
-                # Try to open the image with Pillow to check if it's a valid JPEG
-                img = Image.open(file_path)
-                print(f"Valid JPEG: {jpg_file}")
-                img.close()
-            except Exception as e:
-                print(f"Invalid JPEG: {jpg_file} - {e}")
-        pass
+        for file in files:
+            if not file.endswith(".gitkeep") and not file.endswith(".jpg"):
+                self.fail("There images in other formats than jpg")
 
     def tearDown(self):
         # Close the WebDriver
