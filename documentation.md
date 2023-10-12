@@ -117,14 +117,14 @@ If you create a new repository and clone it, you need to modify two files in the
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
 ***
-## Browser autostart:
+## Autostart:
 
 1. Open the Command Line Interface and type in the following command:
                
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
 	
-        @bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
+        bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
 
 3. Open the Command Line Interface and type in the following command:
 
@@ -132,7 +132,7 @@ If you create a new repository and clone it, you need to modify two files in the
 4. Add the following lines at the bottom:
 
         jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
-- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
+- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts. This line is placed here and not in on_startup.sh because it does not work when placed in on_startup.sh.
 ***
 ## Change active display times
 1. Open the Command Line Interface and enter the following command:
