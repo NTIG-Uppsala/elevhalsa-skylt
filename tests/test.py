@@ -5,10 +5,6 @@ import subprocess
 from selenium import webdriver
 
 
-# make sure to have a jekyll server up and running before running the tests
-# (run "jekyll serve -s site" in an Ubuntu terminal while in the repo directory)
-
-
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
     def setUp(self):

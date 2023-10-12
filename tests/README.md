@@ -1,6 +1,8 @@
 # Tests
 ## Info
-Be sure to have oauth2client installed via pip if you are using unittest in Visual Studio Code.
+- Be sure to have oauth2client installed via pip if you are using unittest in Visual Studio Code. otherwise the code will crash.
 
-    py -m pip install oauth2client
- otherwise the code will crash.
+        py -m pip install oauth2client
+- And be sure to have a jekyll server up before starting any test.
+
+        jekyll serve -s site
