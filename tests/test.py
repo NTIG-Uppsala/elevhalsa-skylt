@@ -31,14 +31,13 @@ class TestLocalScripts(unittest.TestCase):
         subprocess.call(["python", "get_csv.py"])
         # Opens the current csv file with data, then reads and saves every row in a list
         with open("site/_data/stored_data.csv", "r", encoding="utf-8") as r:
-            currentSheet = []
+            current_sheet = []
             csvreader = csv.reader(r)
             for row in csvreader:
-                currentSheet.append(row)
-        for item in currentSheet:
-            if item == []:
-                currentSheet.remove(item)
-        return currentSheet
+                current_sheet.append(row)
+        # removes empty lists from currentSheet
+        current_sheet = [item for item in current_sheet if item != []]
+        return current_sheet
 
     def helper_check_name(self, name_number, expected_result):
         sheet = self.helper_get_csv()
