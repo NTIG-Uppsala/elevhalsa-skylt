@@ -1,4 +1,4 @@
-# Student Health Monitor
+# Student Health Staff Monitor
 
 [Raspberry Pi Documentation](documentation.md#raspberry-pi)
 
