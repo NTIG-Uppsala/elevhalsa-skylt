@@ -1,4 +1,11 @@
 # Tests
+## Requirements
+Use the following command to download the libraries needed to use the tests. Use this in a python terminal **NOT in the WSL**
+    
+    py -m pip install (library)
+The libraries needed are:
+- pillow
+- Selenium
 ## Info
 - Be sure to have oauth2client installed via pip if you are using unittest in Visual Studio Code. otherwise the code will crash.
 
