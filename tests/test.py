@@ -45,20 +45,22 @@ class TestLocalScripts(unittest.TestCase):
             csvreader = csv.reader(r)
             for row in csvreader:
                 currentSheet.append(row)
+        for item in currentSheet:
+            if item == []:
+                currentSheet.remove(item)
         return currentSheet
 
     def helper_check_name(self, name_number, expected_result):
         sheet = self.helper_get_csv()
         name = sheet[name_number][0]
 
-        self.driver.get("http://127.0.0.1:4000")
-        time.sleep(1)
-
         self.assertEqual(expected_result, name)
 
-    # Megan is 2, Ulrika,
+    # Name_numbers: Megan, 1, Ulrika, 2, Maud 3.....name, n
     def test_check_name(self):
-        self.helper_check_name(2, "Megan Sundström")
+        self.helper_check_name(1, "Megan Sundström")
+        self.helper_check_name(2, "Ulrika Sahlin Åkerstedt")
+        self.helper_check_name(3, "Maud Enbom")
 
     def tearDown(self):
         # Close the WebDriver
