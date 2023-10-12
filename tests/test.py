@@ -30,7 +30,7 @@ class TestLocalScripts(unittest.TestCase):
         # Load page
 
     def helper_get_csv(self):
-        subprocess.call(["python", "./get_csv.py"])
+        subprocess.call(["python", "get_csv.py"])
         # Opens the current csv file with data, then reads and saves every row in a list
         with open("site/_data/stored_data.csv", "r", encoding="utf-8") as r:
             currentSheet = []
@@ -51,8 +51,9 @@ class TestLocalScripts(unittest.TestCase):
     # Name_numbers: Megan, 1, Ulrika, 2, Maud 3.....name, n
     def test_check_name(self):
         self.helper_check_name(1, "Megan Sundström")
-        self.helper_check_name(2, "Ulrika Sahlin Åkerstedt")
-        self.helper_check_name(3, "Maud Enbom")
+        self.helper_check_name(2, "Maud Enbom")
+        self.helper_check_name(3, "Sarah Hagberg")
+        self.helper_check_name(4, "Angelica Wadström")
 
     def tearDown(self):
         # Close the WebDriver
