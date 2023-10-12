@@ -3,7 +3,6 @@ import time
 import csv
 import subprocess
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 # make sure to have a jekyll server up and running before running the tests
@@ -14,7 +13,7 @@ class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
     def setUp(self):
         # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome()
         # Load page
         self.driver.get("http://127.0.0.1:4000")
         time.sleep(1)
@@ -27,7 +26,7 @@ class TestLocalScripts(unittest.TestCase):
     # Executes before each test
     def setUp(self):
         # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome()
         # Load page
 
     def helper_get_csv(self):
