@@ -124,9 +124,7 @@ If you create a new repository and clone it, you need to modify two files in the
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
 	
-        python3 /home/pi/Git/elevhalsa-skylt/download_data.py
-        chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
-- `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
+        @bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
 
 3. Open the Command Line Interface and type in the following command:
 
