@@ -1,16 +1,9 @@
 import unittest
 import time
+import csv
+import subprocess
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-
-import gspread
-import subprocess
-
-from datetime import datetime
-
-import csv
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 
 # make sure to have a jekyll server up and running before running the tests
