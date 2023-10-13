@@ -117,16 +117,16 @@ If you create a new repository and clone it, you need to modify two files in the
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
 ***
-## Browser autostart:
+## Set Up Autostart:
+Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
+The commands should be run on the Raspberry Pi.
 
 1. Open the Command Line Interface and type in the following command:
-               
+
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
 	
-        python3 /home/pi/Git/elevhalsa-skylt/download_data.py
-        chromium-browser --force-device-scale-factor=0.6 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
-- `"--force-device-scale-factor=0.6"` scales the browser by 60%. Note that this is different from zooming out on the browser.
+        bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
 
 3. Open the Command Line Interface and type in the following command:
 
@@ -134,7 +134,15 @@ If you create a new repository and clone it, you need to modify two files in the
 4. Add the following lines at the bottom:
 
         jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
-- This runs `jekyll serve -s /home/pi/Git/elevhalsa-skylt-site` whenever a terminal starts.
+
+The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
+It is not optimal that it is in `.bashrc `
+because all commands in `.bashrc` are run everytime a new terminal is opened.
+So every time you ssh into the Raspberry Pi it tries to start a jekyll server, but fails because one is already running.
+
+Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
+For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`. 
+
 ***
 ## Change active display times
 1. Open the Command Line Interface and enter the following command:
