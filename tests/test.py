@@ -4,7 +4,7 @@ import time
 import csv
 import subprocess
 from selenium import webdriver
-from PIL import Image
+from selenium.webdriver.common.by import By
 
 
 class TestLocalhostPageTitle(unittest.TestCase):
@@ -60,6 +60,27 @@ class TestLocalScripts(unittest.TestCase):
         for file in files:
             if not file.endswith(".gitkeep") and not file.endswith(".jpg"):
                 self.fail("There images in other formats than jpg")
+
+    def helper_hide_status(self, date):
+        self.driver.get("http://127.0.0.1:4000")
+        time.sleep(2)
+        self.driver.execute_script(
+            "updateDisplayedInfo(names, status, latestChanges, arguments[0]);", date
+        )
+
+        # Find the element with class "status"
+        status_element = self.driver.find_element(By.CLASS_NAME, "status")
+        print(status_element)
+
+        # Get the visibility property of the element
+        visibility = status_element.value_of_css_property("visibility")
+
+        # Check if the visibility is "visible" and fail the test if it is
+        if visibility == "visible":
+            self.fail("class status visible")
+
+    def test_hide_status(self):
+        self.helper_hide_status("2023-10-10T07:13:21.803Z")
 
     def tearDown(self):
         # Close the WebDriver
