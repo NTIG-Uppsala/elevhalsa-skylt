@@ -13,7 +13,6 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-# TODO file path might not work on raspberry pi
 # Finds the json file with credentials for the service account, and authorizes the service account to gspread
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     "client_login.json", scope
@@ -25,7 +24,6 @@ sh = client.open_by_key("1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs")
 rows = sh.get_worksheet(0).get_all_values()
 
 # Opens the current csv file with data, then reads and saves every row in a list
-# TODO file path might not work on raspberry pi
 with open("site/_data/stored_data.csv", "r", encoding="utf-8") as r:
     current_sheet = []
     csvreader = csv.reader(r)
@@ -37,7 +35,6 @@ if current_sheet != rows:
     # removes empty lists from currentSheet
     current_sheet = [item for item in current_sheet if item != []]
     print("Data changed, updating...")
-    # TODO file path might not work on raspberry pi
     with open("site/_data/stored_data.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
