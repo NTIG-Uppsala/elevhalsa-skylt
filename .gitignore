@@ -17,3 +17,4 @@ site/assets/img/Profile/*
 *.xlsx
 .vscode
 tmp
+*.csv
