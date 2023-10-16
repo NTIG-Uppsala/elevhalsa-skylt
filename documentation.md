@@ -10,7 +10,8 @@
 
 - write "cmd" and press enter
 
-- write the command: wsl --install (and run it)
+- write the command: `wsl --install` (and run it)
+  > Try `wsl --install -d Ubuntu` if the command above does not work
 
 - Follow the instructions shown on the screen
 
