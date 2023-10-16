@@ -24,18 +24,30 @@ sh = client.open_by_key("1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs")
 rows = sh.get_worksheet(0).get_all_values()
 
 # Opens the current csv file with data, then reads and saves every row in a list
-with open("site/_data/stored_data.csv", "r", encoding="utf-8") as r:
-    current_sheet = []
-    csvreader = csv.reader(r)
-    for row in csvreader:
-        current_sheet.append(row)
+current_sheet = []
+
+
+def read_csv_file_to_sheet(path, sheet):
+    with open(path, "r", encoding="utf-8") as r:
+        sheet = []
+        csvreader = csv.reader(r)
+        for row in csvreader:
+            sheet.append(row)
+
+
+csv_path = "site/_data/stored_data.csv"
+try:
+    read_csv_file_to_sheet(csv_path, current_sheet)
+except:
+    open(csv_path, "x", encoding="utf-8")
+    read_csv_file_to_sheet(csv_path, current_sheet)
 
 # Compares currently saved csv data with the data on the spreadsheet, and updates it if changes has been made
 if current_sheet != rows:
     # removes empty lists from currentSheet
     current_sheet = [item for item in current_sheet if item != []]
     print("Data changed, updating...")
-    with open("site/_data/stored_data.csv", "w", encoding="utf-8") as f:
+    with open(csv_path, "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
@@ -43,4 +55,7 @@ if current_sheet != rows:
 
     # Refreshes the page after two seconds if change has been found (delay is for syncing reasons)
     time.sleep(2)
-    subprocess.run(["xdotool", "key", "F5"])
+    try:
+        subprocess.run(["xdotool", "key", "F5"])
+    except:
+        print("Error: Ignore this error if you are not in Raspberry pi")

@@ -34,8 +34,6 @@ sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; ec
 Run the following commands separately
 
 ```
-touch ./site/_data/stored_data.csv
-
 python3 get_csv.py
 
 jekyll serve -s site
