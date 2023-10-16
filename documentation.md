@@ -22,7 +22,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 ## Step 3 - install Ruby and jekyll
 
-- Open Visual Studio Code and open the terminal with Ubuntu. The directory should be "elevhalsa-skylt" (the directory for the repo)
+- Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
 **Run the following command in an Ubuntu terminal (WSL)**
 ```
@@ -31,7 +31,7 @@ sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; ec
 
 ## Step 4 - Running it
 
-Run the following commands
+Run the following commands separately
 
 ```
 touch ./site/_data/stored_data.csv
