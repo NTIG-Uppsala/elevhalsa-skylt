@@ -1,6 +1,11 @@
 # Set up development environment
 
-## Step 1 - install WSL Ubuntu
+## Step 1 - Clone this repository
+If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
+
+> Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise jekyll will not work.
+
+## Step 2 - install WSL Ubuntu
 
 - Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
 
@@ -10,23 +15,23 @@
 
 - write "cmd" and press enter
 
-- write the command: wsl --install (and run it)
+- write the command: `wsl --install` (and run it)
+  > Try `wsl --install -d Ubuntu` if the command above does not work
 
 - Follow the instructions shown on the screen
 
+## Step 3 - install Ruby and jekyll
 
-## Step 2 - install Ruby and jekyll
-
-- Open Visual Studio Code and open the terminal with Ubuntu. The directory should be "elevhalsa-skylt" (the directory for the repo)
+- Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
 **Run the following command in an Ubuntu terminal (WSL)**
 ```
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-## Step 3 - Running it
+## Step 4 - Running it
 
-Run the following commands
+Run the following commands separately
 
 ```
 touch ./site/_data/stored_data.csv
