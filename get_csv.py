@@ -41,8 +41,8 @@ def read_csv_file_to_sheet(path, sheet):
 
 csv_path = "site/_data/stored_data.csv"
 
-if len(sys.argv) > 0:
-    csv_path = "tests/stored_data.csv"
+if len(sys.argv) > 1:
+    csv_path = sys.argv[2]
 try:
     read_csv_file_to_sheet(csv_path, current_sheet)
 except:

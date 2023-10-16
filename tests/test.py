@@ -29,9 +29,10 @@ class TestLocalScripts(unittest.TestCase):
 
     def helper_get_csv(self):
         sheet_id = "1nBV4IsQYctwF6QG8T3KaETD3Eth7-6HlPjf63COFuIk"
-        subprocess.call(["python", "get_csv.py", sheet_id])
+        data_path = "tests/stored_data.csv"
+        subprocess.call(["python", "get_csv.py", sheet_id, data_path])
         # Opens the current csv file with data, then reads and saves every row in a list
-        with open("tests/stored_data.csv", "r", encoding="utf-8") as r:
+        with open(data_path, "r", encoding="utf-8") as r:
             current_sheet = []
             csvreader = csv.reader(r)
             for row in csvreader:
