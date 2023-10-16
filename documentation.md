@@ -1,6 +1,11 @@
 # Set up development environment
 
-## Step 1 - install WSL Ubuntu
+## Step 1 - Clone this repository
+If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
+
+> Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise jekyll will not work.
+
+## Step 2 - install WSL Ubuntu
 
 - Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
 
@@ -15,8 +20,7 @@
 
 - Follow the instructions shown on the screen
 
-
-## Step 2 - install Ruby and jekyll
+## Step 3 - install Ruby and jekyll
 
 - Open Visual Studio Code and open the terminal with Ubuntu. The directory should be "elevhalsa-skylt" (the directory for the repo)
 
@@ -25,7 +29,7 @@
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-## Step 3 - Running it
+## Step 4 - Running it
 
 Run the following commands
 
