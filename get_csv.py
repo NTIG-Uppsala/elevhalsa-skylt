@@ -1,8 +1,10 @@
 import csv
 import subprocess
 import time
+import sys
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+
 
 # This script uses google service accounts to authorize with the spreadsheet containing data,
 # (https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets)
@@ -19,8 +21,10 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
 )
 client = gspread.authorize(credentials)
 
+
 # Opens the spreadsheet containing data and gets all the values from the first index (page) of the spreadsheet
-sh = client.open_by_key("1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs")
+sh = client.open_by_key(sys.argv[1])
+
 rows = sh.get_worksheet(0).get_all_values()
 
 # Opens the current csv file with data, then reads and saves every row in a list
@@ -36,6 +40,9 @@ def read_csv_file_to_sheet(path, sheet):
 
 
 csv_path = "site/_data/stored_data.csv"
+
+if len(sys.argv) > 0:
+    csv_path = "tests/stored_data.csv"
 try:
     read_csv_file_to_sheet(csv_path, current_sheet)
 except:
