@@ -39,10 +39,8 @@ def read_csv_file_to_sheet(path, sheet):
             sheet.append(row)
 
 
-csv_path = "site/_data/stored_data.csv"
+csv_path = sys.argv[2]
 
-if len(sys.argv) > 1:
-    csv_path = sys.argv[2]
 try:
     read_csv_file_to_sheet(csv_path, current_sheet)
 except:
