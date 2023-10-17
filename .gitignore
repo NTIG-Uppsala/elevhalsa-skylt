@@ -19,3 +19,4 @@ site/assets/img/Profile/*
 tmp
 *.csv
 client_login.json
+*.json
