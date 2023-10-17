@@ -18,7 +18,7 @@ scope = [
 
 # Finds the json file with credentials for the service account, and authorizes the service account to gspread
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    "client_login.json", scope
+    "service_account_credentials.json", scope
 )
 client = gspread.authorize(credentials)
 

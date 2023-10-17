@@ -51,7 +51,12 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-### Step 4 - Running it
+### Step 4 - Add google service account credentials
+Download the file `service_account_credentials.json` from [this](https://drive.google.com/drive/folders/1PE9KzvEw8aPh5E4z1SYBZf03GJ8k5gWZ) Google Drive folder and put it in the cloned repository on your computer.
+
+> The google service account api credentials are not stored in the GitHub repository for security reasons.
+
+### Step 5 - Running it
 
 Run the following commands separately
 

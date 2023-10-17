@@ -9,7 +9,7 @@ import requests
 # cli arguments are used in the script to specify path and sheet id
 
 SPREADSHEET_ID = sys.argv[1]
-CREDENTIALS_JSON_FILE = "client_login.json"
+CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 file_path = pathlib.Path(__file__).parent.absolute()
 img_path = sys.argv[2]
