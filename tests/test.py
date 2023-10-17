@@ -55,7 +55,10 @@ class TestLocalScripts(unittest.TestCase):
         self.helper_check_name(3, "Sarah Hagberg")
         self.helper_check_name(4, "Angelica Wadström")
 
-    def helper_get_images_size(self, folder_path):
+    # A test that creates and writes down all picture sizes.
+    # Removes the need to open properties for each image.
+    def test_write_txt_image_sizes(self):
+        folder_path = "tests/img/Profile/"
         pictures = os.listdir(folder_path)  # list format
         with open("tests/picture_sizes.txt", "w") as file:
             for picture in pictures:
@@ -71,9 +74,6 @@ class TestLocalScripts(unittest.TestCase):
             self.fail(f"Picture {picture} is not size {expected}Kb and is {size}Kb")
 
     def test_get_images(self):
-        # Writes down picture sizes
-        folder_path = "tests/img/Profile/"
-        self.helper_get_images_size(folder_path)
         # Check size of Image
         self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
 
