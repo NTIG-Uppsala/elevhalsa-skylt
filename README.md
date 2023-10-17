@@ -28,7 +28,7 @@ The [documentation](documentation.md) should be written in English
 
 ## Creating branches & Merging to main
 + For every feature added, a branch should be made for the feature.
-+ After a feature is created and follows it the Definition of Done above. Create a pull request to merge it with the main branch.
++ After a feature is created and follows the Definition of Done above, create a pull request to merge it with the main branch.
 + Discuss the pull request with your group members and go through any changes that need to be made.
 + After the changes have been finalized and completed, a group member can then approve and merge the pull request, marking the feature as successfully implemented. 
 
