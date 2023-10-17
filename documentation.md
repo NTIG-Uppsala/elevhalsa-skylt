@@ -1,6 +1,6 @@
 # Student Health Staff Monitor Documentation
 
-## Table of Content
+## Table of Contents
 + [Set up development environment](documentation.md#set-up-development-environment)
 + [Raspberry Pi](documentation.md#raspberry-pi)
 + [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
