@@ -18,3 +18,4 @@ site/assets/img/Profile/*
 .vscode
 tmp
 *.csv
+client_login.json
