@@ -8,10 +8,10 @@
 + [Creating branches & Merging to main](README.md#creating-branches--merging-to-main)
 + [Development Environment](README.md#development-environment)
 + [Programming Languages & Frameworks](README.md#Programming-Languages-&-Frameworks)
-+ + [Programming Languages](README.md#programming-languages)
-+ + [Frameworks](README.md#frameworks)
-+ + [Static Site Generator](README.md#static-site-generator)
-+ + [Python & Javascript](README.md#python--javascript)
+  + [Programming Languages](README.md#programming-languages)
+  + [Frameworks](README.md#frameworks)
+  + [Static Site Generator](README.md#static-site-generator)
+  + [Python & Javascript](README.md#python--javascript)
 
 ## Introduction
 
