@@ -28,7 +28,7 @@ class TestLocalScripts(unittest.TestCase):
         # Load page
 
     def helper_get_csv(self):
-        sheet_id = "1nBV4IsQYctwF6QG8T3KaETD3Eth7-6HlPjf63COFuIk"
+        sheet_id = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
         data_path = "tests/stored_data.csv"
         subprocess.call(["python", "get_csv.py", sheet_id, data_path])
         # Opens the current csv file with data, then reads and saves every row in a list
