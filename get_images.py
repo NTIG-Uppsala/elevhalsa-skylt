@@ -11,7 +11,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 SPREADSHEET_ID = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
-CREDENTIALS_JSON_FILE = "client_login.json"
+CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 file_path = pathlib.Path(__file__).parent.absolute()
 img_path = f"{file_path}/site/assets/img"
