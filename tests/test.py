@@ -57,7 +57,7 @@ class TestLocalScripts(unittest.TestCase):
 
     # A test that creates and writes down all picture sizes.
     # Removes the need to open properties for each image.
-    def test_write_txt_image_sizes(self):
+    def write_txt_image_sizes(self):
         folder_path = "tests/img/Profile/"
         pictures = os.listdir(folder_path)  # list format
         with open("tests/picture_sizes.txt", "w") as file:
@@ -76,6 +76,9 @@ class TestLocalScripts(unittest.TestCase):
     def test_get_images(self):
         # Check size of Image
         self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
+
+        # Uncomment to generate a file with a list of image sizes
+        # self.write_txt_image_sizes()
 
     def tearDown(self):
         # Close the WebDriver
