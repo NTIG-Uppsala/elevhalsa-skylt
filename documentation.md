@@ -1,11 +1,33 @@
-# Set up development environment
+# Student Health Staff Monitor Documentation
 
-## Step 1 - Clone this repository
+## Table of Contents
++ [Set up development environment](documentation.md#set-up-development-environment)
++ [Raspberry Pi](documentation.md#raspberry-pi)
++ [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
++ [Configuration](documentation.md#configuration)
++ [New Repository](documentation.md#new-repository)
++ [Set Up Autostart](documentation.md#set-up-autostart)
++ [Change active display times](documentation.md#change-active-display-times)
++ [Create shortcut](documentation.md#create-shortcut)
++ [Disable Black Border around Screen](documentation.md#disable-black-border-around-screen)
++ [Remove Chromium offer to Translate Page](documentation.md#remove-chromium-offer-to-translate-page)
++ [Remove Cursor](documentation.md#remove-cursor)
++ [Hide Taskbar](documentation.md#hide-taskbar)
++ [Remove Screensaver](documentation.md#remove-screensaver)
++ [Disable Raspberry Pi sleep mode](documentation.md#disable-raspberry-pi-sleep-mode)
++ [Remove Raspberry Icons](documentation.md#remove-raspberry-icons)
++ [Replace Boot Image](documentation.md#replace-boot-image)
++ [Change Background Image](documentation.md#change-background-image)
++ [Hardware used](documentation.md#hardware-used)
+
+## Set up development environment
+
+### Step 1 - Clone this repository
 If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
 
 > Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise jekyll will not work.
 
-## Step 2 - install WSL Ubuntu
+### Step 2 - install WSL Ubuntu
 
 - Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
 
@@ -20,7 +42,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Follow the instructions shown on the screen
 
-## Step 3 - install Ruby and jekyll
+### Step 3 - install Ruby and jekyll
 
 - Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
@@ -29,7 +51,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-## Step 4 - Running it
+### Step 4 - Running it
 
 Run the following commands separately
 
@@ -40,7 +62,12 @@ jekyll serve -s site
 ```
 "jekyll serve -s site" runs the site locally and let's you preview it.
 
-# Raspberry Pi
+## Keeping the repo up to date in the Raspberry Pi
++ Code locally, either on a development Raspberry Pi or on your personal computer
++ Push to the Github repo
++ Pull from the main Raspberry Pi
+
+## Raspberry Pi
 
 These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Raspberry Pi
 
@@ -76,7 +103,7 @@ hostname -I
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ***
-### Enable Remote Control:
+### Enable Remote Control
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
        
@@ -120,7 +147,7 @@ If you create a new repository and clone it, you need to modify two files in the
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
 ***
-## Set Up Autostart:
+## Set Up Autostart
 Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
 The commands should be run on the Raspberry Pi.
 
@@ -220,7 +247,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 4. Exit Browser 
 
 ***
-## Remove Cursor:
+## Remove Cursor
 
 1. Open Command Line Interface and type in the following commands:
 	```
@@ -232,13 +259,13 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 	@unclutter -idle 3
 	```
 ***
-## Hide Taskbar:
+## Hide Taskbar
 
 1. Right-click on the taskbar and select `Panel Settings`
 2. Click on the `Advanced` tab, and check `Minimize panel when not in use`
 
 ***
-## Remove Screensaver:
+## Remove Screensaver
 
 1. Open Command Line Interface and type in the following command:
 
@@ -261,7 +288,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         @xset s noblank
 
 ***
-## Remove Raspberry Icons:
+## Remove Raspberry Icons
 1. Open Command Line Interface and type in the following command:
         
         sudo nano /boot/cmdline.txt
@@ -270,14 +297,14 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         logo.nologo
 
 ***
-## Replace Boot Image:
+## Replace Boot Image
 
 1. Open Command Line Interface and type in the following command:
        
         sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
-## Change Background Image:
+## Change Background Image
 
 1. Right-click on desktop and select desktop preferences.  
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
@@ -285,11 +312,11 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 ***
 
-# Hardware used
-## Screen
+## Hardware used
+### Screen
 - Name: Voxicon VXM232HD
 - Size: 32 inches
 - Resolution: 1360 x 768
 - Touch screen: No
 - Number of HDMI-ports: 2
-## Raspberry Pi 4 Model B Rev 1.2
+### Raspberry Pi 4 Model B Rev 1.2
