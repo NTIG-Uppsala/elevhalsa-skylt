@@ -10,7 +10,7 @@
 + [Change active display times](documentation.md#change-active-display-times)
 + [Create shortcut](documentation.md#create-shortcut)
 + [Disable Black Border around Screen](documentation.md#disable-black-border-around-screen)
-+ [Remove Chromium offer to Translate Page](documentation.md#remov)
++ [Remove Chromium offer to Translate Page](documentation.md#remove-chromium-offer-to-translate-page)
 + [Remove Cursor](documentation.md#remove-cursor)
 + [Hide Taskbar](documentation.md#hide-taskbar)
 + [Remove Screensaver](documentation.md#remove-screensaver)
