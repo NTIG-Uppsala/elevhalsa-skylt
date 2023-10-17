@@ -8,6 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 # This script uses google service accounts to authorize with the spreadsheet containing data,
 # (https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets)
+# cli arguments are used in the script to specify path and sheet id
 
 # URLs the service account uses to authorize to google spreadsheets
 scope = [
