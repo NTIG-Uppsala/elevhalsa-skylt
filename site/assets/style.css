@@ -5,11 +5,15 @@
 
 body {
   font-family: Soleto;
-  margin: 0;
   background-image: url(img/backgroundNTI.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
 }
 
 .item {

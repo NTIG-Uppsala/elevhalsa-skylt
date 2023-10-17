@@ -1,0 +1,46 @@
+.background-layer {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-duration: 8s;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    overflow: hidden;
+}
+
+.background-layer-1 {
+    background-image: url("/assets/img/background/layer_1.png");
+    z-index: calc(-100 + 1);
+    animation-name: keyframes1;
+}
+
+.background-layer-2 {
+    background-image: url("/assets/img/background/layer_2.png");
+    z-index: calc(-100 + 2);
+    animation-name: keyframes2;
+}
+
+.background-layer-3 {
+    background-image: url("/assets/img/background/layer_3.png");
+    z-index: calc(-100 + 3);
+    animation-name: keyframes3;
+}
+
+@keyframes keyframes1 {
+    from { transform: translateX(0px); }
+    to { transform: translateX(-20px); }
+}
+@keyframes keyframes1 {
+    from { transform: translateX(0px); }
+    to { transform: translateX(40px); }
+}
+@keyframes keyframes1 {
+    from { transform: translateX(0px); }
+    to { transform: translateX(110px); }
+}
