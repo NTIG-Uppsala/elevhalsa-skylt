@@ -56,11 +56,9 @@ class TestLocalScripts(unittest.TestCase):
         self.helper_check_name(4, "Angelica Wadström")
 
     def helper_get_images_size(self, folder_path):
-        pictures = os.listdir(folder_path)  # list
+        pictures = os.listdir(folder_path)  # list format
         with open("tests/picture_sizes.txt", "w") as file:
             for picture in pictures:
-                # print(os.path.getsize(file))
-                print(picture)
                 size = os.path.getsize(folder_path + picture)
                 file.write(f"{picture} is {size}kb big \n")
 
@@ -77,7 +75,7 @@ class TestLocalScripts(unittest.TestCase):
         folder_path = "tests/img/Profile/"
         self.helper_get_images_size(folder_path)
         # Check size of Image
-        self.helper_get_images_check_size("Karl1", 67545)
+        self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
 
     def tearDown(self):
         # Close the WebDriver
