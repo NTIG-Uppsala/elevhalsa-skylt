@@ -1,20 +1,18 @@
-#!/usr/bin/python3
+import sys
+import os
+import pathlib
 from oauth2client.service_account import ServiceAccountCredentials
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
-import os
-import pathlib
 import requests
 
-import csv
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+# cli arguments are used in the script to specify path and sheet id
 
-SPREADSHEET_ID = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
+SPREADSHEET_ID = sys.argv[1]
 CREDENTIALS_JSON_FILE = "client_login.json"
 
 file_path = pathlib.Path(__file__).parent.absolute()
-img_path = f"{file_path}/site/assets/img"
+img_path = sys.argv[2]
 profile_img_path = img_path + "/Profile/{}.jpg"
 
 scope = [
