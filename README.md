@@ -1,9 +1,5 @@
 # Student Health Staff Monitor
 
-## Introduction
-
-This project aims to create a digital sign system that highlights Student Health Staff, providing quick and engaging information about their availability and services.
-
 ### Table of Contents
 + [Introduction](README.md#introduction)
 + [How To Change The Information Currently Displayed](README.md#how-to-change-the-information-currently-displayed)
@@ -17,6 +13,9 @@ This project aims to create a digital sign system that highlights Student Health
 + + [Static Site Generator](README.md#static-site-generator)
 + + [Python & Javascript](README.md#python--javascript)
 
+## Introduction
+
+This project aims to create a digital sign system that highlights Student Health Staff, providing quick and engaging information about their availability and services.
 
 ## How To Change The Information Currently Displayed
 Changing the information that is displayed on the monitor will be done by changing the information in [this](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs) google spreadsheet. Our code then downloads the data from google sheets as csv files and then renders the slides with jekyll using the csv data.
