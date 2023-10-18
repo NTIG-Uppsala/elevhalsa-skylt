@@ -22,20 +22,20 @@ layout: default
 <div class="logo">
   <img src="assets/img/nti-logo.svg" alt="TE4" height="150px">
   <p><b>Elev</b>hälsan</p>
-</div>                              
+</div>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-  
+
     <!-- Creates div for all members -->
     {% for member in eht_members %}
-      {% if forloop.first %}
-      <div class="item active">
+    {% if forloop.first %}
+    <div class="item active">
       {% else %}
       <div class="item">
-      {% endif %}
+        {% endif %}
         <div class="background-grid-layout">
           <div class="grid-item-image">
             <img src="assets/img/Profile/{{member.FILNAMN}}.jpg">
@@ -58,32 +58,30 @@ layout: default
               {% if member.TELEFON %}
               <p>
                 <img src="assets/img/phone.svg">
-                Telefon: {{ member.TELEFON }} 
+                Telefon: {{ member.TELEFON }}
               </p>
               {% endif %}
               {% if member.ARBETSTIDER %}
               <p>
                 <img src="assets/img/calendar.svg">
-                Arbetstider: {{ member.ARBETSTIDER }} 
+                Arbetstider: {{ member.ARBETSTIDER }}
               </p>
               {% endif %}
               {% if member.SAL %}
               <p>
                 <img src="assets/img/location.svg">
-                Sal: {{ member.SAL}} 
+                Sal: {{ member.SAL}}
               </p>
               {% endif %}
             </div>
           </div>
         </div>
       </div>
-    {% endfor %}
+      {% endfor %}
 
     </div>
 
   </div>
-
-  <!-- Stops carousel from pausing on mousehover -->
-  <script src="update_status.js"></script></div>
+</div>
 <!-- Stops carousel from pausing on mousehover -->
 <script src="update_status.js"></script>
