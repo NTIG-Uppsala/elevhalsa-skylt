@@ -4,7 +4,7 @@ import time
 import csv
 import subprocess
 from selenium import webdriver
-from PIL import Image
+from selenium.webdriver.chrome.options import Options
 import filecmp
 
 SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
@@ -13,8 +13,13 @@ SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
     def setUp(self):
-        # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_experimental_option("detach", True)
+
+        # Set up the Chrome WebDriver in headless mode
+        self.driver = webdriver.Chrome(options=chrome_options)
+
         # Load page
         self.driver.get("http://127.0.0.1:4000")
         time.sleep(1)
@@ -26,9 +31,12 @@ class TestLocalhostPageTitle(unittest.TestCase):
 class TestLocalScripts(unittest.TestCase):
     # Executes before each test
     def setUp(self):
-        # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome()
-        # Load page
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_experimental_option("detach", True)
+
+        # Set up the Chrome WebDriver in headless mode
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def helper_get_csv(self):
         data_path = "tests/stored_data.csv"
@@ -48,12 +56,14 @@ class TestLocalScripts(unittest.TestCase):
         name = sheet[name_number][0]
 
         self.assertEqual(expected_result, name)
-    
+
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
         correct_file = "tests/correct_test_data.csv"
         subprocess.call(["python", "get_csv.py", SHEET_ID, downloaded_file])
-        downloaded_file_is_correct = filecmp.cmp(downloaded_file, correct_file, shallow=False)
+        downloaded_file_is_correct = filecmp.cmp(
+            downloaded_file, correct_file, shallow=False
+        )
         self.assertTrue(downloaded_file_is_correct)
 
     # A test that creates and writes down all picture sizes.
