@@ -5,6 +5,8 @@ Use the following command to download the libraries needed to use the tests. Use
     py -m pip install (library)
 The libraries needed are:
 - Selenium
+- gspread
+- openpyxl
 ## Info
 - Be sure to have oauth2client installed via pip if you are using unittest in Visual Studio Code. otherwise the code will crash.
 
