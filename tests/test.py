@@ -4,6 +4,7 @@ import time
 import csv
 import subprocess
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import filecmp
 
 SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
@@ -12,8 +13,13 @@ SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
     def setUp(self):
-        # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_experimental_option("detach", True)
+
+        # Set up the Chrome WebDriver in headless mode
+        self.driver = webdriver.Chrome(options=chrome_options)
+
         # Load page
         self.driver.get("http://127.0.0.1:4000")
         time.sleep(1)
@@ -25,9 +31,12 @@ class TestLocalhostPageTitle(unittest.TestCase):
 class TestLocalScripts(unittest.TestCase):
     # Executes before each test
     def setUp(self):
-        # Set up the Chrome WebDriver
-        self.driver = webdriver.Chrome()
-        # Load page
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_experimental_option("detach", True)
+
+        # Set up the Chrome WebDriver in headless mode
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def helper_get_csv(self):
         data_path = "tests/stored_data.csv"
