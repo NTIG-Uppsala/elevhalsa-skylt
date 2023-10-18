@@ -67,6 +67,9 @@ jekyll serve -s site
 ```
 "jekyll serve -s site" runs the site locally and let's you preview it.
 
+### Step 6 - Development environment for testing
+See [tests_info.md](tests/tests_info.md) for how to install necessary libraries for testing.
+
 ## Keeping the repo up to date in the Raspberry Pi
 + Code locally, either on a development Raspberry Pi or on your personal computer
 + Push to the Github repo
