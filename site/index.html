@@ -22,20 +22,20 @@ layout: default
 <div class="logo">
   <img src="assets/img/nti-logo.svg" alt="TE4" height="150px">
   <p><b>Elev</b>hälsan</p>
-</div>                              
+</div>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-  
+
     <!-- Creates div for all members -->
     {% for member in eht_members %}
-      {% if forloop.first %}
-      <div class="item active">
+    {% if forloop.first %}
+    <div class="item active">
       {% else %}
       <div class="item">
-      {% endif %}
+        {% endif %}
         <div class="background-grid-layout">
           <div class="grid-item-image">
             <img src="assets/img/Profile/{{member.FILNAMN}}.jpg">
@@ -58,69 +58,30 @@ layout: default
               {% if member.TELEFON %}
               <p>
                 <img src="assets/img/phone.svg">
-                Telefon: {{ member.TELEFON }} 
+                Telefon: {{ member.TELEFON }}
               </p>
               {% endif %}
               {% if member.ARBETSTIDER %}
               <p>
                 <img src="assets/img/calendar.svg">
-                Arbetstider: {{ member.ARBETSTIDER }} 
+                Arbetstider: {{ member.ARBETSTIDER }}
               </p>
               {% endif %}
               {% if member.SAL %}
               <p>
                 <img src="assets/img/location.svg">
-                Sal: {{ member.SAL}} 
+                Sal: {{ member.SAL}}
               </p>
               {% endif %}
             </div>
           </div>
         </div>
       </div>
-    {% endfor %}
+      {% endfor %}
 
     </div>
 
+  </div>
 </div>
-
 <!-- Stops carousel from pausing on mousehover -->
-<script>
-  $('.carousel').carousel({
-    pause: "false"
-  });
-
-  let names = document.getElementsByClassName('name');
-  let status = document.getElementsByClassName('status');
-  let latestChanges = document.getElementsByClassName('latestChange');
-  moment.locale('sv');
-
-  function updateDisplayedInfo(names, status, latestChanges) {
-    $.getJSON('https://narvaro.ntig.net/api/get/users', function(data) {
-      for (let i = 0; i < data.length; i++) {
-        for (let x = 0; x < names.length; x++) {
-          if (data[i].name == names[x].innerHTML) {
-            // Hide elements if status was updated more than 24 hours ago
-            let showTimeSinceChange = moment(data[i].latest_change).isAfter(moment().subtract(24, "hours"))
-            let visibility = showTimeSinceChange ? "visible" : "hidden";
-            latestChanges[x].style.visibility = visibility;
-            status[x].style.visibility = visibility;
-
-            latestChanges[x].innerHTML = 'Uppdaterad ' + moment(data[i].latest_change).fromNow();
-            if (data[i].status == true) {
-              status[x].innerHTML = '&bull; Tillgänglig';
-              status[x].style.color = "#52FF42"
-            } else {
-              status[x].innerHTML = '&bull; Inte tillgänglig'
-              status[x].style.color = "red"
-            }
-          }
-        }
-      }
-    });
-  }
-  
-  updateDisplayedInfo(names, status, latestChanges);
-  setInterval(() => {
-    updateDisplayedInfo(names, status, latestChanges);
-  }, 60000);
-</script>
+<script src="update_status.js"></script>

@@ -6,8 +6,6 @@ import subprocess
 from selenium import webdriver
 from PIL import Image
 
-SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
-
 
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
@@ -30,8 +28,9 @@ class TestLocalScripts(unittest.TestCase):
         # Load page
 
     def helper_get_csv(self):
+        sheet_id = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
         data_path = "tests/stored_data.csv"
-        subprocess.call(["python", "get_csv.py", SHEET_ID, data_path])
+        subprocess.call(["python", "get_csv.py", sheet_id, data_path])
         # Opens the current csv file with data, then reads and saves every row in a list
         with open(data_path, "r", encoding="utf-8") as r:
             current_sheet = []

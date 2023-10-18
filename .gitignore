@@ -20,5 +20,3 @@ tmp
 *.csv
 service_account_credentials.json
 *.json
-tests/img/*
-tests/picture_sizes.txt
