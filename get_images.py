@@ -13,6 +13,17 @@ CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 file_path = pathlib.Path(__file__).parent.absolute()
 img_path = sys.argv[2]
+
+
+# Check if the folder exists
+if not os.path.exists(img_path):
+    # If it doesn't exist, create it
+    os.makedirs(img_path)
+    os.makedirs(f"{img_path}/Profile")
+    print(f"Folder '{img_path}' created.")
+else:
+    print(f"Folder '{img_path}' already exists.")
+img_path += "/Profile"
 profile_img_path = img_path + "/{}.jpg"
 
 scope = [

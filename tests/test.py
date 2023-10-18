@@ -78,7 +78,7 @@ class TestLocalScripts(unittest.TestCase):
         self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
 
         # Uncomment to generate a file with a list of image sizes
-        # self.write_txt_image_sizes()
+        self.write_txt_image_sizes()
 
     def tearDown(self):
         # Close the WebDriver
