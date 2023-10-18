@@ -3,6 +3,7 @@ import subprocess
 import time
 import sys
 import gspread
+import os
 from oauth2client.service_account import ServiceAccountCredentials
 
 
@@ -39,6 +40,10 @@ def read_csv_file_to_sheet(path, sheet):
 
 
 csv_path = sys.argv[2]
+csv_directory = os.path.dirname(csv_path)
+
+if not os.path.exists(csv_directory):
+    os.makedirs(csv_directory)
 
 try:
     read_csv_file_to_sheet(csv_path, current_sheet)
