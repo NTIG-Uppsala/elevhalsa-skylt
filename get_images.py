@@ -13,7 +13,7 @@ CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 file_path = pathlib.Path(__file__).parent.absolute()
 img_path = sys.argv[2]
-profile_img_path = img_path + "/{}.jpg"
+profile_img_path = img_path + "/Profile/{}.jpg"
 
 scope = [
     "https://www.googleapis.com/auth/spreadsheets",
