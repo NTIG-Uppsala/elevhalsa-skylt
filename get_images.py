@@ -11,9 +11,23 @@ import requests
 SPREADSHEET_ID = sys.argv[1]
 CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
-file_path = pathlib.Path(__file__).parent.absolute()
+# Get the image path from command-line arguments (sys.argv)
+if len(sys.argv) < 3:
+    print("Usage: python script.py <image_path>")
+    sys.exit(1)
 img_path = sys.argv[2]
-profile_img_path = img_path + "/Profile/{}.jpg"
+
+# Check if the 'Profile' folder exists or create it
+profile_folder_path = os.path.join(img_path, "Profile")
+if not os.path.exists(profile_folder_path):
+    os.makedirs(profile_folder_path)
+    print(f"Folder '{profile_folder_path}' created.")
+else:
+    print(f"Folder '{profile_folder_path}' already exists.")
+
+# Set the profile image path
+profile_img_path = os.path.join(profile_folder_path, "{}.jpg")
+
 
 scope = [
     "https://www.googleapis.com/auth/spreadsheets",
