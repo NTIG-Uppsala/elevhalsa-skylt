@@ -38,25 +38,6 @@ class TestLocalScripts(unittest.TestCase):
         # Set up the Chrome WebDriver in headless mode
         self.driver = webdriver.Chrome(options=chrome_options)
 
-    def helper_get_csv(self):
-        data_path = "tests/stored_data.csv"
-        subprocess.call(["python", "get_csv.py", SHEET_ID, data_path])
-        # Opens the current csv file with data, then reads and saves every row in a list
-        with open(data_path, "r", encoding="utf-8") as r:
-            current_sheet = []
-            csvreader = csv.reader(r)
-            for row in csvreader:
-                current_sheet.append(row)
-        # removes empty lists from currentSheet
-        current_sheet = [item for item in current_sheet if item != []]
-        return current_sheet
-
-    def helper_check_name(self, name_number, expected_result):
-        sheet = self.helper_get_csv()
-        name = sheet[name_number][0]
-
-        self.assertEqual(expected_result, name)
-
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
         correct_file = "tests/correct_test_data.csv"
