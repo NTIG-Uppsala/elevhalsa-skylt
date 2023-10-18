@@ -47,6 +47,8 @@ mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
 response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
+# This file is opened in binary write mode ("wb") because the response from Google API is in binary.
+# Read more about this at https://developers.google.com/drive/api/reference/rest/v3/files/export
 with open("info.xlsx", "wb") as file:
     file.write(response.content)
 
@@ -55,6 +57,7 @@ image_loader = SheetImageLoader(exel_spreadsheet)
 
 for row in range(2, exel_spreadsheet.max_row + 1):
     image_filename = exel_spreadsheet["K" + str(row)].value
+    # Create a full path to the image file by formatting the 'profile_img_path' with the image filename.
     image_path = profile_img_path.format(image_filename)
     image = image_loader.get("I" + str(row))
     image.save(image_path)
