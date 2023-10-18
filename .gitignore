@@ -18,6 +18,7 @@ site/assets/img/Profile/*
 .vscode
 tmp
 *.csv
+!tests/correct_test_data.csv
 service_account_credentials.json
 *.json
 tests/img/*

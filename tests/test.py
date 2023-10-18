@@ -5,6 +5,7 @@ import csv
 import subprocess
 from selenium import webdriver
 from PIL import Image
+import filecmp
 
 SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
 
@@ -47,13 +48,13 @@ class TestLocalScripts(unittest.TestCase):
         name = sheet[name_number][0]
 
         self.assertEqual(expected_result, name)
-
-    # Name_numbers: Megan, 1, Ulrika, 2, Maud 3.....name, n
-    def test_check_name(self):
-        self.helper_check_name(1, "Megan Sundström")
-        self.helper_check_name(2, "Maud Enbom")
-        self.helper_check_name(3, "Sarah Hagberg")
-        self.helper_check_name(4, "Angelica Wadström")
+    
+    def test_get_csv(self):
+        downloaded_file = "tests/downloaded_test_data.csv"
+        correct_file = "tests/correct_test_data.csv"
+        subprocess.call(["python", "get_csv.py", SHEET_ID, downloaded_file])
+        downloaded_file_is_correct = filecmp.cmp(downloaded_file, correct_file, shallow=False)
+        self.assertTrue(downloaded_file_is_correct)
 
     # A test that creates and writes down all picture sizes.
     # Removes the need to open properties for each image.
