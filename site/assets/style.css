@@ -79,7 +79,7 @@ body {
 
 .logo {
   position: absolute;
-  left: 15px;
+  left: 35px;
   top: 35px;
   color: white;
   font-size: 4em;
@@ -89,7 +89,7 @@ body {
 }
 
 .logo>p {
-  margin-left: -15px;
+  margin-left: -35px;
   display: flex;
   align-items: center;
   margin: 0;
@@ -98,7 +98,7 @@ body {
 
 .logoright {
   position: absolute;
-  right: 15px;
+  right: 35px;
   top: 35px;
   color: white;
   font-size: 4em;
@@ -107,8 +107,8 @@ body {
   align-items: center;
 }
 
-.logorigh>p {
-  margin-left: -15px;
+.logoright>p {
+  margin-right: 35px;
   display: flex;
   align-items: center;
   margin: 0;
