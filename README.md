@@ -44,6 +44,7 @@ The [documentation](documentation.md) should be written in English
 + **Remote** - SSH extension
 + **Version Control Host** - GitHub
 + **OS** - Windows 10
++ **svg Editor** - Inkscape
 
 ## Programming Languages & Frameworks
 
