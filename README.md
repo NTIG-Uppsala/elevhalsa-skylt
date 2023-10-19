@@ -3,6 +3,7 @@
 ### Table of Contents
 + [Introduction](README.md#introduction)
 + [How To Change The Information Currently Displayed](README.md#how-to-change-the-information-currently-displayed)
++ [Google Drive Folder](README.md#introduction)
 + [Documentation](README.md#Documentation)
 + [Definition of Done](README.md#definition-of-done)
 + [Creating branches & Merging to main](README.md#creating-branches--merging-to-main)
@@ -19,6 +20,9 @@ This project aims to create a digital sign system that highlights Student Health
 
 ## How To Change The Information Currently Displayed
 Changing the information that is displayed on the monitor is done by changing the information in [this](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs) google spreadsheet. The data on the monitor will update automatically 5-10 seconds after you edit the spreadsheet.
+
+## Google Drive Folder
+This project has a [Google Drive folder](https://drive.google.com/drive/folders/1PE9KzvEw8aPh5E4z1SYBZf03GJ8k5gWZ) for more private data. The folder contains thespreadsheet for displayed data, product backlog, passwords and more.
 
 ## Documentation
 The [documentation](documentation.md) should be written in English
