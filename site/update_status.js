@@ -20,10 +20,10 @@ function updateDisplayedInfo(names, status, latestChanges) {
 
                     latestChanges[x].innerHTML = 'Uppdaterad ' + moment(data[i].latest_change).fromNow();
                     if (data[i].status == true) {
-                        status[x].innerHTML = '&bull; Tillgänglig';
+                        status[x].innerHTML = 'Tillgänglig';
                         status[x].style.color = "#52FF42"
                     } else {
-                        status[x].innerHTML = '&bull; Inte tillgänglig'
+                        status[x].innerHTML = 'Inte tillgänglig'
                         status[x].style.color = "red"
                     }
                 }
