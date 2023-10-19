@@ -20,6 +20,5 @@ tmp
 *.csv
 !tests/correct_test_data.csv
 service_account_credentials.json
-*.json
 tests/img/*
 tests/picture_sizes.txt
