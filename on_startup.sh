@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 (
-tail -n 5000 /home/pi/elevhalsa-skylt-log.txt > /home/pi/elevhalsa-skylt-log.txt.tmp
+tail -n 10000 /home/pi/elevhalsa-skylt-log.txt > /home/pi/elevhalsa-skylt-log.txt.tmp
 mv -f /home/pi/elevhalsa-skylt-log.txt.tmp /home/pi/elevhalsa-skylt-log.txt.log
 
 cd /home/pi/Git/elevhalsa-skylt/
