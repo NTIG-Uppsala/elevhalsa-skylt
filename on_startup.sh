@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 (
-tail -n 10000 /home/pi/elevhalsa-skylt-log.txt > /home/pi/elevhalsa-skylt-log.txt.tmp
-mv -f /home/pi/elevhalsa-skylt-log.txt.tmp /home/pi/elevhalsa-skylt-log.txt.log
+LOG_PATH="/home/pi/elevhalsa-skylt-log.txt"
+TEMP_LOG_PATH="${LOG_PATH}.tmp"
+# Only keep the last 10000 lines of the log file
+tail -n 10000 $LOG_PATH > $TEMP_LOG_PATH
+mv -f $TEMP_LOG_PATH $LOG_PATH
 
 cd /home/pi/Git/elevhalsa-skylt/
 # Run in background because download_data.py is continuous
 python3 download_data.py &
 chromium-browser --force-device-scale-factor=0.8 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
-# Logs errors and output of all commands to /home/pi/elevhalsa-skylt-log.txt
+# Logs errors and output of all commands to the log file
 # The purpose of this file is to log errors so the source of an error can be located if something goes wrong.
-) >> /home/pi/elevhalsa-skylt-log.txt 2>&1
+) >> $LOG_PATH 2>&1
