@@ -27,12 +27,27 @@ access_token = (
 )
 url = f"https://www.googleapis.com/drive/v3/files/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
 Parameters = {"supportsAllDrives": True, "fields": "modifiedTime"}
-response = requests.get(url, headers={"Authorization": "Bearer " + access_token}, params=Parameters)
-dateTimeString = response.json()["modifiedTime"]
-datetime = datetime.fromisoformat(dateTimeString.replace("Z", ""))
+previous_modified_time = None
+
+def get_modified_time():
+    response = requests.get(url, headers={"Authorization": "Bearer " + access_token}, params=Parameters)
+    dateTimeString = response.json()["modifiedTime"]
+    return datetime.fromisoformat(dateTimeString.replace("Z", ""))
+
+def data_has_changed():
+    global previous_modified_time
+    modified_time = get_modified_time()
+    data_has_changed = (modified_time != previous_modified_time)
+    previous_modified_time = modified_time
+    return data_has_changed
 
 while True:
-    subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path])
-    subprocess.call(["python3", f"{PATH}/get_csv.py", sheet_id, data_path])
+    if data_has_changed():
+        print("Data has changed, updating data")
+        subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path])
+        subprocess.call(["python3", f"{PATH}/get_csv.py", sheet_id, data_path])
+    else:
+        print("Data is already updated")
+        
     time.sleep(5)
 
