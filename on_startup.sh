@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 (
+tail -n 5000 /home/pi/elevhalsa-skylt-log.txt > /home/pi/elevhalsa-skylt-log.txt.tmp
+mv -f /home/pi/elevhalsa-skylt-log.txt.tmp /home/pi/elevhalsa-skylt-log.txt.log
+
 cd /home/pi/Git/elevhalsa-skylt/
 # Run in background because download_data.py is continuous
 python3 download_data.py &
