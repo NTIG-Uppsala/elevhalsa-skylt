@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-(
+
+# This is placed outside of the parentheses because otherwise it modifies the log and writes to the log at the same time.
 LOG_PATH="/home/pi/elevhalsa-skylt-log.txt"
 TEMP_LOG_PATH="${LOG_PATH}.tmp"
 # Only keep the last 10000 lines of the log file
 tail -n 10000 $LOG_PATH > $TEMP_LOG_PATH
 mv -f $TEMP_LOG_PATH $LOG_PATH
-
+(
 cd /home/pi/Git/elevhalsa-skylt/
 # Run in background because download_data.py is continuous
 python3 download_data.py &
