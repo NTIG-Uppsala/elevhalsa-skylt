@@ -14,7 +14,6 @@ picture_path = "site/assets/img"
 scope = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive",
-    "https://www.googleapis.com/auth/drive.metadata.readonly",
 ]
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     "service_account_credentials.json", scope
@@ -26,13 +25,15 @@ access_token = (
     .access_token
 )
 url = f"https://www.googleapis.com/drive/v3/files/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
-Parameters = {"supportsAllDrives": True, "fields": "modifiedTime"}
+parameters = {"supportsAllDrives": True, "fields": "modifiedTime"}
 previous_modified_time = None
 
 def get_modified_time():
-    response = requests.get(url, headers={"Authorization": "Bearer " + access_token}, params=Parameters)
-    dateTimeString = response.json()["modifiedTime"]
-    return datetime.fromisoformat(dateTimeString.replace("Z", ""))
+    response = requests.get(url, 
+                            headers={"Authorization": "Bearer " + access_token}, 
+                            params=parameters)
+    date_time_string = response.json()["modifiedTime"]
+    return datetime.fromisoformat(date_time_string.replace("Z", ""))
 
 def data_has_changed():
     global previous_modified_time
@@ -43,7 +44,7 @@ def data_has_changed():
 
 while True:
     if data_has_changed():
-        print("Data has changed, updating data")
+        print("Updating data")
         subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path])
         subprocess.call(["python3", f"{PATH}/get_csv.py", sheet_id, data_path])
     else:
