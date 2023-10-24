@@ -60,11 +60,4 @@ if current_sheet != rows:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
-    print("Data has been updated, refreshing page!")
-
-    # Refreshes the page after two seconds if change has been found (delay is for syncing reasons)
-    time.sleep(2)
-    try:
-        subprocess.run(["xdotool", "key", "F5"])
-    except:
-        print("Error: Ignore this error if you are not in Raspberry pi")
+            
