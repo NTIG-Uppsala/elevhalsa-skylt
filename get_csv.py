@@ -4,23 +4,15 @@ import time
 import sys
 import gspread
 import os
-from oauth2client.service_account import ServiceAccountCredentials
+from credentials import get_service_account_credentials
 
 
 # This script uses google service accounts to authorize with the spreadsheet containing data,
 # (https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets)
 # cli arguments are used in the script to specify path and sheet id
 
-# URLs the service account uses to authorize to google spreadsheets
-scope = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive",
-]
-
 # Finds the json file with credentials for the service account, and authorizes the service account to gspread
-credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    "service_account_credentials.json", scope
-)
+credentials = get_service_account_credentials()
 client = gspread.authorize(credentials)
 
 # Opens the spreadsheet containing data and gets all the values from the first index (page) of the spreadsheet

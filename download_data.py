@@ -2,8 +2,8 @@ import subprocess
 import time
 import pathlib
 import requests
-from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from credentials import get_access_token
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
@@ -11,19 +11,7 @@ sheet_id = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
 data_path = "site/_data/stored_data.csv"
 picture_path = "site/assets/img"
 
-scope = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive",
-]
-credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    "service_account_credentials.json", scope
-)
-# from https://stackoverflow.com/a/69776579
-access_token = (
-    credentials.create_delegated(credentials._service_account_email)
-    .get_access_token()
-    .access_token
-)
+access_token = get_access_token()
 url = f"https://www.googleapis.com/drive/v3/files/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
 # supportsAllDrives is needed because the google sheet is stored in a shared google drive folder
 parameters = {"supportsAllDrives": True, "fields": "modifiedTime"}
