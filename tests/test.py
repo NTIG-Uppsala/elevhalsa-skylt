@@ -6,6 +6,7 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import filecmp
+import shutil
 
 SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
 
@@ -66,6 +67,11 @@ class TestLocalScripts(unittest.TestCase):
             self.fail(f"Picture {picture} is not size {expected}Kb and is {size}Kb")
 
     def test_get_images(self):
+        # Prevent earlier tests from influencing the result of this test
+        images_path = "tests/img/"
+        if os.path.isdir(images_path):
+            shutil.rmtree(images_path)
+        
         # Check size of Image
         self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
         self.helper_get_images_check_size("Karl2", 99287)
