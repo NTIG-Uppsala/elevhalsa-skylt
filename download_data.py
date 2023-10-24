@@ -43,5 +43,5 @@ while True:
     else:
         print("Data is already updated")
         
-    time.sleep(5)
+    time.sleep(30)
 
