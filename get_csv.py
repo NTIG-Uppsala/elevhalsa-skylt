@@ -19,32 +19,24 @@ client = gspread.authorize(credentials)
 sh = client.open_by_key(sys.argv[1])
 rows = sh.get_worksheet(0).get_all_values()
 
-# Opens the current csv file with data, then reads and saves every row in a list
-current_sheet = []
-
-
-def read_csv_file_to_sheet(path, sheet):
-    with open(path, "r", encoding="utf-8") as r:
-        sheet = []
-        csvreader = csv.reader(r)
-        for row in csvreader:
-            sheet.append(row)
-
-
 csv_path = sys.argv[2]
 csv_directory = os.path.dirname(csv_path)
 
 if not os.path.exists(csv_directory):
     os.makedirs(csv_directory)
 
-try:
-    read_csv_file_to_sheet(csv_path, current_sheet)
-except:
-    open(csv_path, "x", encoding="utf-8")
-    read_csv_file_to_sheet(csv_path, current_sheet)
+rows[0].append("FILNAMN")
+name_column_index = rows[0].index("NAMN")
+
+for row_index in range(1, len(rows)):
+    row = rows[row_index]
+    name = row[name_column_index].replace(" ", "_")
+    row_number = row_index + 1
+    file_name = f"{row_number}_{name}.jpg"
+    row.append(file_name)
 
 with open(csv_path, "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
-            
+        
