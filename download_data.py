@@ -25,6 +25,7 @@ access_token = (
     .access_token
 )
 url = f"https://www.googleapis.com/drive/v3/files/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
+# supportsAllDrives is needed because the google sheet is stored in a shared google drive folder
 parameters = {"supportsAllDrives": True, "fields": "modifiedTime"}
 previous_modified_time = None
 
