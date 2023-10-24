@@ -51,12 +51,7 @@ except:
     open(csv_path, "x", encoding="utf-8")
     read_csv_file_to_sheet(csv_path, current_sheet)
 
-# Compares currently saved csv data with the data on the spreadsheet, and updates it if changes has been made
-if current_sheet != rows:
-    # removes empty lists from currentSheet
-    current_sheet = [item for item in current_sheet if item != []]
-    print("Data changed, updating...")
-    with open(csv_path, "w", encoding="utf-8") as f:
+with open(csv_path, "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
