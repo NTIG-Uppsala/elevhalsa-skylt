@@ -42,11 +42,17 @@ with open("info.xlsx", "wb") as file:
 exel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
 image_loader = SheetImageLoader(exel_spreadsheet)
 
+first_row = exel_spreadsheet[1]
+first_row_values = [cell.value for cell in first_row]
+image_column_number = first_row_values.index("BILD") + 1
+image_filename_column_number = first_row_values.index("FILNAMN") + 1
+
 for row in range(2, exel_spreadsheet.max_row + 1):
-    image_filename = exel_spreadsheet["K" + str(row)].value
+    image_filename = exel_spreadsheet.cell(row, image_filename_column_number).value
     # Create a full path to the image file by formatting the 'profile_img_path' with the image filename.
     image_path = profile_img_path.format(image_filename)
-    image = image_loader.get("I" + str(row))
+    image_cell_name = chr(ord("A") + image_column_number - 1) + str(row)
+    image = image_loader.get(image_cell_name)
     image.save(image_path)
 
 os.remove("info.xlsx")
