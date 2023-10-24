@@ -58,10 +58,10 @@ class TestLocalScripts(unittest.TestCase):
                 size = os.path.getsize(folder_path + picture)
                 file.write(f"{picture} is {size}kb big \n")
 
-    def helper_get_images_check_size(self, name, expected):  # Expected in Kb
+    def helper_get_images_check_size(self, file_name, expected):  # Expected in Kb
         folder_path = "tests/img/"
         subprocess.call(["python", "get_images.py", SHEET_ID, folder_path])
-        picture = f"{folder_path}Profile/{name}.jpg"
+        picture = f"{folder_path}Profile/{file_name}"
         size = os.path.getsize(picture)
         if size != expected:
             self.fail(f"Picture {picture} is not size {expected}Kb and is {size}Kb")
@@ -73,10 +73,10 @@ class TestLocalScripts(unittest.TestCase):
             shutil.rmtree(images_path)
         
         # Check size of Image
-        self.helper_get_images_check_size("Karl1", 67545)  # size in Kb
-        self.helper_get_images_check_size("Karl2", 99287)
-        self.helper_get_images_check_size("Linnea", 16930)
-        self.helper_get_images_check_size("Maria", 36541)
+        self.helper_get_images_check_size("2_Maria_Ohlsson.jpg", 36541)
+        self.helper_get_images_check_size("3_Karl_Eriksson.jpg", 67545)
+        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 99287)
+        self.helper_get_images_check_size("5_Linnéa_Johansson.jpg", 16930)
 
         # Uncomment to generate a file with a list of image sizes
         self.write_txt_image_sizes()

@@ -1,3 +1,4 @@
+import csv
 import sys
 import os
 import pathlib
@@ -26,7 +27,7 @@ else:
     print(f"Folder '{profile_folder_path}' already exists.")
 
 # Set the profile image path
-profile_img_path = os.path.join(profile_folder_path, "{}.jpg")
+profile_img_path = os.path.join(profile_folder_path, "{}")
 
 access_token = get_access_token()
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
@@ -46,10 +47,17 @@ image_loader = SheetImageLoader(exel_spreadsheet)
 first_row = exel_spreadsheet[1]
 first_row_values = [cell.value for cell in first_row]
 image_column_number = first_row_values.index("BILD") + 1
-image_filename_column_number = first_row_values.index("FILNAMN") + 1
+
+stored_csv_data = []
+with open("site/_data/stored_data.csv", "r", encoding="utf-8") as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        stored_csv_data.append(row)
+
+image_column_index = stored_csv_data[0].index("FILNAMN")
 
 for row in range(2, exel_spreadsheet.max_row + 1):
-    image_filename = exel_spreadsheet.cell(row, image_filename_column_number).value
+    image_filename = stored_csv_data[row - 1][image_column_index]
     # Create a full path to the image file by formatting the 'profile_img_path' with the image filename.
     image_path = profile_img_path.format(image_filename)
     # Create image cell name from column and row numbers
