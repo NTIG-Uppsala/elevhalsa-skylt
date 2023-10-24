@@ -22,6 +22,8 @@ def get_modified_time():
                             headers={"Authorization": "Bearer " + access_token}, 
                             params=parameters)
     date_time_string = response.json()["modifiedTime"]
+    # Removes the Z to maintain compatibility with older python verisons than 3.11
+    # The Z comes from that the datetime string is written in ISO 8601, which contains a Z at the end
     return datetime.fromisoformat(date_time_string.replace("Z", ""))
 
 def data_has_changed():
