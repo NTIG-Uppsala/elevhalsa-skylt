@@ -1,10 +1,10 @@
 import sys
 import os
 import pathlib
-from oauth2client.service_account import ServiceAccountCredentials
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
 import requests
+from credentials import get_access_token
 
 # cli arguments are used in the script to specify path and sheet id
 
@@ -28,20 +28,7 @@ else:
 # Set the profile image path
 profile_img_path = os.path.join(profile_folder_path, "{}.jpg")
 
-
-scope = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive",
-]
-credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    CREDENTIALS_JSON_FILE, scope
-)
-# from https://stackoverflow.com/a/69776579
-access_token = (
-    credentials.create_delegated(credentials._service_account_email)
-    .get_access_token()
-    .access_token
-)
+access_token = get_access_token()
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
