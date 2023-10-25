@@ -35,7 +35,7 @@ layout: default
 
     <!-- Creates div for all members -->
     {% for member in eht_members %}
-    {% if member.DOLJ_PROFIL == TRUE}
+    {% if member.DOLJ_PROFIL != "TRUE" %}
     {% if forloop.first %}
     <div class="item active">
       {% else %}
@@ -81,8 +81,8 @@ layout: default
             </div>
           </div>
         </div>
-        {% endif %}
       </div>
+      {% endif %}
       {% endfor %}
 
     </div>
