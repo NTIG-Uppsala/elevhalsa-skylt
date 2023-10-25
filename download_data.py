@@ -37,7 +37,7 @@ while True:
     if data_has_changed():
         print("Updating data")
         subprocess.call(["python3", f"{PATH}/get_csv.py", sheet_id, data_path])
-        subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path])
+        subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path, data_path])
         try:
             subprocess.run(["xdotool", "key", "F5"])
         except:

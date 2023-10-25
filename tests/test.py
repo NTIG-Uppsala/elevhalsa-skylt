@@ -60,7 +60,9 @@ class TestLocalScripts(unittest.TestCase):
 
     def helper_get_images_check_size(self, file_name, expected):  # Expected in Kb
         folder_path = "tests/img/"
-        subprocess.call(["python", "get_images.py", SHEET_ID, folder_path])
+        csv_datapath = "tests/downloaded_test_data.csv"
+        subprocess.call(["python", "get_csv.py", SHEET_ID, csv_datapath])
+        subprocess.call(["python", "get_images.py", SHEET_ID, folder_path, csv_datapath])
         picture = f"{folder_path}Profile/{file_name}"
         size = os.path.getsize(picture)
         if size != expected:

@@ -13,10 +13,11 @@ SPREADSHEET_ID = sys.argv[1]
 CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 # Get the image path from command-line arguments (sys.argv)
-if len(sys.argv) < 3:
-    print("Usage: python script.py <image_path>")
+if len(sys.argv) < 4:
+    print("Usage: python get_images.py <spreadsheet_id> <img_path> <csv_data_path>")
     sys.exit(1)
 img_path = sys.argv[2]
+csv_data_path = sys.argv[3]
 
 # Check if the 'Profile' folder exists or create it
 profile_folder_path = os.path.join(img_path, "Profile")
@@ -49,7 +50,7 @@ first_row_values = [cell.value for cell in first_row]
 image_column_number = first_row_values.index("BILD") + 1
 
 stored_csv_data = []
-with open("site/_data/stored_data.csv", "r", encoding="utf-8") as file:
+with open(csv_data_path, "r", encoding="utf-8") as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         stored_csv_data.append(row)
