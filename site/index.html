@@ -33,14 +33,16 @@ layout: default
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 
-    <!-- Creates div for all members -->
-    {% for member in eht_members %}
-    {% if member.DOLJ_PROFIL != "TRUE" %}
-    {% if forloop.first %}
-    <div class="item active">
-      {% else %}
+  <!-- Creates div for all members -->
+  {% assign has_set_a_slide_to_active = false %}
+  {% for member in eht_members %}
+  {% if member.DOLJ_PROFIL != "TRUE" %}
+    {% if has_set_a_slide_to_active == false %}
+      <div class="item active">
+      {% assign has_set_a_slide_to_active = true %}
+    {% else %}
       <div class="item">
-        {% endif %}
+    {% endif %}
         <div class="background-grid-layout">
           <div class="grid-item-image">
             <img src="assets/img/Profile/{{member.FILNAMN}}">
