@@ -23,6 +23,10 @@ This project aims to create a digital sign system that highlights Student Health
 ## How To Change The Information Currently Displayed
 Changing the information that is displayed on the monitor is done by changing the information in [this](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs) google spreadsheet. The data on the monitor will update automatically from a couple of seconds up to a few minutes after you edit the spreadsheet.
 
+### Adding an Image
+Select the cell for the person you want to add an image to in the "BILD" column. Click `Infoga` -> `Bild` -> `Infoga bild i cell`.
+Then click on `Bläddra` and select the image you want to add.
+
 ## Google Drive Folder
 This project has a [Google Drive folder](https://drive.google.com/drive/folders/1PE9KzvEw8aPh5E4z1SYBZf03GJ8k5gWZ) for more private data. The folder contains thespreadsheet for displayed data, product backlog, passwords and more.
 
