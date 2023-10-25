@@ -54,10 +54,10 @@ with open("site/_data/stored_data.csv", "r", encoding="utf-8") as file:
     for row in csv_reader:
         stored_csv_data.append(row)
 
-image_column_index = stored_csv_data[0].index("FILNAMN")
+image_filename_column_index = stored_csv_data[0].index("FILNAMN")
 
 for row in range(2, exel_spreadsheet.max_row + 1):
-    image_filename = stored_csv_data[row - 1][image_column_index]
+    image_filename = stored_csv_data[row - 1][image_filename_column_index]
     # Create a full path to the image file by formatting the 'profile_img_path' with the image filename.
     image_path = profile_img_path.format(image_filename)
     # Create image cell name from column and row numbers
