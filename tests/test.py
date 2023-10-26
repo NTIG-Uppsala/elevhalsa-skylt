@@ -77,7 +77,7 @@ class TestLocalScripts(unittest.TestCase):
         # Check size of Image
         self.helper_get_images_check_size("2_Maria_Ohlsson.jpg", 36541)
         self.helper_get_images_check_size("3_Karl_Eriksson.jpg", 67545)
-        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 99287)
+        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 116074)
         self.helper_get_images_check_size("5_Linnéa_Johansson.jpg", 16930)
 
         # Uncomment to generate a file with a list of image sizes
