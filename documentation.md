@@ -62,7 +62,9 @@ Run the following commands separately
 
 ```
 python3 get_csv.py
+```
 
+```
 jekyll serve -s site
 ```
 "jekyll serve -s site" runs the site locally and let's you preview it.
@@ -260,6 +262,8 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 1. Open Command Line Interface and type in the following commands:
 	```
 	sudo apt-get install unclutter
+	```
+	```
 	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 	```
 2. Add the following line at the bottom:
