@@ -18,7 +18,7 @@ client = gspread.authorize(credentials)
 # Opens the spreadsheet containing data and gets all the values from the first index (page) of the spreadsheet
 sh = client.open_by_key(sys.argv[1])
 rows = sh.get_worksheet(0).get_all_values()
-
+print(len(rows))
 csv_path = sys.argv[2]
 csv_directory = os.path.dirname(csv_path)
 
@@ -35,7 +35,7 @@ for row_index in range(1, len(rows)):
     file_name = f"{row_number}_{name}.jpg"
     row.append(file_name)
 
-with open(csv_path, "w", encoding="utf-8") as f:
+with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
