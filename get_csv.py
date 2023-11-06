@@ -18,7 +18,6 @@ client = gspread.authorize(credentials)
 # Opens the spreadsheet containing data and gets all the values from the first index (page) of the spreadsheet
 sh = client.open_by_key(sys.argv[1])
 rows = sh.get_worksheet(0).get_all_values()
-print(len(rows))
 csv_path = sys.argv[2]
 csv_directory = os.path.dirname(csv_path)
 
