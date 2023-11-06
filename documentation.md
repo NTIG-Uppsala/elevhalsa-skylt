@@ -72,7 +72,7 @@ python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
 jekyll serve -s site
 ```
-"jekyll serve -s site" runs the site locally and let's you preview it.
+`jekyll serve -s site` runs the site locally and let's you preview it.
 
 ### Step 6 - Development environment for testing
 
