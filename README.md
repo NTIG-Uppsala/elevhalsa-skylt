@@ -4,7 +4,7 @@
 
 - [Introduction](README.md#introduction)
 - [How To Change The Information Currently Displayed](README.md#how-to-change-the-information-currently-displayed)
-- [Google Drive Folder](README.md#introduction)
+- [Google Drive Folder](README.md#google-drive-folder)
 - [Documentation](README.md#Documentation)
 - [Definition of Done](README.md#definition-of-done)
 - [Creating branches & Merging to main](README.md#creating-branches--merging-to-main)
