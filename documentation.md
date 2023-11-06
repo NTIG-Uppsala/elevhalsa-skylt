@@ -64,9 +64,11 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 Run the following commands separately
 
 ```
-python3 get_csv.py
+python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
+`SPREADSHEET` can be found in the sheet's url.
 
+`SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 ```
 jekyll serve -s site
 ```
