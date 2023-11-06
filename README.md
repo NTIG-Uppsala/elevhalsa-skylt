@@ -19,7 +19,7 @@
 
 This project aims to create a digital sign system that highlights Student Health Staff, providing quick and engaging information about their availability and services.
 
-![A picture of the project. It's a screen on a wall with the display ofstudent health staff.](project_picture.jpg)
+![A picture of the project. It's a screen on a wall with the display of student health staff.](project_picture.jpg)
 
 ## How To Change The Information Currently Displayed
 
