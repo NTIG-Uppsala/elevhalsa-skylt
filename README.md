@@ -27,8 +27,8 @@ Changing the information that is displayed on the monitor is done by changing th
 
 ### Adding an Image
 
-Select the cell for the person you want to add an image to in the "BILD" column. Click `Infoga` -> `Bild` -> `Infoga bild i cell`.
-Then click on `Bläddra` and select the image you want to add.
+Select the cell for the person you want to add an image to in the "BILD" column. Click `Insert` -> `Image` -> `Insert image in cell`.
+Then click on `Browse` and select the image you want to add.
 
 ## Google Drive Folder
 
