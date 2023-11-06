@@ -1,6 +1,6 @@
 # Student Health Staff Monitor
 
-### Table of Contents
+## Table of Contents
 + [Introduction](README.md#introduction)
 + [How To Change The Information Currently Displayed](README.md#how-to-change-the-information-currently-displayed)
 + [Google Drive Folder](README.md#introduction)
