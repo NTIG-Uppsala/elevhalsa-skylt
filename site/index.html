@@ -4,15 +4,6 @@ layout: default
 
 {% assign eht_members = site.data.stored_data %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
 
 <div class="logo">
   <img src="assets/img/nti-logo.svg" alt="TE4" height="150px">
@@ -28,16 +19,16 @@ layout: default
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 
-  <!-- Creates div for all members -->
-  {% assign has_set_a_slide_to_active = false %}
-  {% for member in eht_members %}
-  {% if member.DOLJ_PROFIL != "TRUE" %}
+    <!-- Creates div for all members -->
+    {% assign has_set_a_slide_to_active = false %}
+    {% for member in eht_members %}
+    {% if member.DOLJ_PROFIL != "TRUE" %}
     {% if has_set_a_slide_to_active == false %}
-      <div class="item active">
+    <div class="item active">
       {% assign has_set_a_slide_to_active = true %}
-    {% else %}
+      {% else %}
       <div class="item">
-    {% endif %}
+        {% endif %}
         <div class="background-grid-layout">
           <div class="grid-item-image">
             <img src="assets/img/Profile/{{member.FILNAMN}}">
