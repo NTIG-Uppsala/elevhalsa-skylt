@@ -80,9 +80,9 @@ See [tests_info.md](tests/tests_info.md) for how to install necessary libraries 
 
 ## Keeping the repo up to date in the Raspberry Pi
 
-+ Code locally, either on a development Raspberry Pi or on your personal computer
-+ Push to the Github repo
-+ Pull from the main Raspberry Pi
+- Code locally, either on a development Raspberry Pi or on your personal computer
+- Push to the Github repo
+- Pull from the main Raspberry Pi
 
 ## Raspberry Pi
 
