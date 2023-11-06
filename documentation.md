@@ -31,7 +31,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
 
-- Check the Windows-subsystem box (commonly found at the bottom) and press OK. Windows will prompt a restart and press restart 
+- Check the Windows-subsystem box (commonly found at the bottom) and press OK. Windows will prompt a restart and press restart
 
 - Press (Windows) + R
 
@@ -89,7 +89,7 @@ NOOBS OS https://www.raspberrypi.org/downloads/noobs/
 Tutorial for NOOBS installation:
 1. Install SD card formatting tool
 2. Insert SD card in computer
-3. Format SD card with installed tool	
+3. Format SD card with installed tool
 4. Download NOOBS from Raspberry's website
 5. Unzip and transfer NOOBS directory content to SD card boot folder
 6. Plug in SD card into Raspberry Pi and connect to a Wi-Fi
@@ -103,24 +103,24 @@ Tutorial for NOOBS installation:
 ### Download/Install VNC Viewer
 1. Go to https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
-    
+
 ### Remote control the Raspberry Pi
 1. On the Pi, run the following code to get the IP adress:
 ```
 hostname -I 
 ```
-2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials. 
+2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ***
 ### Enable Remote Control
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
-       
+
         sudo apt-get update
         sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
-2. Write this command: 
-    
+2. Write this command:
+
         sudo raspi-config
 3. Navigate to Interfacing Options and enable VNC
 
@@ -141,11 +141,11 @@ and then clone the git repository with the command:
 Change active directory to elevhalsa-skylt using the command:
 
     	cd /home/pi/git/elevhalsa-skylt/
-    
+
 ***
 ## New Repository
 
-If you create a new repository and clone it, you need to modify two files in the raspberry: 
+If you create a new repository and clone it, you need to modify two files in the raspberry:
 
 1. autostart: This file builds the site using jekyll and opens the chromium browser and shows the website in fullscreen.
 - Write the following code to open it:
@@ -165,7 +165,7 @@ The commands should be run on the Raspberry Pi.
 
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
-	
+
         bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
 
 3. Open the Command Line Interface and type in the following command:
@@ -181,7 +181,7 @@ because all commands in `.bashrc` are run everytime a new terminal is opened.
 So every time you ssh into the Raspberry Pi it tries to start a jekyll server, but fails because one is already running.
 
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
-For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`. 
+For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
 
 ***
 ## Change active display times
@@ -205,11 +205,11 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
                     5 10 * * * sudo reboot
     This will turn of HDMI output at 10:00 and start it again at 10:05.
 
-***    
+***
 
 ## Create shortcut
 1. Open the Command Line Interface and enter the following command:
-        
+
         sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
 
 2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
@@ -220,7 +220,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
                 </command>
             </action>
         </keybind>
-        
+
 3. Add the shortcut in the `<keybind>` tag and command you want to run between the `<command></command>` tags
 
     Example for running a bash script when Ctrl+F11 is pressed:
@@ -237,9 +237,9 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
     A - stands for alt
 
-    S - stands for shift 
-    
-***            
+    S - stands for shift
+
+***
 
 ## Disable Black Border around Screen
 1. Open the Command Line Interface and type the following command:
@@ -254,7 +254,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 1. Open Chromium browser
 2. Go to Settings > Advanced Settings > Language
 3. Untick Offer to Translate Page checkbox
-4. Exit Browser 
+4. Exit Browser
 
 ***
 ## Remove Cursor
@@ -284,7 +284,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Comment out `@xscreensaver -no-splash` using a hashtag at the beginning of that line.
 3. Then add this line:
-        
+
         @xset s off
 4. Save and exit.
 
@@ -292,27 +292,27 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 ## Disable Raspberry Pi sleep mode
 
 1. Open the Command Line Interface and type in the following command:
-        
+
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. Add the following lines at the bottom:
-        
+
         @xset -dpms
         @xset s noblank
 
 ***
 ## Remove Raspberry Icons
 1. Open Command Line Interface and type in the following command:
-        
+
         sudo nano /boot/cmdline.txt
 2. In the editor, at the end of the line add:
-        
+
         logo.nologo
 
 ***
 ## Replace Boot Image
 
 1. Open Command Line Interface and type in the following command:
-       
+
         sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
