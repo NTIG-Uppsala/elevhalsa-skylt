@@ -27,7 +27,7 @@
 
 If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
 
-> Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise jekyll will not work.
+> Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise Jekyll will not work.
 
 ### Step 2 - install WSL Ubuntu
 
@@ -66,7 +66,7 @@ Run the following commands separately
 ```
 python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
-`SPREADSHEET` can be found in the sheet's url.
+`SPREADSHEET_ID` can be found in the sheet's url.
 
 `SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 ```
@@ -82,7 +82,7 @@ See [tests_info.md](tests/tests_info.md) for how to install necessary libraries 
 
 - Code locally, either on a development Raspberry Pi or on your personal computer
 - Push to the Github repo
-- Pull from the main Raspberry Pi
+- Pull from the main branch on the Raspberry Pi
 
 ## Raspberry Pi
 
@@ -159,7 +159,7 @@ Change active directory to elevhalsa-skylt using the command:
 
 If you create a new repository and clone it, you need to modify two files in the raspberry:
 
-1. autostart: This file builds the site using jekyll and opens the chromium browser and shows the website in fullscreen.
+1. autostart: This file builds the site using Jekyll and opens the chromium browser and shows the website in fullscreen.
 - Write the following code to open it:
 
         sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
@@ -192,7 +192,7 @@ The commands should be run on the Raspberry Pi.
 The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
 It is not optimal that it is in `.bashrc `
 because all commands in `.bashrc` are run everytime a new terminal is opened.
-So every time you ssh into the Raspberry Pi it tries to start a jekyll server, but fails because one is already running.
+So every time you ssh into the Raspberry Pi it tries to start a Jekyll server, but fails because one is already running.
 
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
