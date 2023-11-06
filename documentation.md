@@ -1,6 +1,7 @@
 # Student Health Staff Monitor Documentation
 
 ## Table of Contents
+
 + [Set up development environment](documentation.md#set-up-development-environment)
 + [Raspberry Pi](documentation.md#raspberry-pi)
 + [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
@@ -23,6 +24,7 @@
 ## Set up development environment
 
 ### Step 1 - Clone this repository
+
 If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
 
 > Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise jekyll will not work.
@@ -52,6 +54,7 @@ sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; ec
 ```
 
 ### Step 4 - Add google service account credentials
+
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the cloned repository on your computer.
 
 > The google service account api credentials are not stored in the GitHub repository for security reasons.
@@ -70,9 +73,11 @@ jekyll serve -s site
 "jekyll serve -s site" runs the site locally and let's you preview it.
 
 ### Step 6 - Development environment for testing
+
 See [tests_info.md](tests/tests_info.md) for how to install necessary libraries for testing.
 
 ## Keeping the repo up to date in the Raspberry Pi
+
 + Code locally, either on a development Raspberry Pi or on your personal computer
 + Push to the Github repo
 + Pull from the main Raspberry Pi
@@ -101,10 +106,12 @@ Tutorial for NOOBS installation:
 ## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
+
 1. Go to https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
 
 ### Remote control the Raspberry Pi
+
 1. On the Pi, run the following code to get the IP adress:
 ```
 hostname -I 
@@ -113,7 +120,9 @@ hostname -I
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ***
+
 ### Enable Remote Control
+
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
 
@@ -143,6 +152,7 @@ Change active directory to elevhalsa-skylt using the command:
     	cd /home/pi/git/elevhalsa-skylt/
 
 ***
+
 ## New Repository
 
 If you create a new repository and clone it, you need to modify two files in the raspberry:
@@ -157,7 +167,9 @@ If you create a new repository and clone it, you need to modify two files in the
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
 ***
+
 ## Set Up Autostart
+
 Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
 The commands should be run on the Raspberry Pi.
 
@@ -184,7 +196,9 @@ Commands in `autostart` are processed in a parallel fashion, so commands do not 
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
 
 ***
+
 ## Change active display times
+
 1. Open the Command Line Interface and enter the following command:
 
         crontab -e
@@ -208,6 +222,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 ***
 
 ## Create shortcut
+
 1. Open the Command Line Interface and enter the following command:
 
         sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
@@ -242,6 +257,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 ***
 
 ## Disable Black Border around Screen
+
 1. Open the Command Line Interface and type the following command:
 
         sudo nano /boot/config.txt
@@ -250,13 +266,16 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         disable_overscan=1
 
 ***
+
 ## Remove Chromium offer to Translate Page
+
 1. Open Chromium browser
 2. Go to Settings > Advanced Settings > Language
 3. Untick Offer to Translate Page checkbox
 4. Exit Browser
 
 ***
+
 ## Remove Cursor
 
 1. Open Command Line Interface and type in the following commands:
@@ -271,12 +290,14 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 	@unclutter -idle 3
 	```
 ***
+
 ## Hide Taskbar
 
 1. Right-click on the taskbar and select `Panel Settings`
 2. Click on the `Advanced` tab, and check `Minimize panel when not in use`
 
 ***
+
 ## Remove Screensaver
 
 1. Open Command Line Interface and type in the following command:
@@ -289,6 +310,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 4. Save and exit.
 
 ***
+
 ## Disable Raspberry Pi sleep mode
 
 1. Open the Command Line Interface and type in the following command:
@@ -300,7 +322,9 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         @xset s noblank
 
 ***
+
 ## Remove Raspberry Icons
+
 1. Open Command Line Interface and type in the following command:
 
         sudo nano /boot/cmdline.txt
@@ -309,6 +333,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         logo.nologo
 
 ***
+
 ## Replace Boot Image
 
 1. Open Command Line Interface and type in the following command:
@@ -316,6 +341,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
         sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
 
 ***
+
 ## Change Background Image
 
 1. Right-click on desktop and select desktop preferences.  
@@ -325,10 +351,13 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 ***
 
 ## Hardware used
+
 ### Screen
+
 - Name: Voxicon VXM232HD
 - Size: 32 inches
 - Resolution: 1360 x 768
 - Touch screen: No
 - Number of HDMI-ports: 2
+
 ### Raspberry Pi 4 Model B Rev 1.2
