@@ -37,9 +37,9 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Press (Windows) + R
 
-- write "cmd" and press enter
+- Write "cmd" and press enter
 
-- write the command: `wsl --install` (and run it)
+- Write the command: `wsl --install` (and run it)
   > Try `wsl --install -d Ubuntu` if the command above does not work
 
 - Follow the instructions shown on the screen
