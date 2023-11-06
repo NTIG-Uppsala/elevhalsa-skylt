@@ -31,7 +31,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 ### Step 2 - install WSL Ubuntu
 
-- Go to the control panel → Program → Programs and feautures → Activate or deactivate Windows-features
+- Go to the Control Panel → Programs → Programs and Feautures → Turn Windows features on or off
 
 - Check the Windows-subsystem box (commonly found at the bottom) and press OK. Windows will prompt a restart and press restart
 
@@ -39,7 +39,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Write "cmd" and press enter
 
-- Write the command: `wsl --install` (and run it)
+- Run the command: `wsl --install`
   > Try `wsl --install -d Ubuntu` if the command above does not work
 
 - Follow the instructions shown on the screen
