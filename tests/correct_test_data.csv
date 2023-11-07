@@ -1,4 +1,4 @@
-DOLJ_PROFIL,NAMN,ARBETSROLL,INFO_TEXT,E-POST,TELEFON,INSTAGRAM,ARBETSTIDER,VANING,BILD,TIPS,FILNAMN
+DOLJ_PROFIL,NAMN,ARBETSROLL,INFO_TEXT,E-POST,TELEFON,INSTAGRAM,ARBETSTIDER,PLATS,BILD,TIPS,FILNAMN
 FALSE,Maria Ohlsson,Skolkurator,-,maria.ohlsson@example.com,011-123 45 67,@maria.ohlsson308425,,,,,2_Maria_Ohlsson.jpg
 TRUE,Karl Eriksson,Skolsköterska,-,karl.eriksson@example.com,018-99 99 99,,,,,,3_Karl_Eriksson.jpg
 FALSE,Karl Jönsson,Biträdande rektor,-,karl.jonsson@another_example.com,098-76 54 32,@karl18354232,,,,,4_Karl_Jönsson.jpg
