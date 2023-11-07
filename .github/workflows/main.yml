@@ -13,5 +13,5 @@ jobs:
         echo "${{ secrets.service_account_credentials }}" > service_account_credentials.json
     - name: Set up .env
       run: |
-        echo "${{ secrets.env }}" > .env
+        echo "${{ secrets.env }}" | tr -d '"' > .env
     - run: python -m unittest discover -s ./tests/
