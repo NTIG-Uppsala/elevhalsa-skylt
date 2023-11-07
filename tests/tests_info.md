@@ -2,12 +2,22 @@
 
 ## Requirements
 
-Use the following command to download the libraries needed to use the tests. Use this in a python terminal **NOT in the WSL**
+Use the following command to download the libraries needed to use the tests. Use this in a Python terminal **NOT in the WSL**
 
-    py -m pip install -r tests/test_requirements.txt
+```
+python -m pip install -r tests/test_requirements.txt
+```
 
-## Info
+## Run tests
 
-Be sure to have a jekyll server up before starting any test.
+Be sure to have a Jekyll server up before starting any test. Make sure to run the following command in WSL:
 
-        jekyll serve -s site
+```
+jekyll serve -s site
+```
+
+This command can be used to run the tests:
+
+```
+python -m unittest discover -s ./tests/
+```
