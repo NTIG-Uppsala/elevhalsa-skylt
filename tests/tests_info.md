@@ -4,13 +4,17 @@
 
 Use the following command to download the libraries needed to use the tests. Use this in a Python terminal **NOT in the WSL**
 
-    py -m pip install -r tests/test_requirements.txt
+```
+python -m pip install -r tests/test_requirements.txt
+```
 
 ## Run tests
 
 Be sure to have a Jekyll server up before starting any test.
 
-        jekyll serve -s site
+```
+jekyll serve -s site
+```
 
 This command can be used to run the tests:
 
