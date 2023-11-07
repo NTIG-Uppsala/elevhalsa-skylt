@@ -8,5 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: pip install -r tests/test_requirements.txt
+    - name: set up service_account_credentials.json
+      run: echo ${{ secrets.service_account_credentials }} > service_account_credentials.json
     - run: python -m unittest discover -s ./tests/
-  
