@@ -15,4 +15,5 @@ jobs:
     - name: Set up service_account_credentials.json
       run: |
         echo "${{ secrets.service_account_credentials }}" > service_account_credentials.json
+    - run: jekyll serve -s site
     - run: python -m unittest discover -s ./tests/
