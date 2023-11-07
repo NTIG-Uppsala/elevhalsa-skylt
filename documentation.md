@@ -61,9 +61,21 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 ### Step 5 - Running it
 
-Run the following commands separately
-
+#### Set up
+Most of the programs require an .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project.
 ```
+sheet_id = SPREADSHEET_ID
+
+test_sheet_id = SPREADSHEET_ID
+``` 
+`sheet_id` & `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
+
+#### Running
+To run any of the Python programs, you have two choices. You can either run them without any arguments, using the content from the .env file and the recommended file paths for each program:
+```
+python3 get_csv.py
+```
+Or you can type in a custom spreadsheet ID and file path, which may require configuration of the code:```
 python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
 `SPREADSHEET_ID` can be found in the sheet's url.
