@@ -4,10 +4,12 @@ import pathlib
 import requests
 from datetime import datetime
 from credentials import get_access_token
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
-sheet_id = "1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
 data_path = "site/_data/stored_data.csv"
 picture_path = "site/assets/img"
 
@@ -36,8 +38,8 @@ def data_has_changed():
 while True:
     if data_has_changed():
         print("Updating data")
-        subprocess.call(["python3", f"{PATH}/get_csv.py", sheet_id, data_path])
-        subprocess.call(["python3", f"{PATH}/get_images.py", sheet_id, picture_path, data_path])
+        subprocess.call(["python3", f"{PATH}/get_csv.py", os.getenv("sheet_id"), data_path])
+        subprocess.call(["python3", f"{PATH}/get_images.py", os.getenv("sheet_id"), picture_path, data_path])
         try:
             subprocess.run(["xdotool", "key", "F5"])
         except:

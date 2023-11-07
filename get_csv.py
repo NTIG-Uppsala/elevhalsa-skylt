@@ -8,12 +8,12 @@ from dotenv import load_dotenv
 # Loads content of enviroment variable file, default path is `./.env`
 load_dotenv()
 
-DEFAULT_PATH_TO_DATA = "./site/data/stored_data.csv"
+DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
 
 #If code runs without any arguments, run with default options
 if len(sys.argv) == 1:
      sheet_id = os.getenv("sheet_id") # Fetches sheet id from env 
-     csv_path = DEFAULT_PATH_TO_DATA
+     csv_path = DEFAULT_CSV_DATA_PATH
 else:
     try:
         sheet_id = sys.argv[1]
