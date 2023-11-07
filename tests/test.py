@@ -1,7 +1,6 @@
 import os
 import unittest
 import time
-import csv
 import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
