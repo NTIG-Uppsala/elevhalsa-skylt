@@ -1,6 +1,4 @@
 import csv
-import subprocess
-import time
 import sys
 import gspread
 import os
