@@ -4,7 +4,7 @@ on:
       - main
 
 env:
-  test_sheet_id: ${{ secrets.test_sheet_id }}
+  test_sheet_id: ${{ secrets.TEST_SHEET_ID }}
 
 jobs:
   run-tests:
@@ -14,6 +14,5 @@ jobs:
     - run: pip install -r tests/test_requirements.txt
     - name: Set up service_account_credentials.json
       run: |
-        echo "${{ secrets.service_account_credentials }}" > service_account_credentials.json
-    - run: jekyll serve -s site
+        echo "${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}" > service_account_credentials.json
     - run: python -m unittest discover -s ./tests/
