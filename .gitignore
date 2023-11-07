@@ -1,24 +1,19 @@
-.pytest_cache
+# Cache files
 **/__pycache__/
-tests/env
-tests/screenshots
-tests/chromedriver.exe
-tests/geckodriver
-_site
 .jekyll-cache
-logs.csv
-geckodriver.log
-geckodriver
-chromedriver
-site/_data/*
-!site/_data/.gitkeep
-site/assets/img/Profile/*
-!site/assets/img/Profile/.gitkeep
-*.xlsx
-.vscode
-tmp
-*.csv
+
+# Test files
 !tests/correct_test_data.csv
-service_account_credentials.json
 tests/img/*
 tests/picture_sizes.txt
+
+# Spreadsheet files
+*.xlsx
+*.csv
+
+# Miscellaneous
+_site
+site/assets/img/Profile/*
+.vscode
+tmp
+service_account_credentials.json
