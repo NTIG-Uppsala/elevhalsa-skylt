@@ -162,9 +162,6 @@ Change active directory to the Git directory with the command:
 and then clone the git repository with the command:
 
    	git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
-Change active directory to elevhalsa-skylt using the command:
-
-    	cd /home/pi/git/elevhalsa-skylt/
 
 ***
 
