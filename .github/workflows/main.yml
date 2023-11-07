@@ -15,4 +15,5 @@ jobs:
     - name: Set up service_account_credentials.json
       run: |
         echo "${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}" > service_account_credentials.json
+    - run: type service_account_credentials.json
     - run: python -m unittest discover -s ./tests/
