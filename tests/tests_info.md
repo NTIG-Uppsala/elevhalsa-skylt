@@ -10,7 +10,7 @@ python -m pip install -r tests/test_requirements.txt
 
 ## Run tests
 
-Be sure to have a Jekyll server up before starting any test.
+Be sure to have a Jekyll server up before starting any test. Make sure to run the following command in WSL:
 
 ```
 jekyll serve -s site
