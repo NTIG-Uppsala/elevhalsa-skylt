@@ -62,7 +62,7 @@ class TestLocalScripts(unittest.TestCase):
         # subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
         # subprocess.call(["python", "get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
         a = os.getenv("test_sheet_id")
-        if a == 5:
+        if a == "5":
             raise Exception('environment works')
         else:
             raise Exception('environment does not work')
