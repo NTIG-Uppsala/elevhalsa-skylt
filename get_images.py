@@ -10,11 +10,9 @@ from credentials import get_access_token
 # Loads content of enviroment variable file, default path is `./.env`
 load_dotenv()
 
-
 # cli arguments are used in the script to specify path and sheet id
 CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
-# 
 DEFAULT_IMAGE_PATH = "./site/assets/img"
 
 DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
@@ -22,20 +20,20 @@ DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
 access_token = get_access_token()
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-# Default is when no arguments is given
+
+# Default is when no arguments are given
 if len(sys.argv) == 1:
     sheet = os.getenv('sheet_id')
     img_path = DEFAULT_IMAGE_PATH
     csv_data_path = DEFAULT_CSV_DATA_PATH
-#using diffrent sheets/paths
+
+# Using different sheets/paths
 else: 
     sheet = sys.argv[1]    
     img_path = sys.argv[2]
     csv_data_path = sys.argv[3]
 
-
 url = f"https://www.googleapis.com/drive/v3/files/{sheet}/export?mimeType={mime_type}"
-
 
 # Check if the 'Profile' folder exists or create it
 profile_folder_path = os.path.join(img_path, "Profile")

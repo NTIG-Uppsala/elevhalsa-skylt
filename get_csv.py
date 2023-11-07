@@ -10,7 +10,7 @@ load_dotenv()
 
 DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
 
-#If code runs without any arguments, run with default options
+# If code runs without any arguments, run with default options
 if len(sys.argv) == 1:
      sheet_id = os.getenv("sheet_id") # Fetches sheet id from env 
      csv_path = DEFAULT_CSV_DATA_PATH
@@ -24,6 +24,8 @@ else:
 
 # This script uses google service accounts to authorize with the spreadsheet containing data,
 # (https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets)
+
+# Finds the json file with credentials for the service account, and authorizes the service account to gspread
 credentials = get_service_account_credentials()
 client = gspread.authorize(credentials)
 
@@ -36,10 +38,7 @@ except:
     print("Error: get_csv.py could not get path")
     sys.exit(-1)
 
-
 csv_directory = os.path.dirname(csv_path)
-
-
 
 if not os.path.exists(csv_directory):
     os.makedirs(csv_directory)
@@ -58,4 +57,3 @@ with open(csv_path, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     for row in rows:
         writer.writerow(row)
-        
