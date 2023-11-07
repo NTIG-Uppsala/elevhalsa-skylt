@@ -68,7 +68,7 @@ sheet_id = SPREADSHEET_ID
 
 test_sheet_id = SPREADSHEET_ID
 ``` 
-`sheet_id` & `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
+`sheet_id` and `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
 
 #### Running
 To run any of the Python programs, you have two choices. You can either run them without any arguments, using the content from the .env file and the recommended file paths for each program:
