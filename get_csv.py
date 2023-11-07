@@ -56,7 +56,7 @@ for row_index in range(1, len(rows)):
     row.append(file_name)
 
 with open(csv_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        for row in rows:
-            writer.writerow(row)
+    writer = csv.writer(f)
+    for row in rows:
+        writer.writerow(row)
         
