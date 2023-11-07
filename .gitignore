@@ -22,3 +22,4 @@ tmp
 service_account_credentials.json
 tests/img/*
 tests/picture_sizes.txt
+.env
