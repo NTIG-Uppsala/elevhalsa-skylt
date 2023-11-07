@@ -1,3 +1,5 @@
+// Stops carousel from pausing on mousehover
+
 $('.carousel').carousel({
     pause: "false"
 });
@@ -7,7 +9,6 @@ let status = document.getElementsByClassName('status');
 let latestChanges = document.getElementsByClassName('latestChange');
 moment.locale('sv');
 
-// Stops carousel from pausing on mousehover
 function updateDisplayedInfo(names, status, latestChanges) {
     $.getJSON('https://narvaro.ntig.net/api/get/users', function (data) {
         for (let i = 0; i < data.length; i++) {
