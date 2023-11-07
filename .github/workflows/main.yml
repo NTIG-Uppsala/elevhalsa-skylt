@@ -4,7 +4,7 @@ on:
       - main
 
 env:
-  test_sheet_id: ${{ secrets.TEST_SHEET_ID }}
+  test_sheet_id: ${{ secrets.test_sheet_id }}
 
 jobs:
   run-tests:
