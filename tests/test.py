@@ -8,7 +8,6 @@ import filecmp
 import shutil
 from dotenv import load_dotenv
 load_dotenv()
-SHEETID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
 
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
