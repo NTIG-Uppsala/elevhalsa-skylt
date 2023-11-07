@@ -1,7 +1,6 @@
 import csv
 import sys
 import os
-import pathlib
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
 import requests
