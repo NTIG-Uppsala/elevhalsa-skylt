@@ -75,7 +75,8 @@ To run any of the Python programs, you have two choices. You can either run them
 ```
 python3 get_csv.py
 ```
-Or you can type in a custom spreadsheet ID and file path, which may require configuration of the code:```
+Or you can type in a custom spreadsheet ID and file path, which may require configuration of the code:
+```
 python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
 `SPREADSHEET_ID` can be found in the sheet's url.
