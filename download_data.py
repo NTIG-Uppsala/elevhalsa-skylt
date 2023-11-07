@@ -6,6 +6,7 @@ from datetime import datetime
 from credentials import get_access_token
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 
 PATH = pathlib.Path(__file__).parent.absolute()
