@@ -1,15 +1,13 @@
 import os
 import unittest
 import time
-import csv
 import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import filecmp
 import shutil
-
-SHEET_ID = "13y1coklHJzw85RltZv5XXeMbwm_lm--5zXPaK9Ani4Q"
-
+from dotenv import load_dotenv
+load_dotenv()
 
 class TestLocalhostPageTitle(unittest.TestCase):
     # Executes before each test
@@ -42,7 +40,7 @@ class TestLocalScripts(unittest.TestCase):
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
         correct_file = "tests/correct_test_data.csv"
-        subprocess.call(["python", "get_csv.py", SHEET_ID, downloaded_file])
+        subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
         downloaded_file_is_correct = filecmp.cmp(
             downloaded_file, correct_file, shallow=False
         )
@@ -61,8 +59,8 @@ class TestLocalScripts(unittest.TestCase):
     def helper_get_images_check_size(self, file_name, expected):  # Expected in Kb
         folder_path = "tests/img/"
         csv_datapath = "tests/downloaded_test_data.csv"
-        subprocess.call(["python", "get_csv.py", SHEET_ID, csv_datapath])
-        subprocess.call(["python", "get_images.py", SHEET_ID, folder_path, csv_datapath])
+        subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
+        subprocess.call(["python", "get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
         picture = f"{folder_path}Profile/{file_name}"
         size = os.path.getsize(picture)
         if size != expected:

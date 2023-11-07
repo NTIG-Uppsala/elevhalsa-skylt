@@ -1,23 +1,39 @@
 import csv
 import sys
 import os
-import pathlib
 import openpyxl
 from openpyxl_image_loader import SheetImageLoader
 import requests
+from dotenv import load_dotenv
 from credentials import get_access_token
 
-# cli arguments are used in the script to specify path and sheet id
+# Loads content of enviroment variable file, default path is `./.env`
+load_dotenv()
 
-SPREADSHEET_ID = sys.argv[1]
+# cli arguments are used in the script to specify path and sheet id
 CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
-# Get the image path from command-line arguments (sys.argv)
-if len(sys.argv) < 4:
-    print("Usage: python get_images.py <spreadsheet_id> <img_path> <csv_data_path>")
-    sys.exit(1)
-img_path = sys.argv[2]
-csv_data_path = sys.argv[3]
+DEFAULT_IMAGE_PATH = "./site/assets/img"
+
+DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
+
+access_token = get_access_token()
+# MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
+mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
+# Default is when no arguments are given
+if len(sys.argv) == 1:
+    sheet = os.getenv('sheet_id')
+    img_path = DEFAULT_IMAGE_PATH
+    csv_data_path = DEFAULT_CSV_DATA_PATH
+
+# Using different sheets/paths
+else: 
+    sheet = sys.argv[1]    
+    img_path = sys.argv[2]
+    csv_data_path = sys.argv[3]
+
+url = f"https://www.googleapis.com/drive/v3/files/{sheet}/export?mimeType={mime_type}"
 
 # Check if the 'Profile' folder exists or create it
 profile_folder_path = os.path.join(img_path, "Profile")
@@ -30,10 +46,6 @@ else:
 # Set the profile image path
 profile_img_path = os.path.join(profile_folder_path, "{}")
 
-access_token = get_access_token()
-# MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
-mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-url = f"https://www.googleapis.com/drive/v3/files/{SPREADSHEET_ID}/export?mimeType={mime_type}"
 response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
 # This file is opened in binary write mode ("wb") because the response from Google API is in binary.
