@@ -2,6 +2,10 @@ on:
   pull_request:
     branches:
       - main
+
+env:
+  test_sheet_id: ${{ secrets.test_sheet_id }}
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
