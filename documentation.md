@@ -137,7 +137,7 @@ Tutorial for NOOBS installation:
 1. On the Pi, run the following code to get the IP adress:
 
     ```
-    hostname -I 
+    hostname -I
     ```
 
 2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
@@ -420,9 +420,9 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 ## Change Background Image
 
-1. Right-click on desktop and select desktop preferences.  
-2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
-3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
+1. Right-click on desktop and select desktop preferences.
+2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
+3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.
 
 ## Hardware used
 
