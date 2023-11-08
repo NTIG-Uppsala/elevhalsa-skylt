@@ -56,7 +56,7 @@ sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; ec
 
 ### Step 4 - Add google service account credentials
 
-Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the cloned repository on your computer.
+Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
 > The google service account api credentials are not stored in the GitHub repository for security reasons.
 
