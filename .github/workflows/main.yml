@@ -14,9 +14,7 @@ jobs:
     - name: Set up Ruby and Jekyll
       run: |
         sudo apt-get install -y ruby-full build-essential zlib1g-dev
-        gem install --user-install jekyll bundler
-        GEM_BIN_DIR="$(gem environment gemdir)/bin"
-        echo 'export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"' >> $GITHUB_ENV
+        gem install jekyll bundler
     - run: pip install -r tests/test_requirements.txt
     - name: Set up service_account_credentials.json
       run: |
