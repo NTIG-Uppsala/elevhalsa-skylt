@@ -141,11 +141,24 @@ hostname -I
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
 
-        sudo apt-get update
-        sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+    ```
+    sudo apt-get update
+    ```
+
+    ```
+    sudo apt-get install realvnc-vnc-server
+    ```
+
+    ```
+    realvnc-vnc-viewer
+    ```
+
 2. Write this command:
 
-        sudo raspi-config
+    ```
+    sudo raspi-config
+    ```
+
 3. Navigate to Interfacing Options and enable VNC
 
 ***
@@ -158,13 +171,21 @@ To start configuring your Raspberry Pi, create a directory named "Git" in your R
 
 Change active directory to the Git directory with the command:
 
-	cd /home/pi/Git
+```
+cd /home/pi/Git
+```
+
 and then clone the git repository with the command:
 
-   	git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
+```
+git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
+```
+
 Change active directory to elevhalsa-skylt using the command:
 
-    	cd /home/pi/git/elevhalsa-skylt/
+```
+cd /home/pi/git/elevhalsa-skylt/
+```
 
 ***
 
@@ -175,7 +196,10 @@ If you create a new repository and clone it, you need to modify two files in the
 1. autostart: This file builds the site using Jekyll and opens the chromium browser and shows the website in fullscreen.
 - Write the following code to open it:
 
-        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
 - Change the path from the old repository folder to the new one you cloned.
 
 2. crontab -e: This file re-uploads the site at midnight.
@@ -190,17 +214,27 @@ The commands should be run on the Raspberry Pi.
 
 1. Open the Command Line Interface and type in the following command:
 
-        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+
 2. Add the following lines at the bottom:
 
-        bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
+    ```
+    bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
+    ```
 
 3. Open the Command Line Interface and type in the following command:
 
-        nano /home/pi/.bashrc
+    ```
+    nano /home/pi/.bashrc
+    ```
+
 4. Add the following lines at the bottom:
 
-        jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
+    ```
+    jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
+    ```
 
 The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
 It is not optimal that it is in `.bashrc `
@@ -216,23 +250,33 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open the Command Line Interface and enter the following command:
 
-        crontab -e
+    ```
+    crontab -e
+    ```
 
 2. Type 1 to choose nano as your editor.
 3. Go to the bottom of the opened document and type in the following commands:
 
-        * * * * * sudo vcgencmd display_power 0
-        * * * * * sudo reboot
-        
-        asterisk 1 = minutes (from 0 to 59)
-        asterisk 2 = hours (from 0 to 24)
-        asterisk 3 = day of month (from 1 to 31)
-        asterisk 4 = month (from 1 to 12)
-        asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
-        
-        example: 0 10 * * * sudo vcgencmd display_power 0
-                    5 10 * * * sudo reboot
-    This will turn of HDMI output at 10:00 and start it again at 10:05.
+    ```
+    * * * * * sudo vcgencmd display_power 0
+    * * * * * sudo reboot
+    ```
+
+asterisk 1 = minutes (from 0 to 59)
+asterisk 2 = hours (from 0 to 24)
+asterisk 3 = day of month (from 1 to 31)
+asterisk 4 = month (from 1 to 12)
+asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+
+example:
+
+```
+0 10 * * * sudo vcgencmd display_power 0
+5 10 * * * sudo reboot
+```
+
+This will turn of HDMI output at 10:00 and start it again at 10:05.
+
 
 ***
 
@@ -240,28 +284,34 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open the Command Line Interface and enter the following command:
 
-        sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
+    ```
+    sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
+    ```
 
 2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
 
-        <keybind key="">
-            <action name="Execute">
-                <command>
-                </command>
-            </action>
-        </keybind>
+    ```
+    <keybind key="">
+        <action name="Execute">
+            <command>
+            </command>
+        </action>
+    </keybind>
+    ```
 
 3. Add the shortcut in the `<keybind>` tag and command you want to run between the `<command></command>` tags
 
     Example for running a bash script when Ctrl+F11 is pressed:
 
-        <keybind key="C-F11">
-            <action name="Execute">
-                <command>
-                    bash ~/shortcut/close
-                </command>
-            </action>
-        </keybind>
+    ```
+    <keybind key="C-F11">
+        <action name="Execute">
+            <command>
+                bash ~/shortcut/close
+            </command>
+        </action>
+    </keybind>
+    ```
 
     C - stands for control
 
@@ -275,10 +325,15 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open the Command Line Interface and type the following command:
 
-        sudo nano /boot/config.txt
+    ```
+    sudo nano /boot/config.txt
+    ```
+
 2. Find the disable_overscan line and change it to:
 
-        disable_overscan=1
+    ```
+    disable_overscan=1
+    ```
 
 ***
 
@@ -317,11 +372,17 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open Command Line Interface and type in the following command:
 
-        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+
 2. Comment out `@xscreensaver -no-splash` using a hashtag at the beginning of that line.
 3. Then add this line:
 
-        @xset s off
+    ```
+    @xset s off
+    ```
+
 4. Save and exit.
 
 ***
@@ -330,11 +391,16 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open the Command Line Interface and type in the following command:
 
-        sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
+
 2. Add the following lines at the bottom:
 
-        @xset -dpms
-        @xset s noblank
+    ```
+    @xset -dpms
+    @xset s noblank
+    ```
 
 ***
 
@@ -342,10 +408,15 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open Command Line Interface and type in the following command:
 
-        sudo nano /boot/cmdline.txt
+    ```
+    sudo nano /boot/cmdline.txt
+    ```
+
 2. In the editor, at the end of the line add:
 
-        logo.nologo
+    ```
+    logo.nologo
+    ```
 
 ***
 
@@ -353,7 +424,9 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open Command Line Interface and type in the following command:
 
-        sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
+    ```
+    sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
+    ```
 
 ***
 
