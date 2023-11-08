@@ -186,12 +186,6 @@ and then clone the git repository with the command:
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
 
-Change active directory to elevhalsa-skylt using the command:
-
-```
-cd /home/pi/git/elevhalsa-skylt/
-```
-
 ## New Repository
 
 If you create a new repository and clone it, you need to modify two files in the raspberry:
