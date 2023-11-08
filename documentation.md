@@ -125,8 +125,6 @@ Tutorial for NOOBS installation:
 7. After connecting select Raspbian and select install
 8. Follow install wizard to install Raspbian on SD card
 
-***
-
 ## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
@@ -144,8 +142,6 @@ hostname -I
 
 2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
-
-***
 
 ### Enable Remote Control
 
@@ -172,8 +168,6 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 3. Navigate to Interfacing Options and enable VNC
 
-***
-
 ## Configuration
 
 To change the resolution of the raspberry outputs navigate to settings > screen configuration > configure > screens > HTMI-X > resolution > your desired resolution.
@@ -198,8 +192,6 @@ Change active directory to elevhalsa-skylt using the command:
 cd /home/pi/git/elevhalsa-skylt/
 ```
 
-***
-
 ## New Repository
 
 If you create a new repository and clone it, you need to modify two files in the raspberry:
@@ -216,7 +208,6 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 2. crontab -e: This file re-uploads the site at midnight.
 - Write the file's name (crontab -e) in the CLI to open it.
 - Change the path from the old repository folder to the new one you cloned.
-***
 
 ## Set Up Autostart
 
@@ -255,8 +246,6 @@ So every time you ssh into the Raspberry Pi it tries to start a Jekyll server, b
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
 
-***
-
 ## Change active display times
 
 1. Open the Command Line Interface and enter the following command:
@@ -291,9 +280,6 @@ Example:
 ```
 
 This will turn of HDMI output at 10:00 and start it again at 10:05.
-
-
-***
 
 ## Create shortcut
 
@@ -334,8 +320,6 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
     S - stands for shift
 
-***
-
 ## Disable Black Border around Screen
 
 1. Open the Command Line Interface and type the following command:
@@ -350,16 +334,12 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
     disable_overscan=1
     ```
 
-***
-
 ## Remove Chromium offer to Translate Page
 
 1. Open Chromium browser
 2. Go to Settings > Advanced Settings > Language
 3. Untick Offer to Translate Page checkbox
 4. Exit Browser
-
-***
 
 ## Remove Cursor
 
@@ -379,14 +359,10 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 	@unclutter -idle 3
 	```
 
-***
-
 ## Hide Taskbar
 
 1. Right-click on the taskbar and select `Panel Settings`
 2. Click on the `Advanced` tab, and check `Minimize panel when not in use`
-
-***
 
 ## Remove Screensaver
 
@@ -405,8 +381,6 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 4. Save and exit.
 
-***
-
 ## Disable Raspberry Pi sleep mode
 
 1. Open the Command Line Interface and type in the following command:
@@ -422,8 +396,6 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
     @xset s noblank
     ```
 
-***
-
 ## Remove Raspberry Icons
 
 1. Open Command Line Interface and type in the following command:
@@ -438,8 +410,6 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
     logo.nologo
     ```
 
-***
-
 ## Replace Boot Image
 
 1. Open Command Line Interface and type in the following command:
@@ -448,15 +418,11 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
     sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
     ```
 
-***
-
 ## Change Background Image
 
 1. Right-click on desktop and select desktop preferences.  
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.  
 3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.  
-
-***
 
 ## Hardware used
 
