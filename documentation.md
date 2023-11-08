@@ -152,7 +152,7 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 ## Configuration
 
-To change the resolution of the raspberry outputs navigate to settings > screen configuration > configure > screens > HTMI-X > resolution > your desired resolution.
+To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run sudo raspi-config > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
 To start configuring your Raspberry Pi, create a directory named "Git" in your Raspberry file manager /home/pi/.
 
