@@ -136,9 +136,9 @@ Tutorial for NOOBS installation:
 
 1. On the Pi, run the following code to get the IP adress:
 
-```
-hostname -I 
-```
+    ```
+    hostname -I 
+    ```
 
 2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
@@ -199,9 +199,9 @@ If you create a new repository and clone it, you need to modify two files in the
 1. autostart: This file builds the site using Jekyll and opens the chromium browser and shows the website in fullscreen.
 - Write the following code to open it:
 
-```
-sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-```
+    ```
+    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
 
 - Change the path from the old repository folder to the new one you cloned.
 
@@ -345,19 +345,19 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following commands:
 
-	```
-	sudo apt-get install unclutter
-	```
+    ```
+    sudo apt-get install unclutter
+    ```
 
-	```
-	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-	```
+    ```
+    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+    ```
 
 2. Add the following line at the bottom:
 
-	```
-	@unclutter -idle 3
-	```
+    ```
+    @unclutter -idle 3
+    ```
 
 ## Hide Taskbar
 
