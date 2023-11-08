@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - run: sudo apt-get install ruby-full build-essential zlib1g-dev
-    - run: gem install jekyll bundler
+    - name: Set up Ruby and Jekyll
+      run: |
+        sudo apt-get install -y ruby-full build-essential zlib1g-dev
+        gem install --user-install jekyll bundler
+        echo 'export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"' >> $GITHUB_ENV
     - run: pip install -r tests/test_requirements.txt
     - run: jekyll serve -B -s site
     - name: Set up service_account_credentials.json
