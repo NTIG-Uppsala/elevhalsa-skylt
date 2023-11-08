@@ -273,13 +273,17 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
     * * * * * sudo reboot
     ```
 
-asterisk 1 = minutes (from 0 to 59)
-asterisk 2 = hours (from 0 to 24)
-asterisk 3 = day of month (from 1 to 31)
-asterisk 4 = month (from 1 to 12)
-asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+Asterisk 1 = minutes (from 0 to 59)
 
-example:
+Asterisk 2 = hours (from 0 to 24)
+
+Asterisk 3 = day of month (from 1 to 31)
+
+Asterisk 4 = month (from 1 to 12)
+
+Asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+
+Example:
 
 ```
 0 10 * * * sudo vcgencmd display_power 0
