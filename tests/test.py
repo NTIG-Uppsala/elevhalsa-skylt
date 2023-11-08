@@ -54,17 +54,17 @@ class TestLocalScripts(unittest.TestCase):
         with open("tests/picture_sizes.txt", "w") as file:
             for picture in pictures:
                 size = os.path.getsize(folder_path + picture)
-                file.write(f"{picture} is {size}kb big \n")
+                file.write(f"{picture} is {size} bytes big \n")
 
-    def helper_get_images_check_size(self, file_name, expected):  # Expected in Kb
+    def helper_get_images_check_size(self, file_name, expected_size_bytes):
         folder_path = "tests/img/"
         csv_datapath = "tests/downloaded_test_data.csv"
         subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
         subprocess.call(["python", "get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
         picture = f"{folder_path}Profile/{file_name}"
         size = os.path.getsize(picture)
-        if size != expected:
-            self.fail(f"Picture {picture} is not size {expected}Kb and is {size}Kb")
+        if size != expected_size_bytes:
+            self.fail(f"Picture {picture} is of size {size} bytes, expected {expected_size_bytes} bytes")
 
     def test_get_images(self):
         # Prevent earlier tests from influencing the result of this test
