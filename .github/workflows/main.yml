@@ -1,4 +1,4 @@
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -12,6 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: pip install -r tests/test_requirements.txt
+    - run: jekyll serve -B -s site
     - name: Set up service_account_credentials.json
       run: |
         echo '${{ secrets.service_account_credentials }}' > service_account_credentials.json
