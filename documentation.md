@@ -49,6 +49,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 - Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
 **Run the following command in an Ubuntu terminal (WSL)**
+
 ```
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
@@ -63,28 +64,36 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 #### Set up
 Most of the programs require an .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project.
+
 ```
 sheet_id = SPREADSHEET_ID
 
 test_sheet_id = SPREADSHEET_ID
-``` 
+```
+
 `sheet_id` and `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
 
 #### Running
 To run any of the Python programs, you have two choices. You can either run them without any arguments, using the content from the .env file and the recommended file paths for each program:
+
 ```
 python3 get_csv.py
 ```
+
 Or you can type in a custom spreadsheet ID and file path, which may require configuration of the code:
+
 ```
 python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
+
 `SPREADSHEET_ID` can be found in the sheet's url.
 
 `SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
+
 ```
 jekyll serve -s site
 ```
+
 `jekyll serve -s site` runs the site locally and let's you preview it.
 
 ### Step 6 - Development environment for testing
@@ -128,9 +137,11 @@ Tutorial for NOOBS installation:
 ### Remote control the Raspberry Pi
 
 1. On the Pi, run the following code to get the IP adress:
+
 ```
 hostname -I 
 ```
+
 2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
@@ -349,16 +360,21 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 ## Remove Cursor
 
 1. Open Command Line Interface and type in the following commands:
+
 	```
 	sudo apt-get install unclutter
 	```
+
 	```
 	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 	```
+
 2. Add the following line at the bottom:
+
 	```
 	@unclutter -idle 3
 	```
+
 ***
 
 ## Hide Taskbar
