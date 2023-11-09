@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% assign eht_members = site.data[site.eht_csv_path] %}
-
+{% assign image_path = site.image_path %}
 
 <div class="logo">
   <img src="assets/img/nti-logo.svg" height="150px">
@@ -31,7 +31,7 @@ layout: default
         {% endif %}
         <div class="background-grid-layout">
           <div class="grid-item-image">
-            <img src="assets/img/Profile/{{member.FILNAMN}}">
+            <img src="assets/img/{{image_path}}/{{member.FILNAMN}}">
           </div>
           <div class="grid-item-information">
             <div class="info">
