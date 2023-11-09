@@ -44,7 +44,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Follow the instructions shown on the screen
 
-### Step 3 - install Ruby and jekyll
+### Step 3 - install Ruby and Jekyll
 
 - Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
@@ -54,7 +54,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-### Step 4 - Add google service account credentials
+### Step 4 - Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
@@ -63,6 +63,7 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 ### Step 5 - Running it
 
 #### Set up
+
 Most of the programs require an .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project.
 
 ```
@@ -74,6 +75,7 @@ test_sheet_id = SPREADSHEET_ID
 `sheet_id` and `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
 
 #### Running
+
 To run any of the Python programs, you have two choices. You can either run them without any arguments, using the content from the .env file and the recommended file paths for each program:
 
 ```
@@ -170,7 +172,7 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 ## Configuration
 
-To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run sudo raspi-config > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
+To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
 To start configuring your Raspberry Pi, create a directory named "Git" in your Raspberry file manager /home/pi/.
 
@@ -185,23 +187,6 @@ and then clone the git repository with the command:
 ```
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
-
-## New Repository
-
-If you create a new repository and clone it, you need to modify two files in the raspberry:
-
-1. autostart: This file builds the site using Jekyll and opens the chromium browser and shows the website in fullscreen.
-- Write the following code to open it:
-
-    ```
-    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-    ```
-
-- Change the path from the old repository folder to the new one you cloned.
-
-2. crontab -e: This file re-uploads the site at midnight.
-- Write the file's name (crontab -e) in the CLI to open it.
-- Change the path from the old repository folder to the new one you cloned.
 
 ## Set Up Autostart
 
