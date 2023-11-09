@@ -188,23 +188,6 @@ and then clone the git repository with the command:
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
 
-## New Repository
-
-If you create a new repository and clone it, you need to modify two files in the raspberry:
-
-1. autostart: This file builds the site using Jekyll and opens the chromium browser and shows the website in fullscreen.
-- Write the following code to open it:
-
-    ```
-    sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-    ```
-
-- Change the path from the old repository folder to the new one you cloned.
-
-2. crontab -e: This file re-uploads the site at midnight.
-- Write the file's name (crontab -e) in the CLI to open it.
-- Change the path from the old repository folder to the new one you cloned.
-
 ## Set Up Autostart
 
 Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
