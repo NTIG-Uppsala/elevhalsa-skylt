@@ -39,7 +39,7 @@ class TestLocalScripts(unittest.TestCase):
 
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
-        correct_file = "tests/correct_test_data.csv"
+        correct_file = "site/_data/correct_test_data.csv"
         subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
         downloaded_file_is_correct = filecmp.cmp(
             downloaded_file, correct_file, shallow=False
