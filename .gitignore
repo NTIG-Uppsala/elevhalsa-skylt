@@ -2,14 +2,14 @@
 **/__pycache__/
 .jekyll-cache
 
-# Test files
-!tests/correct_test_data.csv
-tests/img/*
-tests/picture_sizes.txt
-
 # Spreadsheet files
 *.xlsx
 *.csv
+
+# Test files
+!site/_data/correct_test_data.csv
+tests/img/*
+tests/picture_sizes.txt
 
 # Miscellaneous
 _site

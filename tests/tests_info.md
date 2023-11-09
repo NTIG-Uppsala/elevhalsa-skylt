@@ -13,7 +13,7 @@ python -m pip install -r tests/test_requirements.txt
 Be sure to have a Jekyll server up before starting any test. Run the following command in WSL:
 
 ```
-jekyll serve -s site
+jekyll serve -s site --config _test_config.yml
 ```
 
 This command can be used to run the tests:

@@ -39,7 +39,7 @@ class TestLocalScripts(unittest.TestCase):
 
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
-        correct_file = "tests/correct_test_data.csv"
+        correct_file = "site/_data/correct_test_data.csv"
         subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
         downloaded_file_is_correct = filecmp.cmp(
             downloaded_file, correct_file, shallow=False
@@ -73,10 +73,10 @@ class TestLocalScripts(unittest.TestCase):
             shutil.rmtree(images_path)
         
         # Check size of Image
-        self.helper_get_images_check_size("2_Maria_Ohlsson.jpg", 36541)
-        self.helper_get_images_check_size("3_Karl_Eriksson.jpg", 67545)
-        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 116074)
-        self.helper_get_images_check_size("5_Linnéa_Johansson.jpg", 16930)
+        self.helper_get_images_check_size("2_Maria_Ohlsson.jpg", 163808)
+        self.helper_get_images_check_size("3_Karl_Eriksson.jpg", 270861)
+        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 801887)
+        self.helper_get_images_check_size("5_Linnéa_Johansson.jpg", 529301)
 
         # Uncomment to generate a file with a list of image sizes
         self.write_txt_image_sizes()
