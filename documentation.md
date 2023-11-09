@@ -44,7 +44,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Follow the instructions shown on the screen
 
-### Step 3 - install Ruby and jekyll
+### Step 3 - install Ruby and Jekyll
 
 - Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
@@ -54,7 +54,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
 ```
 
-### Step 4 - Add google service account credentials
+### Step 4 - Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
