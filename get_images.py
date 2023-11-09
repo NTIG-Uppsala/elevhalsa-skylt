@@ -15,7 +15,7 @@ CREDENTIALS_JSON_FILE = "service_account_credentials.json"
 
 DEFAULT_IMAGE_PATH = "./site/assets/img"
 
-DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
+DEFAULT_CSV_DATA_PATH = "./site/_data/stored_data.csv"
 
 access_token = get_access_token()
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
