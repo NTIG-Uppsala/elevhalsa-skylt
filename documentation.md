@@ -91,10 +91,10 @@ python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 `SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 
 ```
-jekyll serve -s site
+jekyll serve -s site --config _config.yml
 ```
 
-`jekyll serve -s site` runs the site locally and let's you preview it.
+`jekyll serve -s site --config _config.yml` runs the site locally and let's you preview it.
 
 ### Step 6 - Development environment for testing
 
@@ -229,7 +229,7 @@ The commands should be run on the Raspberry Pi.
 4. Add the following lines at the bottom:
 
     ```
-    jekyll serve -s /home/pi/Git/elevhalsa-skylt-site
+    jekyll serve -s /home/pi/Git/elevhalsa-skylt-site --config _config.yml
     ```
 
 The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
