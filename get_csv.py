@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Loads content of enviroment variable file, default path is `./.env`
 load_dotenv()
 
-DEFAULT_CSV_DATA_PATH = "./site/data/stored_data.csv"
+DEFAULT_CSV_DATA_PATH = "./site/_data/stored_data.csv"
 
 # If code runs without any arguments, run with default options
 if len(sys.argv) == 1:
