@@ -40,7 +40,7 @@ class TestLocalScripts(unittest.TestCase):
     def test_get_csv(self):
         downloaded_file = "tests/downloaded_test_data.csv"
         correct_file = "site/_data/correct_test_data.csv"
-        subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
+        subprocess.call(["python", "scripts/get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
         downloaded_file_is_correct = filecmp.cmp(
             downloaded_file, correct_file, shallow=False
         )
@@ -59,8 +59,8 @@ class TestLocalScripts(unittest.TestCase):
     def helper_get_images_check_size(self, file_name, expected_size_bytes):
         folder_path = "tests/img/"
         csv_datapath = "tests/downloaded_test_data.csv"
-        subprocess.call(["python", "get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
-        subprocess.call(["python", "get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
+        subprocess.call(["python", "scripts/get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
+        subprocess.call(["python", "scripts/get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
         picture = f"{folder_path}Profile/{file_name}"
         size = os.path.getsize(picture)
         if size != expected_size_bytes:

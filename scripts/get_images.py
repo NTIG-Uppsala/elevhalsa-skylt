@@ -11,7 +11,7 @@ from credentials import get_access_token
 load_dotenv()
 
 # cli arguments are used in the script to specify path and sheet id
-CREDENTIALS_JSON_FILE = "service_account_credentials.json"
+CREDENTIALS_JSON_FILE = "./service_account_credentials.json"
 
 DEFAULT_IMAGE_PATH = "./site/assets/img"
 

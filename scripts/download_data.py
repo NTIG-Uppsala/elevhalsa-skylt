@@ -11,8 +11,8 @@ load_dotenv()
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
-data_path = "site/_data/stored_data.csv"
-picture_path = "site/assets/img"
+data_path = "./site/_data/stored_data.csv"
+picture_path = "./site/assets/img"
 
 access_token = get_access_token()
 url = f"https://www.googleapis.com/drive/v3/files/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs"
