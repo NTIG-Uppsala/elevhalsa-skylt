@@ -204,7 +204,7 @@ The commands should be run on the Raspberry Pi.
 2. Add the following lines at the bottom:
 
     ```
-    bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
+    bash /home/pi/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
 
 3. Open the Command Line Interface and type in the following command:
@@ -216,7 +216,7 @@ The commands should be run on the Raspberry Pi.
 4. Add the following lines at the bottom:
 
     ```
-    jekyll serve -s /home/pi/Git/elevhalsa-skylt-site --config _config.yml
+    jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
     ```
 
 The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
