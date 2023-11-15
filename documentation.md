@@ -64,7 +64,10 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 #### Set up
 
-Most of the programs require an .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project.
+Most of the programs require a .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project. For users who have access to the corresponding Google Drive, a ready-to-use .env file can be found there.
+
+`SPREADSHEET_ID` can be found in the sheet's url.
+
 
 ```
 sheet_id = SPREADSHEET_ID
@@ -88,7 +91,6 @@ Or you can type in a custom spreadsheet ID and file path, which may require conf
 python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 ```
 
-`SPREADSHEET_ID` can be found in the sheet's url.
 
 `SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 
