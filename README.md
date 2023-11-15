@@ -76,7 +76,6 @@ https://docs.google.com/document/d/1oLyPqJwN76pdIZRc8FyYE1W91b1bqy2K/edit
 
 - Jekyll 4.3.2 (Installed on Ruby 3.0.2)
 
-
 ### Python & JavaScript
 
 - Variables and functions use snake_case
