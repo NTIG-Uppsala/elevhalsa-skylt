@@ -13,7 +13,7 @@
   - [Programming Languages](README.md#programming-languages)
   - [Frameworks](README.md#frameworks)
   - [Static Site Generator](README.md#static-site-generator)
-  - [Python & Javascript](README.md#python--javascript)
+  - [Code Style](README.md#code-style)
 
 ## Introduction
 
@@ -76,9 +76,18 @@ https://docs.google.com/document/d/1oLyPqJwN76pdIZRc8FyYE1W91b1bqy2K/edit
 
 - Jekyll 4.3.2 (Installed on Ruby 3.0.2)
 
-### Python & JavaScript
+### Code Style
+
+#### General
+
+- Indentations are 4 spaces
+- A line of code should be maximum of 80 characters long.
+- Ensure that there is a space between comments and the '#' or '//'.
+
+#### Python
 
 - Variables and functions use snake_case
-- Indentations are 4 spaces (or one tab default in Visual Studio Code)
-- Ensure that there is a space between comments and the '#' or '//'.
-- A line of code should be maximum of 70-80 characters long.
+
+#### JavaScript
+
+- Variables and functions use camelCase
