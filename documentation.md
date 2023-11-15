@@ -94,11 +94,11 @@ python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
 
 `SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 
+Run the following command to build and serve the Jekyll site locally:
+
 ```
 jekyll serve -s site --config _config.yml
 ```
-
-`jekyll serve -s site --config _config.yml` runs the site locally and let's you preview it.
 
 ### Step 6 - Development environment for testing
 
