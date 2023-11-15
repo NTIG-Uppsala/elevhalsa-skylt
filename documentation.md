@@ -33,7 +33,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 
 - Go to the Control Panel → Programs → Programs and Feautures → Turn Windows features on or off
 
-- Check the Windows-subsystem box (commonly found at the bottom) and press OK. Windows will prompt a restart and press restart
+- Check the Windows Subsystem for Linux box (commonly found near the bottom) and press OK. Windows will prompt a restart and press restart
 
 - Press (Windows) + R
 
