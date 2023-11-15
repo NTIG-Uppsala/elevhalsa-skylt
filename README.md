@@ -36,7 +36,7 @@ This project has a [Google Drive folder](https://drive.google.com/drive/folders/
 
 ## Documentation
 
-The [documentation](documentation.md) should be written in English.
+The [documentation](documentation/documentation.md) should be written in English.
 
 ## Definition of Done
 
@@ -51,7 +51,7 @@ https://docs.google.com/document/d/1oLyPqJwN76pdIZRc8FyYE1W91b1bqy2K/edit
 
 ## Development Environment
 
-- [How to set up a development environment](documentation.md#set-up-development-environment)
+- [How to set up a development environment](documentation/documentation.md#set-up-development-environment)
 - **Editor** - Visual Studio Code
 - **Remote** - SSH extension
 - **Version Control Host** - GitHub

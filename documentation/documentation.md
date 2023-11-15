@@ -102,7 +102,7 @@ jekyll serve -s site --config _config.yml
 
 ### Step 6 - Development environment for testing
 
-See [tests_info.md](tests/tests_info.md) for information regarding installation of dependencies and running tests.
+See [tests_info.md](../tests/tests_info.md) for information regarding installation of dependencies and running tests.
 
 ## Keeping the repo up to date in the Raspberry Pi
 
