@@ -3,10 +3,10 @@
 ## Table of Contents
 
 - [Set up development environment](documentation.md#set-up-development-environment)
+- [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
 - [Raspberry Pi](documentation.md#raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
 - [Configuration](documentation.md#configuration)
-- [New Repository](documentation.md#new-repository)
 - [Set Up Autostart](documentation.md#set-up-autostart)
 - [Change active display times](documentation.md#change-active-display-times)
 - [Create shortcut](documentation.md#create-shortcut)
