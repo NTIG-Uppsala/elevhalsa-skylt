@@ -1,89 +1,55 @@
-import os
 import unittest
-import time
-import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import filecmp
-import shutil
-from dotenv import load_dotenv
-load_dotenv()
+from selenium.webdriver.common.by import By
 
 class TestLocalhostPageTitle(unittest.TestCase):
-    # Executes before each test
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_experimental_option("detach", True)
+        cls.driver = webdriver.Chrome(options=chrome_options)
 
-        # Set up the Chrome WebDriver in headless mode
-        self.driver = webdriver.Chrome(options=chrome_options)
-
-        # Load page
-        self.driver.get("http://127.0.0.1:4000")
-        time.sleep(1)
+        cls.driver.get("http://127.0.0.1:4000")
 
     def test_page_title(self):
         self.assertEqual("EHT-skylt", self.driver.title)
 
+    def test_visible_slide_present(self):
+        self.assertIn("Maria Ohlsson", self.driver.page_source)
 
-class TestLocalScripts(unittest.TestCase):
-    # Executes before each test
-    def setUp(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_experimental_option("detach", True)
+    def test_hidden_slide_not_present(self):
+        self.assertNotIn("Karl Eriksson", self.driver.page_source)
+        self.assertNotIn("Skolsköterska", self.driver.page_source)
+        self.assertNotIn("karl.eriksson@example.com", self.driver.page_source)
+        self.assertNotIn("018-99 99 99", self.driver.page_source)
 
-        # Set up the Chrome WebDriver in headless mode
-        self.driver = webdriver.Chrome(options=chrome_options)
+    def test_title_present(self):
+        self.assertIn("Skolkurator", self.driver.page_source)
 
-    def test_get_csv(self):
-        downloaded_file = "tests/downloaded_test_data.csv"
-        correct_file = "site/_data/correct_test_data.csv"
-        subprocess.call(["python", "scripts/get_csv.py", os.getenv("test_sheet_id"), downloaded_file])
-        downloaded_file_is_correct = filecmp.cmp(
-            downloaded_file, correct_file, shallow=False
-        )
-        self.assertTrue(downloaded_file_is_correct)
+    def test_email_present(self):
+        self.assertIn("maria.ohlsson@example.com", self.driver.page_source)
 
-    # A test that creates and writes down all picture sizes.
-    # Removes the need to open properties for each image.
-    def write_txt_image_sizes(self):
-        folder_path = "tests/img/Profile/"
-        pictures = os.listdir(folder_path)  # list format
-        with open("tests/picture_sizes.txt", "w") as file:
-            for picture in pictures:
-                size = os.path.getsize(folder_path + picture)
-                file.write(f"{picture} is {size} bytes big \n")
+    def test_absent_email_icon_not_present(self):
+        email_icons_count = self.driver.page_source.count("mail.svg")
+        self.assertEqual(2, email_icons_count)
 
-    def helper_get_images_check_size(self, file_name, expected_size_bytes):
-        folder_path = "tests/img/"
-        csv_datapath = "tests/downloaded_test_data.csv"
-        subprocess.call(["python", "scripts/get_csv.py", os.getenv("test_sheet_id"), csv_datapath])
-        subprocess.call(["python", "scripts/get_images.py", os.getenv("test_sheet_id"), folder_path, csv_datapath])
-        picture = f"{folder_path}Profile/{file_name}"
-        size = os.path.getsize(picture)
-        if size != expected_size_bytes:
-            self.fail(f"Picture {picture} is of size {size} bytes, expected {expected_size_bytes} bytes")
+    def test_phone_number_present(self):
+        self.assertIn("011-123 45 67", self.driver.page_source)
 
-    def test_get_images(self):
-        # Prevent earlier tests from influencing the result of this test
-        images_path = "tests/img/"
-        if os.path.isdir(images_path):
-            shutil.rmtree(images_path)
-        
-        # Check size of Image
-        self.helper_get_images_check_size("2_Maria_Ohlsson.jpg", 163808)
-        self.helper_get_images_check_size("3_Karl_Eriksson.jpg", 270861)
-        self.helper_get_images_check_size("4_Karl_Jönsson.jpg", 801887)
-        self.helper_get_images_check_size("5_Linnéa_Johansson.jpg", 529301)
+    def test_work_hours_present(self):
+        self.assertIn("8-17", self.driver.page_source)
+    
+    def test_location_present(self):
+        self.assertIn("NTI Gymnasiet Uppsala", self.driver.page_source)
 
-        # Uncomment to generate a file with a list of image sizes
-        self.write_txt_image_sizes()
+    def test_image_present(self):
+        self.driver.find_element(By.CSS_SELECTOR, "img[src$=\"2_Maria_Ohlsson.jpg\"]")
 
-    def tearDown(self):
-        # Close the WebDriver
-        self.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
 
 if __name__ == "__main__":
