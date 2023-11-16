@@ -71,11 +71,9 @@ Most of the programs require a .env file. To create one, make a new file in your
 
 ```
 sheet_id = SPREADSHEET_ID
-
-test_sheet_id = SPREADSHEET_ID
 ```
 
-`sheet_id` and `test_sheet_id` are the variable names that are already in the code. For the easiest setup, use those.
+For the easiest setup, use the sheet id specified in the `.env` file.
 
 #### Running
 
