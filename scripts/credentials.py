@@ -1,6 +1,6 @@
 from oauth2client.service_account import ServiceAccountCredentials
 
-CREDENTIALS_JSON_FILE = "service_account_credentials.json"
+CREDENTIALS_JSON_FILE = "./service_account_credentials.json"
 
 
 def get_service_account_credentials():

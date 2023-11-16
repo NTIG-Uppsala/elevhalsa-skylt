@@ -51,7 +51,7 @@ If you use Github Desktop, go to [the repository page](https://github.com/NTIG-U
 **Run the following command in an Ubuntu terminal (WSL)**
 
 ```
-sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r requirements.txt ; pip install xdotool
+sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r scripts/requirements.txt ; pip install xdotool
 ```
 
 ### Step 4 - Add Google service account credentials
@@ -102,7 +102,7 @@ jekyll serve -s site --config _config.yml
 
 ### Step 6 - Development environment for testing
 
-See [tests_info.md](tests/tests_info.md) for information regarding installation of dependencies and running tests.
+See [tests_info.md](../tests/tests_info.md) for information regarding installation of dependencies and running tests.
 
 ## Keeping the repo up to date in the Raspberry Pi
 
@@ -204,7 +204,7 @@ The commands should be run on the Raspberry Pi.
 2. Add the following lines at the bottom:
 
     ```
-    bash /home/pi/Git/elevhalsa-skylt/on_startup.sh
+    bash /home/pi/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
 
 3. Open the Command Line Interface and type in the following command:
@@ -216,7 +216,7 @@ The commands should be run on the Raspberry Pi.
 4. Add the following lines at the bottom:
 
     ```
-    jekyll serve -s /home/pi/Git/elevhalsa-skylt-site --config _config.yml
+    sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
     ```
 
 The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
