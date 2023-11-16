@@ -16,6 +16,10 @@ class TestLocalhostPageTitle(unittest.TestCase):
     def test_page_title(self):
         self.assertEqual("EHT-skylt", self.driver.title)
 
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()
