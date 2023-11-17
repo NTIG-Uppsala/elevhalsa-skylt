@@ -20,9 +20,6 @@ def get_images(sheet_id, csv_data_path):
     if not os.path.exists(profile_folder_path):
         os.makedirs(profile_folder_path)
 
-    # Set the profile image path
-    profile_img_path = os.path.join(profile_folder_path, "{}")
-
     response = requests.get(
         url, headers={"Authorization": "Bearer " + access_token})
 
@@ -49,8 +46,7 @@ def get_images(sheet_id, csv_data_path):
 
     for row in range(2, exel_spreadsheet.max_row + 1):
         image_filename = stored_csv_data[row - 1][image_filename_column_index]
-        # Create a full path to the image file by formatting the 'profile_img_path' with the image filename.
-        image_path = profile_img_path.format(image_filename)
+        image_path = os.path.join(profile_folder_path, image_filename)
         # Create image cell name from column and row numbers
         image_cell_name = chr(ord("A") + image_column_number - 1) + str(row)
         image = image_loader.get(image_cell_name)
