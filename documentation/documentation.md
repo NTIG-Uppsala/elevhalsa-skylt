@@ -168,9 +168,7 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 3. Navigate to Interfacing Options and enable VNC
 
-## Raspberry Pi Configuration
-
-To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
+## Raspberry Pi Setup
 
 To start configuring your Raspberry Pi, create a directory named "Git"
 ```
@@ -187,6 +185,10 @@ and then clone the git repository with the command:
 ```
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
+
+### Change Resolution
+
+To change the resolution of the Raspberry Pi outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
 ### Add Google service account credentials
 
@@ -209,7 +211,7 @@ The commands should be run on the Raspberry Pi.
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
-2. Add the following lines at the bottom:
+2. Add the following line at the bottom:
 
     ```
     bash ~/Git/elevhalsa-skylt/scripts/on_startup.sh
