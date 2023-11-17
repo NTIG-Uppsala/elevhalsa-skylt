@@ -25,7 +25,9 @@
 
 ### Step 1 - Clone this repository
 
-If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
+```
+git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
+```
 
 > Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise Jekyll will not work.
 
