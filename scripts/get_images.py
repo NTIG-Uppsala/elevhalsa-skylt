@@ -7,7 +7,7 @@ import requests
 from dotenv import load_dotenv
 from credentials import get_access_token
 
-# Loads content of enviroment variable file, default path is `./.env`
+# Loads content of environment variable file, default path is `./.env`
 load_dotenv()
 
 # cli arguments are used in the script to specify path and sheet id
@@ -23,13 +23,13 @@ mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
 # Default is when no arguments are given
 if len(sys.argv) == 1:
-    sheet = os.getenv('sheet_id')
+    sheet = os.getenv("sheet_id")
     img_path = DEFAULT_IMAGE_PATH
     csv_data_path = DEFAULT_CSV_DATA_PATH
 
 # Using different sheets/paths
-else: 
-    sheet = sys.argv[1]    
+else:
+    sheet = sys.argv[1]
     img_path = sys.argv[2]
     csv_data_path = sys.argv[3]
 
