@@ -77,20 +77,11 @@ For the easiest setup, use the sheet id specified in the `.env` file.
 
 #### Running
 
-To run any of the Python programs, you have two choices. You can either run them without any arguments, using the content from the .env file and the recommended file paths for each program:
+Get CSV and image data by running `scripts/main.py` with Python:
 
 ```
-python3 get_csv.py
+python scripts/main.py
 ```
-
-Or you can type in a custom spreadsheet ID and file path, which may require configuration of the code:
-
-```
-python3 get_csv.py <SPREADSHEET_ID> <SITE_DATA_DIR>
-```
-
-
-`SITE_DATA_DIR` is the location where data is stored for showcase on the site/Pi.
 
 Run the following command to build and serve the Jekyll site locally:
 
