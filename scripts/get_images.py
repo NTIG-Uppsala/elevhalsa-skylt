@@ -21,17 +21,9 @@ access_token = get_access_token()
 # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
-# Default is when no arguments are given
-if len(sys.argv) == 1:
-    sheet = os.getenv('sheet_id')
-    img_path = DEFAULT_IMAGE_PATH
-    csv_data_path = DEFAULT_CSV_DATA_PATH
-
-# Using different sheets/paths
-else: 
-    sheet = sys.argv[1]    
-    img_path = sys.argv[2]
-    csv_data_path = sys.argv[3]
+sheet = sys.argv[1]
+img_path = sys.argv[2]
+csv_data_path = sys.argv[3]
 
 url = f"https://www.googleapis.com/drive/v3/files/{sheet}/export?mimeType={mime_type}"
 
