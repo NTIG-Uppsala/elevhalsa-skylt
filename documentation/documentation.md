@@ -208,19 +208,39 @@ The commands should be run on the Raspberry Pi.
 3. Open the Command Line Interface and type in the following command:
 
     ```
-    nano /home/pi/.bashrc
+    sudo nano /etc/systemd/system/jekyll.service
     ```
 
-4. Add the following lines at the bottom:
+4. Write this into the editor, make sure to replace `exampleuser` with the user of your Raspberry Pi, and then save and exit:
 
     ```
-    sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
+    [Unit]
+    Description=Jekyll service
+    After=syslog.target
+    After=network.target
+
+    [Service]
+    # Name of the user account that is running the Jekyll server
+    User=exampleuser
+    Type=simple
+    # Location (source) of the markdown files to be rendered
+    ExecStart=sudo jekyll serve -s /home/exampleuser/Git/elevhalsa-skylt/site --config /home/exampleuser/Git/elevhalsa-skylt/_config.yml
+    Restart=always
+    StandardOutput=journal
+    StandardError=journal
+    SyslogIdentifier=jekyll
+
+    [Install]
+    WantedBy=multi-user.target
     ```
 
-The jekyll serve command is in .bashrc and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
-It is not optimal that it is in `.bashrc `
-because all commands in `.bashrc` are run everytime a new terminal is opened.
-So every time you ssh into the Raspberry Pi it tries to start a Jekyll server, but fails because one is already running.
+5. Type the following command into the Command Line Interface:
+
+    ```
+    sudo systemctl enable jekyll.service
+    ```
+
+The jekyll serve command is in a system service and not in `on_startup.sh` because it does not work when placed in `on_startup.sh`.
 
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
