@@ -58,7 +58,7 @@ sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; ec
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
-> The Google service account api credentials are not stored in the GitHub repository for security reasons.
+> The Google service account API credentials are not stored in the GitHub repository for security reasons.
 
 ### Step 5 - Running it
 
@@ -174,12 +174,14 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
-To start configuring your Raspberry Pi, create a directory named "Git" in your Raspberry file manager /home/pi/.
-
+To start configuring your Raspberry Pi, create a directory named "Git"
+```
+mkdir ~/Git
+```
 Change active directory to the Git directory with the command:
 
 ```
-cd /home/pi/Git
+cd ~/Git
 ```
 
 and then clone the git repository with the command:
@@ -202,7 +204,7 @@ The commands should be run on the Raspberry Pi.
 2. Add the following lines at the bottom:
 
     ```
-    bash /home/pi/Git/elevhalsa-skylt/scripts/on_startup.sh
+    bash ~/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
 
 3. Open the Command Line Interface and type in the following command:
@@ -414,14 +416,14 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 1. Open Command Line Interface and type in the following command:
 
     ```
-    sudo cp /home/pi/my_splash.png /usr/share/plymouth/themes/pix/splash.png
+    sudo cp ~/my_splash.png /usr/share/plymouth/themes/pix/splash.png
     ```
 
 ## Change Background Image
 
 1. Right-click on desktop and select desktop preferences.
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
-3. Navigate to `/home/pi/my_splash.png`, press open, then press ok.
+3. Navigate to `~/my_splash.png`, press open, then press ok.
 
 ## Hardware used
 
