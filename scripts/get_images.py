@@ -28,11 +28,11 @@ def get_images(sheet_id, csv_data_path):
     with open("info.xlsx", "wb") as file:
         file.write(response.content)
 
-    exel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
-    image_loader = SheetImageLoader(exel_spreadsheet)
+    excel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
+    image_loader = SheetImageLoader(excel_spreadsheet)
 
     # Find the columns of images and image filenames
-    first_row = exel_spreadsheet[1]
+    first_row = excel_spreadsheet[1]
     first_row_values = [cell.value for cell in first_row]
     image_column_number = first_row_values.index("BILD") + 1
 
@@ -44,7 +44,7 @@ def get_images(sheet_id, csv_data_path):
 
     image_filename_column_index = stored_csv_data[0].index("FILNAMN")
 
-    for row in range(2, exel_spreadsheet.max_row + 1):
+    for row in range(2, excel_spreadsheet.max_row + 1):
         image_filename = stored_csv_data[row - 1][image_filename_column_index]
         image_path = os.path.join(profile_folder_path, image_filename)
         # Create image cell name from column and row numbers
