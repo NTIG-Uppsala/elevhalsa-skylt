@@ -47,21 +47,29 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 ### Step 3 - Install Ruby and Jekyll
 
-- Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
-
-**Run the following command in an Ubuntu terminal (WSL)**
+Open an Ubuntu (WSL) terminal and navigate into the cloned repository's folder. Run the following:
 
 ```
-sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r scripts/requirements.txt ; pip install xdotool
+sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; gem install jekyll bundler 
 ```
 
-### Step 4 - Add Google service account credentials
+### Step 4 - Install Python and dependencies
+
+```
+sudo apt update && sudo apt install python3 python3-pip
+```
+
+```
+python3 -m pip install -r scripts/requirements.txt
+```
+
+### Step 5 - Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
 > The Google service account API credentials are not stored in the GitHub repository for security reasons.
 
-### Step 5 - Running it
+### Step 6 - Running it
 
 #### Set up
 
@@ -90,7 +98,7 @@ Run the following command to build and serve the Jekyll site locally:
 jekyll serve -s site --config _config.yml
 ```
 
-### Step 6 - Development environment for testing
+### Step 7 - Development environment for testing
 
 See [tests_info.md](../tests/tests_info.md) for information regarding installation of dependencies and running tests.
 
