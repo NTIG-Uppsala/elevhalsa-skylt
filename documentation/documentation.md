@@ -176,7 +176,7 @@ To change the resolution of the raspberry outputs, open cmd > ssh to desired pi 
 
 To start configuring your Raspberry Pi, create a directory named "Git"
 ```
-cd ~/ ; touch Git
+mkdir ~/Git
 ```
 Change active directory to the Git directory with the command:
 
