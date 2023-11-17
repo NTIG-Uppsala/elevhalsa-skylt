@@ -37,12 +37,11 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 - Check the "Windows Subsystem for Linux" box (found near the bottom) and press OK. Restart the computer when prompted.
 
-- Press (Windows) + R
+- Run the following in the Command Prompt: 
 
-- Write "cmd" and press enter
-
-- Run the command: `wsl --install`
-  > Try `wsl --install -d Ubuntu` if the command above does not work
+    ```
+    wsl --install -d Ubuntu
+    ```
 
 - Follow the instructions shown on the screen
 
