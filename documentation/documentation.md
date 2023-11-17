@@ -196,20 +196,7 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 ### Add .env file
 
-Download the file [.env](https://drive.google.com/drive/folders/1o2_c6FvF_ezeuJlANEGTvPT2JAAqsBa-) and put it in the root directory of the cloned repository on the Raspberry Pi.
-
-> The `.env` is not stored in the GitHub repository for security reasons.
-
-Most of the programs require a .env file. If you want to create one yourself, make a new file in the root of your directory and name it `.env.` The contents of the file should be the Google Sheet IDs that you are using for your project.
-
-#### Example layout of `.env` file
-```
-sheet_id = SPREADSHEET_ID
-```
-
-`SPREADSHEET_ID` can be found in the sheet's url.
-
-For the easiest setup, use the sheet id specified in the `.env` file on drive.
+See [above](documentation.md#step-6---add-env-file)
 
 ## Set Up Autostart
 
