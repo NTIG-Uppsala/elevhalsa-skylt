@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 CSV_DATA_PATH = "./site/_data/stored_data.csv"
 
-# Loads content of environment variable file, default path is `./.env`
 load_dotenv()
 sheet_id = os.getenv("sheet_id")
 
