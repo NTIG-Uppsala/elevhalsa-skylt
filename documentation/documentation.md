@@ -190,6 +190,12 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 
 To change the resolution of the Raspberry Pi outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
+### Installing Ruby, Jekyll, and Python
+
+See [above](documentation.md#step-3---install-ruby-and-jekyll) on how to install Ruby and Jekyll.
+
+See [above](documentation.md#step-4---install-python-and-dependencies) on how to install Python and required dependencies.
+
 ### Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on the Raspberry Pi.
