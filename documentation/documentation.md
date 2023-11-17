@@ -170,7 +170,7 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 3. Navigate to Interfacing Options and enable VNC
 
-## Configuration
+## Raspberry Pi Configuration
 
 To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
 
@@ -189,6 +189,29 @@ and then clone the git repository with the command:
 ```
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
+
+### Add Google service account credentials
+
+Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on the Raspberry Pi.
+
+> The Google service account API credentials are not stored in the GitHub repository for security reasons.
+
+### Add .env file
+
+Download the file [.env](https://drive.google.com/drive/folders/1o2_c6FvF_ezeuJlANEGTvPT2JAAqsBa-) and put it in the root directory of the cloned repository on the Raspberry Pi.
+
+> The `.env` is not stored in the GitHub repository for security reasons.
+
+Most of the programs require a .env file. If you want to create one yourself, make a new file in the root of your directory and name it `.env.` The contents of the file should be the Google Sheet IDs that you are using for your project.
+
+#### Example layout of `.env` file
+```
+sheet_id = SPREADSHEET_ID
+```
+
+`SPREADSHEET_ID` can be found in the sheet's url.
+
+For the easiest setup, use the sheet id specified in the `.env` file on drive.
 
 ## Set Up Autostart
 
