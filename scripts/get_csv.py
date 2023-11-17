@@ -46,11 +46,20 @@ if not os.path.exists(csv_directory):
 rows[0].append("FILNAMN")
 name_column_index = rows[0].index("NAMN")
 
-for row_index in range(1, len(rows)):
-    row = rows[row_index]
-    name = row[name_column_index].replace(" ", "_")
-    row_number = row_index + 1
-    file_name = f"{row_number}_{name}.jpg"
+for row_index, row in enumerate(rows):
+    # Skip the header row
+    if (row_index == 0):
+        continue
+
+    name = row[name_column_index]
+    file_name = name.replace(" ", "_")
+
+    # Ensure file name does not include non-ASCII characters
+    file_name = file_name.encode(encoding="ascii", errors="ignore")
+    file_name = file_name.decode()
+
+    file_name = f"{row_index + 1}_{file_name}.jpg"
+
     row.append(file_name)
 
 with open(csv_path, "w", newline="", encoding="utf-8") as f:
