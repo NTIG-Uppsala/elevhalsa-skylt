@@ -8,8 +8,7 @@ tail -n 10000 $LOG_PATH > $TEMP_LOG_PATH
 mv -f $TEMP_LOG_PATH $LOG_PATH
 (
 cd ~/Git/elevhalsa-skylt/
-# Run in background because download_data.py is continuous
-python3 scripts/download_data.py &
+python3 scripts/main.py
 chromium-browser --force-device-scale-factor=0.8 --start-fullscreen --kiosk http://127.0.0.1:4000/ --incognito
 # Logs errors and output of all commands to the log file
 # The purpose of this file is to log errors so the source of an error can be located if something goes wrong.
