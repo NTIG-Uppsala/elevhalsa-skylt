@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Set up development environment](documentation.md#set-up-development-environment)
+- [Tests](documentation.md#tests)
 - [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
 - [Raspberry Pi](documentation.md#raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
@@ -95,7 +96,7 @@ Run the following command to build and serve the Jekyll site locally:
 jekyll serve -s site --config _config.yml
 ```
 
-### Step 7 - Development environment for testing
+## Tests
 
 See [tests_info.md](../tests/tests_info.md) for information regarding installation of dependencies and running tests.
 
