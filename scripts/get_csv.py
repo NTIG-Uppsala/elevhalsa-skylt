@@ -5,15 +5,15 @@ import os
 from credentials import get_service_account_credentials
 from dotenv import load_dotenv
 
-# Loads content of enviroment variable file, default path is `./.env`
+# Loads content of environment variable file, default path is `./.env`
 load_dotenv()
 
 DEFAULT_CSV_DATA_PATH = "./site/_data/stored_data.csv"
 
 # If code runs without any arguments, run with default options
 if len(sys.argv) == 1:
-     sheet_id = os.getenv("sheet_id") # Fetches sheet id from env 
-     csv_path = DEFAULT_CSV_DATA_PATH
+    sheet_id = os.getenv("sheet_id")  # Fetches sheet id from env
+    csv_path = DEFAULT_CSV_DATA_PATH
 else:
     try:
         sheet_id = sys.argv[1]
@@ -34,7 +34,7 @@ try:
     sh = client.open_by_key(sheet_id)
     rows = sh.get_worksheet(0).get_all_values()
 # If no or incorrect path is given as an argument
-except: 
+except:
     print("Error: get_csv.py could not get path")
     sys.exit(-1)
 
@@ -48,7 +48,7 @@ name_column_index = rows[0].index("NAMN")
 
 for row_index, row in enumerate(rows):
     # Skip the header row
-    if (row_index == 0):
+    if row_index == 0:
         continue
 
     name = row[name_column_index]
