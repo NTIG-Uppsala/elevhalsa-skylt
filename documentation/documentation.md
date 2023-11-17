@@ -69,22 +69,19 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 > The Google service account API credentials are not stored in the GitHub repository for security reasons.
 
-### Step 6 - Running it
+### Step 6 - Add .env file
 
-#### Set up
+This project requires a `.env` file. To create one, make a new file in your directory and name it `.env`. For users who have access to the corresponding [Google Drive](https://drive.google.com/drive/folders/1PE9KzvEw8aPh5E4z1SYBZf03GJ8k5gWZ), a ready-to-use `.env` file can be found there.
 
-Most of the programs require a .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project. For users who have access to the corresponding Google Drive, a ready-to-use .env file can be found there.
-
-`SPREADSHEET_ID` can be found in the sheet's url.
-
+The contents of the `.env` file is
 
 ```
 sheet_id = SPREADSHEET_ID
 ```
 
-For the easiest setup, use the sheet id specified in the `.env` file.
+where `SPREADSHEET_ID` can be found in the Google Sheets sheet's URL.
 
-#### Running
+### Step 7 - Running it
 
 Get CSV and image data by running `scripts/main.py` with Python:
 
