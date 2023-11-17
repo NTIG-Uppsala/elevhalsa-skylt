@@ -31,7 +31,7 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 > Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise Jekyll will not work.
 
-### Step 2 - install WSL Ubuntu
+### Step 2 - Install WSL Ubuntu
 
 - Go to the Control Panel → Programs → Programs and Feautures → Turn Windows features on or off
 
@@ -46,7 +46,7 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 - Follow the instructions shown on the screen
 
-### Step 3 - install Ruby and Jekyll
+### Step 3 - Install Ruby and Jekyll
 
 - Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
 
