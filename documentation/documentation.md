@@ -6,7 +6,7 @@
 - [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
 - [Raspberry Pi](documentation.md#raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
-- [Configuration](documentation.md#configuration)
+- [Raspberry Pi Configuration](documentation.md#raspberry-pi-configuration)
 - [Set Up Autostart](documentation.md#set-up-autostart)
 - [Change active display times](documentation.md#change-active-display-times)
 - [Create shortcut](documentation.md#create-shortcut)
