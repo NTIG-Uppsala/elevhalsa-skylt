@@ -18,3 +18,4 @@ site/assets/img/Profile/*
 tmp
 service_account_credentials.json
 .env
+.venv
