@@ -1,12 +1,13 @@
-function sortDates(date_from_parameter, csv_path) {
-    Papa.parse(csv_path, {
+
+function sortDates(date_from_parameter) {
+    Papa.parse("./assets/event_data.csv", {
         download: true,
         header: true,
         complete: function (results) {
             const timeZone = 'Europe/Stockholm'; // Change this to your actual time zone
 
             const dates = results.data.map(function (row) {
-                const dateStr = row['Datum'];
+                const dateStr = row['DATUM'];
                 const dateObj = new Date(dateStr + 'T24:00:00');
                 return dateObj;
             });
@@ -29,6 +30,7 @@ function sortDates(date_from_parameter, csv_path) {
 
             if (upcomingDates.length > 0) {
                 const sortedDate = upcomingDates[0].toISOString().split('T')[0];
+                let date_parse
                 date_parse = new Date(sortedDate);
                 let diffrence_in_time = date_parse.getTime() - date_from_parameter.getTime();
                 let diffrence_in_days = diffrence_in_time / (1000 * 60 * 60 * 24);
@@ -42,7 +44,10 @@ function sortDates(date_from_parameter, csv_path) {
                     event_id.classList.add('hidden');
                 }
             }
+            console.log('Results:', results);
+            console.log('Upcoming Dates:', upcomingDates);
         }
     });
 }
+sortDates();
 // sortDates("2023-12-19");
