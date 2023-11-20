@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+
 class TestLocalhostPageTitle(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -40,12 +41,21 @@ class TestLocalhostPageTitle(unittest.TestCase):
 
     def test_work_hours_present(self):
         self.assertIn("8-17", self.driver.page_source)
-    
+
     def test_location_present(self):
         self.assertIn("NTI Gymnasiet Uppsala", self.driver.page_source)
 
     def test_image_present(self):
-        self.driver.find_element(By.CSS_SELECTOR, "img[src$=\"2_Maria_Ohlsson.jpg\"]")
+        self.driver.find_element(By.CSS_SELECTOR, 'img[src$="2_Maria_Ohlsson.jpg"]')
+
+    def test_event_date(self):
+        self.assertIn("2023-12-22", self.driver.page_source)
+
+    def test_event_name(self):
+        self.assertIn("jullov", self.driver.page_source)
+
+    def test_event_picture(self):
+        self.driver.find_element(By.CSS_SELECTOR, 'img[src$="event_jullov.jpg"]')
 
     @classmethod
     def tearDownClass(cls):
