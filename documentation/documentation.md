@@ -5,7 +5,6 @@
 - [Set up development environment](documentation.md#set-up-development-environment)
 - [Tests](documentation.md#tests)
 - [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
-- [Raspberry Pi](documentation.md#raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
 - [Raspberry Pi Setup](documentation.md#raspberry-pi-setup)
 - [Set Up Autostart](documentation.md#set-up-autostart)
@@ -106,25 +105,6 @@ See [tests_info.md](../tests/tests_info.md) for information regarding installati
 - Push to the Github repo
 - Pull from the main branch on the Raspberry Pi
 
-## Raspberry Pi
-
-These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Raspberry Pi
-
-Tool and OS that are necessary:
-
-SD formatting tool https://www.sdcard.org/downloads/formatter/eula_windows/
-NOOBS OS https://www.raspberrypi.org/downloads/noobs/
-
-Tutorial for NOOBS installation:
-1. Install SD card formatting tool
-2. Insert SD card in computer
-3. Format SD card with installed tool
-4. Download NOOBS from Raspberry's website
-5. Unzip and transfer NOOBS directory content to SD card boot folder
-6. Plug in SD card into Raspberry Pi and connect to a Wi-Fi
-7. After connecting select Raspbian and select install
-8. Follow install wizard to install Raspbian on SD card
-
 ## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
@@ -169,6 +149,12 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 3. Navigate to Interfacing Options and enable VNC
 
 ## Raspberry Pi Setup
+
+### Install Raspberry Pi OS
+
+Follow the instructions [here](https://www.raspberrypi.com/software/)
+
+### Clone Repository
 
 To start configuring your Raspberry Pi, create a directory named "Git"
 ```
