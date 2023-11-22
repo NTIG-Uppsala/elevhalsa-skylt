@@ -332,7 +332,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
 
-    ```
+    ```xml
     <keybind key="">
         <action name="Execute">
             <command>
@@ -345,7 +345,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
     Example for running a bash script when Ctrl+F11 is pressed:
 
-    ```
+    ```xml
     <keybind key="C-F11">
         <action name="Execute">
             <command>
