@@ -115,6 +115,8 @@ where `SPREADSHEET_ID` can be found in the Google Sheets sheet's URL.
 
 ### Step 7 - Running it
 
+Before running the script, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
+
 Get CSV and image data by running `scripts/main.py` with Python:
 
 ```
