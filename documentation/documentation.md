@@ -50,7 +50,7 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 Open an Ubuntu (WSL) terminal and navigate into the cloned repository's folder. Run the following:
 
 ```
-sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; gem install jekyll bundler 
+sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; sudo gem install jekyll bundler 
 ```
 
 ### Step 4 - Python setup
