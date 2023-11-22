@@ -85,7 +85,11 @@ To exit the virtual environment, enter `deactivate` into the terminal.
 
 #### Install dependencies
 
-Before installing the dependencies, make sure to activate the Python virtual environment.
+Before installing the dependencies, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
+
+```
+cd ~/Git/elevhalsa-skylt
+```
 
 ```
 python3 -m pip install -r scripts/requirements.txt
