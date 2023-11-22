@@ -238,8 +238,9 @@ The commands should be run on the Raspberry Pi.
 2. Add the following line at the bottom:
 
     ```
-    bash ~/Git/elevhalsa-skylt/scripts/on_startup.sh
+    bash /home/exampleuser/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
+    Replace the "exampleuser" with the name of the Raspberry Pi's username.
 
 3. Open the Command Line Interface and type in the following command:
 
