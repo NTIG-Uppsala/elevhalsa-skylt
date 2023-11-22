@@ -191,9 +191,11 @@ Follow the instructions [here](https://www.raspberrypi.com/software/)
 ### Clone Repository
 
 To start configuring your Raspberry Pi, create a directory named "Git"
+
 ```shell
 mkdir ~/Git
 ```
+
 Change active directory to the Git directory with the command:
 
 ```shell
@@ -242,6 +244,7 @@ The commands should be run on the Raspberry Pi.
     ```
     bash /home/exampleuser/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
+
     Replace the "exampleuser" with the name of the Raspberry Pi's username.
 
 3. Open the Command Line Interface and type in the following command:
