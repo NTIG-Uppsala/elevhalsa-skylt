@@ -74,10 +74,13 @@ python3 -m venv .venv
 ##### Activate the virtual environment
 
 If on Windows use the following command:
+
 ```
 ./.venv/Scripts/activate
 ```
+
 If on Linux:
+
 ```
 source ./.venv/bin/activate
 ```
