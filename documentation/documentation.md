@@ -53,11 +53,39 @@ Open an Ubuntu (WSL) terminal and navigate into the cloned repository's folder. 
 sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; gem install jekyll bundler 
 ```
 
-### Step 4 - Install Python and dependencies
+### Step 4 - Python setup
+
+#### Install Python
 
 ```
 sudo apt update && sudo apt install python3 python3-pip
 ```
+
+#### Python virtual environment
+
+##### Create a Python virtual environment
+
+In the cloned Git repository, run:
+
+```
+python3 -m venv .venv
+```
+
+##### Activate the virtual environment
+
+```
+./.venv/Scripts/activate
+```
+
+**Note:** the virtual environment should be activated when running Python scripts
+
+##### Exit virtual environment
+
+To exit the virtual environment, enter `deactivate` into the terminal.
+
+#### Install dependencies
+
+Before installing the dependencies, make sure to activate the Python virtual environment.
 
 ```
 python3 -m pip install -r scripts/requirements.txt
