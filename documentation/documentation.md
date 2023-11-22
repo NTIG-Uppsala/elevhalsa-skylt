@@ -25,7 +25,7 @@
 
 ### Step 1 - Clone this repository
 
-```
+```shell
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 ```
 
@@ -39,7 +39,7 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 - Run the following in the Command Prompt: 
 
-    ```
+    ```shell
     wsl --install -d Ubuntu
     ```
 
@@ -49,7 +49,7 @@ git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
 
 Open an Ubuntu (WSL) terminal and navigate into the cloned repository's folder. Run the following:
 
-```
+```shell
 sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; sudo gem install jekyll bundler 
 ```
 
@@ -57,7 +57,7 @@ sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '
 
 #### Install Python
 
-```
+```shell
 sudo apt update && sudo apt install python3 python3-pip
 ```
 
@@ -75,13 +75,13 @@ python3 -m venv .venv
 
 If on Windows use the following command:
 
-```
+```shell
 ./.venv/Scripts/activate
 ```
 
 If on Linux:
 
-```
+```sh
 source ./.venv/bin/activate
 ```
 
@@ -95,11 +95,11 @@ To exit the virtual environment, enter `deactivate` into the terminal.
 
 Before installing the dependencies, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
 
-```
+```shell
 cd ~/Git/elevhalsa-skylt
 ```
 
-```
+```shell
 python3 -m pip install -r scripts/requirements.txt
 ```
 
@@ -127,13 +127,13 @@ Before running the script, make sure to [activate](documentation.md#activate-the
 
 Get CSV and image data by running `scripts/main.py` with Python:
 
-```
+```shell
 python scripts/main.py
 ```
 
 Run the following command to build and serve the Jekyll site locally:
 
-```
+```shell
 jekyll serve -s site --config _config.yml
 ```
 
@@ -158,7 +158,7 @@ See [tests_info.md](../tests/tests_info.md) for information regarding installati
 
 1. On the Pi, run the following code to get the IP adress:
 
-    ```
+    ```shell
     hostname -I
     ```
 
@@ -170,21 +170,21 @@ See [tests_info.md](../tests/tests_info.md) for information regarding installati
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
 
-    ```
+    ```shell
     sudo apt-get update
     ```
 
-    ```
+    ```shell
     sudo apt-get install realvnc-vnc-server
     ```
 
-    ```
+    ```shell
     realvnc-vnc-viewer
     ```
 
 2. Write this command:
 
-    ```
+    ```shell
     sudo raspi-config
     ```
 
@@ -199,18 +199,20 @@ Follow the instructions [here](https://www.raspberrypi.com/software/)
 ### Clone Repository
 
 To start configuring your Raspberry Pi, create a directory named "Git"
-```
+
+```shell
 mkdir ~/Git
 ```
+
 Change active directory to the Git directory with the command:
 
-```
+```shell
 cd ~/Git
 ```
 
 and then clone the git repository with the command:
 
-```
+```shell
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
 
@@ -241,7 +243,7 @@ The commands should be run on the Raspberry Pi.
 
 1. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -250,11 +252,12 @@ The commands should be run on the Raspberry Pi.
     ```
     bash /home/exampleuser/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
+
     Replace the "exampleuser" with the name of the Raspberry Pi's username.
 
 3. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/systemd/system/jekyll.service
     ```
 
@@ -283,7 +286,7 @@ The commands should be run on the Raspberry Pi.
 
 5. Type the following command into the Command Line Interface:
 
-    ```
+    ```shell
     sudo systemctl enable jekyll.service
     ```
 
@@ -296,7 +299,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 
 1. Open the Command Line Interface and enter the following command:
 
-    ```
+    ```shell
     crontab -e
     ```
 
@@ -331,13 +334,13 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open the Command Line Interface and enter the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
     ```
 
 2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
 
-    ```
+    ```xml
     <keybind key="">
         <action name="Execute">
             <command>
@@ -350,7 +353,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
     Example for running a bash script when Ctrl+F11 is pressed:
 
-    ```
+    ```xml
     <keybind key="C-F11">
         <action name="Execute">
             <command>
@@ -370,7 +373,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open the Command Line Interface and type the following command:
 
-    ```
+    ```shell
     sudo nano /boot/config.txt
     ```
 
@@ -391,11 +394,11 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following commands:
 
-    ```
+    ```shell
     sudo apt-get install unclutter
     ```
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -414,7 +417,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -431,7 +434,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -446,7 +449,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /boot/cmdline.txt
     ```
 
@@ -460,7 +463,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo cp ~/my_splash.png /usr/share/plymouth/themes/pix/splash.png
     ```
 
