@@ -85,7 +85,7 @@ If on Linux:
 source ./.venv/bin/activate
 ```
 
-**Note:** the virtual environment should be activated when running Python scripts
+**Note:** the virtual environment should be activated when running Python scripts.
 
 ##### Exit virtual environment
 
@@ -158,17 +158,17 @@ See [tests_info.md](../tests/tests_info.md) for information regarding installati
 ### Download/Install VNC Viewer
 
 1. Go to https://www.realvnc.com/en/connect/download/viewer/
-2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
+2. Download and install VNC viewer on the computer or phone that you want to control the Raspberry Pi from.
 
 ### Remote control the Raspberry Pi
 
-1. On the Pi, run the following code to get the IP adress:
+1. On the Raspberry Pi, run the following code to get the IP adress:
 
     ```shell
     hostname -I
     ```
 
-2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
+2. Open VNC Viewer, enter the IP of the Raspberry Pi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ### Enable Remote Control
@@ -477,7 +477,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Right-click on desktop and select desktop preferences.
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
-3. Navigate to `~/my_splash.png`, press open, then press ok.
+3. Navigate to `~/my_splash.png`, press open, then press OK.
 
 ## Hardware used
 
