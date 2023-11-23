@@ -8,6 +8,7 @@
 
 # Test files
 !site/_data/correct_test_data.csv
+!site/_data/correct_event_test_data.csv
 tests/img/*
 tests/picture_sizes.txt
 

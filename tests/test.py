@@ -49,13 +49,10 @@ class TestLocalhostPageTitle(unittest.TestCase):
         self.driver.find_element(By.CSS_SELECTOR, 'img[src$="2_Maria_Ohlsson.jpg"]')
 
     def test_event_date(self):
-        self.assertIn("2023-12-22", self.driver.page_source)
+        self.assertIn("2023-12-24", self.driver.page_source)
 
     def test_event_name(self):
-        self.assertIn("jullov", self.driver.page_source)
-
-    def test_event_picture(self):
-        self.driver.find_element(By.CSS_SELECTOR, 'img[src$="event_jullov.jpg"]')
+        self.assertIn("julafton", self.driver.page_source)
 
     @classmethod
     def tearDownClass(cls):

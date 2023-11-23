@@ -15,7 +15,6 @@ layout: default
 </div>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 
@@ -73,24 +72,30 @@ layout: default
       {% endif %}
       {% endfor %}
 
-      <div class="item" id="event">
-        <div class="background-grid-layout">
-          <div class="grid-item-information">
-            <div class="info" id="event-slide">
-              <h1 class="name">
-                <div id="sortedDateContainer"></div>
-              </h1>
-              <p class="status"></p>
-              <div class="latestChange">
-              </div>
-            </div>
+      <div class="" id="event1" data-interval="">
+        <div class="background-grid-layout ">
+          <div class="grid-item-information sortedContainer"> <span id="sortedDateContainer1">
+
+            </span>
           </div>
+          <div class="grid-item-information " id="eventDescription"></div>
+
         </div>
       </div>
 
     </div>
-
   </div>
-</div>
-<script src="update_status.js"></script>
-<script type="module" src="event_countdown.js"></script>
+  <script src="update_status.js"></script>
+
+
+  {% if site.eht_csv_path == "correct_test_data" %}
+  <script type="module">
+    import { sortDates } from "./sortDates.js";
+    sortDates("2023-12-19", 1, "./assets/correct_event_test_data.csv");
+  </script>
+  {% else %}
+  <script type="module">
+    import { sortDates } from "./sortDates.js";
+    sortDates();
+  </script>
+  {% endif %}
