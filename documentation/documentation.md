@@ -103,6 +103,12 @@ cd ~/Git/elevhalsa-skylt
 python3 -m pip install -r scripts/requirements.txt
 ```
 
+The openpyxl dependency breaks with a newer version of NumPy. This can be solved by uninstalling NumPy using this command with the python virtual environment:
+
+```
+sudo apt remove python3-numpy
+```
+
 ### Step 5 - Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
