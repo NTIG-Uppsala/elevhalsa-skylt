@@ -3,12 +3,10 @@
 ## Table of Contents
 
 - [Set up development environment](documentation.md#set-up-development-environment)
+- [Tests](documentation.md#tests)
 - [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
-- [Raspberry Pi](documentation.md#raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
-- [Raspberry Pi Configuration](documentation.md#raspberry-pi-configuration)
-- [Set Up Autostart](documentation.md#set-up-autostart)
-- [Change active display times](documentation.md#change-active-display-times)
+- [Raspberry Pi Setup](documentation.md#raspberry-pi-setup)
 - [Create shortcut](documentation.md#create-shortcut)
 - [Disable Black Border around Screen](documentation.md#disable-black-border-around-screen)
 - [Remove Chromium offer to Translate Page](documentation.md#remove-chromium-offer-to-translate-page)
@@ -25,71 +23,125 @@
 
 ### Step 1 - Clone this repository
 
-If you use Github Desktop, go to [the repository page](https://github.com/NTIG-Uppsala/elevhalsa-skylt) and press the "Code" button. Then click on "Open with GitHub Desktop". Choose directory and then press "Clone".
+```shell
+git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt.git
+```
 
 > Be sure to choose a directory that is not synced with OneDrive, Google Drive, or similar apps. Otherwise Jekyll will not work.
 
-### Step 2 - install WSL Ubuntu
+### Step 2 - Install WSL Ubuntu
 
 - Go to the Control Panel → Programs → Programs and Feautures → Turn Windows features on or off
 
 - Check the "Windows Subsystem for Linux" box (found near the bottom) and press OK. Restart the computer when prompted.
 
-- Press (Windows) + R
+- Run the following in the Command Prompt: 
 
-- Write "cmd" and press enter
-
-- Run the command: `wsl --install`
-  > Try `wsl --install -d Ubuntu` if the command above does not work
+    ```shell
+    wsl --install -d Ubuntu
+    ```
 
 - Follow the instructions shown on the screen
 
-### Step 3 - install Ruby and Jekyll
+### Step 3 - Install Ruby and Jekyll
 
-- Open a terminal in the folder that the repository has been cloned into. This can be done by opening this cloned repository in Github Desktop and pressing Ctrl + Ö. (Ctrl + ` for American keyboard layouts)
+Open an Ubuntu (WSL) terminal and navigate into the cloned repository's folder. Run the following:
 
-**Run the following command in an Ubuntu terminal (WSL)**
-
-```
-sudo apt update ; sudo apt-get install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; source ~/.bashrc ;gem install jekyll bundler ; sudo apt install python3 python3-pip ; pip install -r scripts/requirements.txt ; pip install xdotool
+```shell
+sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc ; echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc ; echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc ; sudo gem install jekyll bundler 
 ```
 
-### Step 4 - Add Google service account credentials
+### Step 4 - Python setup
+
+#### Install Python
+
+```shell
+sudo apt update && sudo apt install python3 python3-pip
+```
+
+#### Python virtual environment
+
+##### Create a Python virtual environment
+
+In the cloned Git repository, run:
+
+```
+python3 -m venv .venv
+```
+
+##### Activate the virtual environment
+
+If on Windows use the following command:
+
+```shell
+./.venv/Scripts/activate
+```
+
+If on Linux:
+
+```sh
+source ./.venv/bin/activate
+```
+
+**Note:** the virtual environment should be activated when running Python scripts.
+
+##### Exit virtual environment
+
+To exit the virtual environment, enter `deactivate` into the terminal.
+
+#### Install dependencies
+
+Before installing the dependencies, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
+
+```shell
+cd ~/Git/elevhalsa-skylt
+```
+
+```shell
+python3 -m pip install -r scripts/requirements.txt
+```
+
+The openpyxl dependency breaks with a newer version of NumPy. This can be solved by uninstalling NumPy using this command with the python virtual environment:
+
+```
+sudo apt remove python3-numpy
+```
+
+### Step 5 - Add Google service account credentials
 
 Download the file [service_account_credentials.json](https://drive.google.com/file/d/177ZQ10REm72G-kb8c3xZvUWBMFjTJQYq/) and put it in the root directory of the cloned repository on your computer.
 
 > The Google service account API credentials are not stored in the GitHub repository for security reasons.
 
-### Step 5 - Running it
+### Step 6 - Add .env file
 
-#### Set up
+This project requires a `.env` file. To create one, make a new file in your directory and name it `.env`. For users who have access to the corresponding [Google Drive](https://drive.google.com/drive/folders/1PE9KzvEw8aPh5E4z1SYBZf03GJ8k5gWZ), a ready-to-use `.env` file can be found there.
 
-Most of the programs require a .env file. To create one, make a new file in your directory and name it .env. The contents of the file should be the Google Sheet IDs that you are using for your project. For users who have access to the corresponding Google Drive, a ready-to-use .env file can be found there.
-
-`SPREADSHEET_ID` can be found in the sheet's url.
-
+The contents of the `.env` file is
 
 ```
 sheet_id = SPREADSHEET_ID
 ```
 
-For the easiest setup, use the sheet id specified in the `.env` file.
+where `SPREADSHEET_ID` can be found in the Google Sheets sheet's URL.
 
-#### Running
+### Step 7 - Running it
+
+Before running the script, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
 
 Get CSV and image data by running `scripts/main.py` with Python:
 
-```
+```shell
 python scripts/main.py
 ```
 
 Run the following command to build and serve the Jekyll site locally:
 
-```
+```shell
 jekyll serve -s site --config _config.yml
 ```
 
-### Step 6 - Development environment for testing
+## Tests
 
 See [tests_info.md](../tests/tests_info.md) for information regarding installation of dependencies and running tests.
 
@@ -99,41 +151,22 @@ See [tests_info.md](../tests/tests_info.md) for information regarding installati
 - Push to the Github repo
 - Pull from the main branch on the Raspberry Pi
 
-## Raspberry Pi
-
-These steps are already done so you don't have to do them unless you are starting from scratch, so to say starting with a new Raspberry Pi
-
-Tool and OS that are necessary:
-
-SD formatting tool https://www.sdcard.org/downloads/formatter/eula_windows/
-NOOBS OS https://www.raspberrypi.org/downloads/noobs/
-
-Tutorial for NOOBS installation:
-1. Install SD card formatting tool
-2. Insert SD card in computer
-3. Format SD card with installed tool
-4. Download NOOBS from Raspberry's website
-5. Unzip and transfer NOOBS directory content to SD card boot folder
-6. Plug in SD card into Raspberry Pi and connect to a Wi-Fi
-7. After connecting select Raspbian and select install
-8. Follow install wizard to install Raspbian on SD card
-
 ## How to Remote Control Raspberry Pi
 
 ### Download/Install VNC Viewer
 
 1. Go to https://www.realvnc.com/en/connect/download/viewer/
-2. Download and install VNC viewer on the computer or phone that you want to control the RPI from.
+2. Download and install VNC viewer on the computer or phone that you want to control the Raspberry Pi from.
 
 ### Remote control the Raspberry Pi
 
-1. On the Pi, run the following code to get the IP adress:
+1. On the Raspberry Pi, run the following code to get the IP adress:
 
-    ```
+    ```shell
     hostname -I
     ```
 
-2. Open VNC Viewer, enter the IP of the RPi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
+2. Open VNC Viewer, enter the IP of the Raspberry Pi in the top of the VNC application. If you’ve entered the correct IP Address, you will be prompted for your Raspberry Pi user credentials.
 3. Enter the Raspberry Pi user credentials and all done! You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
 
 ### Enable Remote Control
@@ -141,45 +174,63 @@ Tutorial for NOOBS installation:
 To be able to control your raspberry's graphical interface remotely, follow these steps.
 1. Open the Command Line Interface and enter the following commands:
 
-    ```
+    ```shell
     sudo apt-get update
     ```
 
-    ```
+    ```shell
     sudo apt-get install realvnc-vnc-server
     ```
 
-    ```
+    ```shell
     realvnc-vnc-viewer
     ```
 
 2. Write this command:
 
-    ```
+    ```shell
     sudo raspi-config
     ```
 
 3. Navigate to Interfacing Options and enable VNC
 
-## Raspberry Pi Configuration
+## Raspberry Pi Setup
 
-To change the resolution of the raspberry outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
+### Install Raspberry Pi OS
+
+During the Raspberry Pi OS installation process, choose the username `pi`. If the username is not `pi`, some files may have to be edited to use a different username.
+
+Follow the instructions [here](https://www.raspberrypi.com/software/)
+
+### Clone Repository
 
 To start configuring your Raspberry Pi, create a directory named "Git"
-```
+
+```shell
 mkdir ~/Git
 ```
+
 Change active directory to the Git directory with the command:
 
-```
+```shell
 cd ~/Git
 ```
 
 and then clone the git repository with the command:
 
-```
+```shell
 git clone https://github.com/NTIG-Uppsala/elevhalsa-skylt
 ```
+
+### Change Resolution
+
+To change the resolution of the Raspberry Pi outputs, open cmd > ssh to desired pi > run `sudo raspi-config` > choose "2 Display Options" > "D1 Resolution" > choose a resolution (Default is 1360x768) 
+
+### Installing Ruby, Jekyll, and Python
+
+See [above](documentation.md#step-3---install-ruby-and-jekyll) on how to install Ruby and Jekyll.
+
+See [above](documentation.md#step-4---python-setup) on how to install Python and required dependencies.
 
 ### Add Google service account credentials
 
@@ -189,45 +240,32 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 ### Add .env file
 
-Download the file [.env](https://drive.google.com/drive/folders/1o2_c6FvF_ezeuJlANEGTvPT2JAAqsBa-) and put it in the root directory of the cloned repository on the Raspberry Pi.
+See [above](documentation.md#step-6---add-env-file)
 
-> The `.env` is not stored in the GitHub repository for security reasons.
-
-Most of the programs require a .env file. If you want to create one yourself, make a new file in the root of your directory and name it `.env.` The contents of the file should be the Google Sheet IDs that you are using for your project.
-
-#### Example layout of `.env` file
-```
-sheet_id = SPREADSHEET_ID
-```
-
-`SPREADSHEET_ID` can be found in the sheet's url.
-
-For the easiest setup, use the sheet id specified in the `.env` file on drive.
-
-## Set Up Autostart
+### Set Up Autostart
 
 Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
 The commands should be run on the Raspberry Pi.
 
 1. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
-2. Add the following lines at the bottom:
+2. Add the following line at the bottom:
 
     ```
-    bash ~/Git/elevhalsa-skylt/scripts/on_startup.sh
+    bash /home/pi/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
 
 3. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/systemd/system/jekyll.service
     ```
 
-4. Write this into the editor, make sure to replace `exampleuser` with the user of your Raspberry Pi, and then save and exit:
+4. Replace the contents of the file with the following, save, then exit:
 
     ```
     [Unit]
@@ -237,10 +275,10 @@ The commands should be run on the Raspberry Pi.
 
     [Service]
     # Name of the user account that is running the Jekyll server
-    User=exampleuser
+    User=pi
     Type=simple
     # Location (source) of the markdown files to be rendered
-    ExecStart=sudo jekyll serve -s /home/exampleuser/Git/elevhalsa-skylt/site --config /home/exampleuser/Git/elevhalsa-skylt/_config.yml
+    ExecStart=sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
     Restart=always
     StandardOutput=journal
     StandardError=journal
@@ -252,7 +290,7 @@ The commands should be run on the Raspberry Pi.
 
 5. Type the following command into the Command Line Interface:
 
-    ```
+    ```shell
     sudo systemctl enable jekyll.service
     ```
 
@@ -261,21 +299,24 @@ The jekyll serve command is in a system service and not in `on_startup.sh` becau
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
 
-## Change active display times
+### Crontab
 
 1. Open the Command Line Interface and enter the following command:
 
-    ```
+    ```shell
     crontab -e
     ```
 
 2. Type 1 to choose nano as your editor.
+
 3. Go to the bottom of the opened document and type in the following commands:
 
     ```
-    * * * * * sudo vcgencmd display_power 0
-    * * * * * sudo reboot
+    04 16 * * * sudo vcgencmd display_power 0
+    05 16 * * * sudo reboot
     ```
+
+This will turn of HDMI output at 16.04 and reboot Raspberry Pi at 16:05.
 
 Asterisk 1 = minutes (from 0 to 59)
 
@@ -287,26 +328,17 @@ Asterisk 4 = month (from 1 to 12)
 
 Asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
 
-Example:
-
-```
-0 10 * * * sudo vcgencmd display_power 0
-5 10 * * * sudo reboot
-```
-
-This will turn of HDMI output at 10:00 and start it again at 10:05.
-
 ## Create shortcut
 
 1. Open the Command Line Interface and enter the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/openbox/lxde-pi-rc.xml file
     ```
 
 2. Find the `<keyboard></keyboard>` tags and add the following text between the tags:
 
-    ```
+    ```xml
     <keybind key="">
         <action name="Execute">
             <command>
@@ -319,7 +351,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
     Example for running a bash script when Ctrl+F11 is pressed:
 
-    ```
+    ```xml
     <keybind key="C-F11">
         <action name="Execute">
             <command>
@@ -339,7 +371,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open the Command Line Interface and type the following command:
 
-    ```
+    ```shell
     sudo nano /boot/config.txt
     ```
 
@@ -360,11 +392,11 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following commands:
 
-    ```
+    ```shell
     sudo apt-get install unclutter
     ```
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -383,7 +415,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -400,7 +432,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open the Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
     ```
 
@@ -415,7 +447,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo nano /boot/cmdline.txt
     ```
 
@@ -429,7 +461,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Open Command Line Interface and type in the following command:
 
-    ```
+    ```shell
     sudo cp ~/my_splash.png /usr/share/plymouth/themes/pix/splash.png
     ```
 
@@ -437,7 +469,7 @@ This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 1. Right-click on desktop and select desktop preferences.
 2. Under the desktop tab, in the Picture setting, click on the folder next to Picture.
-3. Navigate to `~/my_splash.png`, press open, then press ok.
+3. Navigate to `~/my_splash.png`, press open, then press OK.
 
 ## Hardware used
 
