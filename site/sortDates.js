@@ -77,6 +77,3 @@ export function sortDates(date_from_parameter, numEvents, path) {
     });
 }
 
-
-// sortDates();
-// sortDates("2023-12-19", 1);
