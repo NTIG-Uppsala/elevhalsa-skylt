@@ -310,6 +310,7 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
     ```
 
 2. Type 1 to choose nano as your editor.
+
 3. Go to the bottom of the opened document and type in the following commands:
 
     ```
