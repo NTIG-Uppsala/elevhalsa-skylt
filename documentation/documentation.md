@@ -73,8 +73,16 @@ python3 -m venv .venv
 
 ##### Activate the virtual environment
 
+If on Windows use the following command:
+
 ```shell
 ./.venv/Scripts/activate
+```
+
+If on Linux:
+
+```sh
+source ./.venv/bin/activate
 ```
 
 **Note:** the virtual environment should be activated when running Python scripts.
@@ -93,6 +101,12 @@ cd ~/Git/elevhalsa-skylt
 
 ```shell
 python3 -m pip install -r scripts/requirements.txt
+```
+
+The openpyxl dependency breaks with a newer version of NumPy. This can be solved by uninstalling NumPy using this command with the python virtual environment:
+
+```
+sudo apt remove python3-numpy
 ```
 
 ### Step 5 - Add Google service account credentials
@@ -186,6 +200,8 @@ To be able to control your raspberry's graphical interface remotely, follow thes
 
 ### Install Raspberry Pi OS
 
+During the Raspberry Pi OS installation process, choose the username `pi`. If the username is not `pi`, some files may have to be edited to use a different username.
+
 Follow the instructions [here](https://www.raspberrypi.com/software/)
 
 ### Clone Repository
@@ -242,10 +258,8 @@ The commands should be run on the Raspberry Pi.
 2. Add the following line at the bottom:
 
     ```
-    bash /home/exampleuser/Git/elevhalsa-skylt/scripts/on_startup.sh
+    bash /home/pi/Git/elevhalsa-skylt/scripts/on_startup.sh
     ```
-
-    Replace the "exampleuser" with the name of the Raspberry Pi's username.
 
 3. Open the Command Line Interface and type in the following command:
 
@@ -253,7 +267,7 @@ The commands should be run on the Raspberry Pi.
     sudo nano /etc/systemd/system/jekyll.service
     ```
 
-4. Write this into the editor, make sure to replace `exampleuser` with the user of your Raspberry Pi, and then save and exit:
+4. Replace the contents of the file with the following, save, then exit:
 
     ```
     [Unit]
@@ -263,10 +277,10 @@ The commands should be run on the Raspberry Pi.
 
     [Service]
     # Name of the user account that is running the Jekyll server
-    User=exampleuser
+    User=pi
     Type=simple
     # Location (source) of the markdown files to be rendered
-    ExecStart=sudo jekyll serve -s /home/exampleuser/Git/elevhalsa-skylt/site --config /home/exampleuser/Git/elevhalsa-skylt/_config.yml
+    ExecStart=sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
     Restart=always
     StandardOutput=journal
     StandardError=journal
