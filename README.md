@@ -23,7 +23,7 @@ This project aims to create a digital sign system that highlights Student Health
 
 ## How To Change The Information Currently Displayed
 
-Changing the information that is displayed on the monitor is done by changing the information in [this Google spreadsheet](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs). The data on the monitor will update automatically from a couple of seconds up to a few minutes after you edit the spreadsheet.
+Changing the information that is displayed on the monitor is done by changing the information in [this Google spreadsheet](https://docs.google.com/spreadsheets/d/1qY1KYAY-AjFh2DWsjiVwOVj2qqJ29kpSs_YaBHi-TEs).To edit details regarding events, navigate to the 'Events' sheet and fill in the required cells, with 'DATUM' being a mandatory field. It's important to note that events will only be visible if there are 14 days or less remaining untill the day it is happening. The data on the monitor will update automatically from a couple of seconds up to a few minutes after you edit the spreadsheet.
 
 ### Adding an Image
 
