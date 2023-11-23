@@ -232,7 +232,7 @@ To change the resolution of the Raspberry Pi outputs, open cmd > ssh to desired 
 
 See [above](documentation.md#step-3---install-ruby-and-jekyll) on how to install Ruby and Jekyll.
 
-See [above](documentation.md#step-4---install-python-and-dependencies) on how to install Python and required dependencies.
+See [above](documentation.md#step-4---python-setup) on how to install Python and required dependencies.
 
 ### Add Google service account credentials
 
