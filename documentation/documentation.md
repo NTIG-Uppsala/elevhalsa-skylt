@@ -7,8 +7,6 @@
 - [Keeping the repo up to date in the Raspberry Pi](documentation.md#keeping-the-repo-up-to-date-in-the-raspberry-pi)
 - [How to Remote Control Raspberry Pi](documentation.md#how-to-remote-control-raspberry-pi)
 - [Raspberry Pi Setup](documentation.md#raspberry-pi-setup)
-- [Set Up Autostart](documentation.md#set-up-autostart)
-- [Change active display times](documentation.md#change-active-display-times)
 - [Create shortcut](documentation.md#create-shortcut)
 - [Disable Black Border around Screen](documentation.md#disable-black-border-around-screen)
 - [Remove Chromium offer to Translate Page](documentation.md#remove-chromium-offer-to-translate-page)
@@ -244,7 +242,7 @@ Download the file [service_account_credentials.json](https://drive.google.com/fi
 
 See [above](documentation.md#step-6---add-env-file)
 
-## Set Up Autostart
+### Set Up Autostart
 
 Follow these steps to ensure that the website automatically displays on the Raspberry Pi after it starts.
 The commands should be run on the Raspberry Pi.
@@ -301,7 +299,7 @@ The jekyll serve command is in a system service and not in `on_startup.sh` becau
 Commands in `autostart` are processed in a parallel fashion, so commands do not wait for previous commands to finish. More about this [here](https://forums.raspberrypi.com/viewtopic.php?t=294014).
 For this reason, the commands are put in `on_startup.sh` instead, and the autostart file just runs `on_startup.sh`.
 
-## Change active display times
+### Crontab
 
 1. Open the Command Line Interface and enter the following command:
 
@@ -314,9 +312,11 @@ For this reason, the commands are put in `on_startup.sh` instead, and the autost
 3. Go to the bottom of the opened document and type in the following commands:
 
     ```
-    * * * * * sudo vcgencmd display_power 0
-    * * * * * sudo reboot
+    04 16 * * * sudo vcgencmd display_power 0
+    05 16 * * * sudo reboot
     ```
+
+This will turn of HDMI output at 16.04 and reboot Raspberry Pi at 16:05.
 
 Asterisk 1 = minutes (from 0 to 59)
 
@@ -327,15 +327,6 @@ Asterisk 3 = day of month (from 1 to 31)
 Asterisk 4 = month (from 1 to 12)
 
 Asterisk 5 = day of week (0 - 7) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
-
-Example:
-
-```
-0 10 * * * sudo vcgencmd display_power 0
-5 10 * * * sudo reboot
-```
-
-This will turn of HDMI output at 10:00 and start it again at 10:05.
 
 ## Create shortcut
 
