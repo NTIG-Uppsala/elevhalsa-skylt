@@ -1,7 +1,6 @@
 import os
 
 import get_csv
-
 import get_images
 from dotenv import load_dotenv
 
