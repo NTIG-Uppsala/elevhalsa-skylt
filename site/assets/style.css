@@ -26,6 +26,7 @@ body {
 	height: 900px;
 	padding: 50px;
 	background-color: rgb(0, 0, 0, 0.6);
+	z-index: -1;
 	border: 5px solid white;
 	border-radius: 15px;
 	display: grid;
