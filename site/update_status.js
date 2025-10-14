@@ -1,9 +1,3 @@
-// Stops carousel from pausing on mousehover
-
-// $('.carousel').carousel({
-//     pause: "false"
-// });
-
 // let names = document.getElementsByClassName('name');
 // let status = document.getElementsByClassName('status');
 // let latestChanges = document.getElementsByClassName('latestChange');
