@@ -58,6 +58,11 @@ sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '
 ```shell
 sudo apt update && sudo apt install python3 python3-pip
 ```
+### Update and upgrade Python
+
+```shell
+sudo apt upgrade && sudo apt update
+```
 
 #### Python virtual environment
 
@@ -92,6 +97,14 @@ To exit the virtual environment, enter `deactivate` into the terminal.
 #### Install dependencies
 
 Before installing the dependencies, make sure to [activate](documentation.md#activate-the-virtual-environment) the Python virtual environment.
+
+```shell
+mkdir -p ~/Git
+```
+
+```shell
+mv ~/elevhalsa-skylt ~/Git/
+```
 
 ```shell
 cd ~/Git/elevhalsa-skylt
