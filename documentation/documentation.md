@@ -58,7 +58,7 @@ sudo apt update ; sudo apt install ruby-full build-essential zlib1g-dev ; echo '
 ```shell
 sudo apt update && sudo apt install python3 python3-pip
 ```
-### Update and upgrade Python
+#### Update and upgrade Python
 
 ```shell
 sudo apt upgrade && sudo apt update
