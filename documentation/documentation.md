@@ -291,7 +291,7 @@ The commands should be run on the Raspberry Pi.
     User=pi
     Type=simple
     # Location (source) of the markdown files to be rendered
-    ExecStart=sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml
+    ExecStart=sudo jekyll serve -s /home/pi/Git/elevhalsa-skylt/site --config /home/pi/Git/elevhalsa-skylt/_config.yml -d /home/pi/Git/elevhalsa-skylt/_site
     Restart=always
     StandardOutput=journal
     StandardError=journal
