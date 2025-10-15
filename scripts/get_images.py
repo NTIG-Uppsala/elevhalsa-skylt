@@ -1,27 +1,22 @@
 import csv
 import os
-
 import openpyxl
 import requests
 from credentials import get_access_token
 from openpyxl_image_loader import SheetImageLoader
 
-
 def get_images(sheet_id, csv_data_path):
-    IMAGES_FOLDER_PATH = "./site/assets/img"
+    IMAGES_FOLDER_PATH = "./site/profilepics" 
 
     access_token = get_access_token()
     # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
     mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-
     url = f"https://www.googleapis.com/drive/v3/files/{sheet_id}/export?mimeType={mime_type}"
 
-    profile_folder_path = os.path.join(IMAGES_FOLDER_PATH, "Profile")
-    if not os.path.exists(profile_folder_path):
-        os.makedirs(profile_folder_path)
+    if not os.path.exists(IMAGES_FOLDER_PATH):
+        os.makedirs(IMAGES_FOLDER_PATH)
 
-    response = requests.get(
-        url, headers={"Authorization": "Bearer " + access_token})
+    response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
 
     # This file is opened in binary write mode ("wb") because the response from Google API is in binary.
     # Read more about this at https://developers.google.com/drive/api/reference/rest/v3/files/export
@@ -46,7 +41,7 @@ def get_images(sheet_id, csv_data_path):
 
     for row in range(2, excel_spreadsheet.max_row + 1):
         image_filename = stored_csv_data[row - 1][image_filename_column_index]
-        image_path = os.path.join(profile_folder_path, image_filename)
+        image_path = os.path.join(IMAGES_FOLDER_PATH, image_filename)
         # Create image cell name from column and row numbers
         image_cell_name = chr(ord("A") + image_column_number - 1) + str(row)
         image = image_loader.get(image_cell_name)
