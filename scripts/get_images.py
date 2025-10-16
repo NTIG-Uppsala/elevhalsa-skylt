@@ -1,17 +1,14 @@
 import csv
 import os
-import shutil
-import openpyxl
+import shutil 
+from openpyxl import load_workbook
 import requests
 from credentials import get_access_token
 from openpyxl_image_loader import SheetImageLoader
 
 def get_images(sheet_id, csv_data_path):
-    SITE_PROFILEPICS_PATH = "./site/_profilepics"
-    SITE_OUTPUT_PATH = "./_site/_profilepics"
-
-    os.makedirs(SITE_PROFILEPICS_PATH, exist_ok=True)
-    os.makedirs(SITE_OUTPUT_PATH, exist_ok=True)
+    SITE_PROFILEPICS = "./site/_profilepics"
+    os.makedirs(SITE_PROFILEPICS, exist_ok=True)
 
     access_token = get_access_token()
     # MIME type from https://developers.google.com/drive/api/guides/ref-export-formats
@@ -24,33 +21,27 @@ def get_images(sheet_id, csv_data_path):
     with open("info.xlsx", "wb") as file:
         file.write(response.content)
 
-    excel_spreadsheet = openpyxl.load_workbook("info.xlsx")["NTI"]
-    image_loader = SheetImageLoader(excel_spreadsheet)
+    with open("info.xlsx", "wb") as f:
+        f.write(response.content)
 
-    # Find the columns of images and image filenames
-    first_row = excel_spreadsheet[1]
-    first_row_values = [cell.value for cell in first_row]
-    image_column_number = first_row_values.index("BILD") + 1
+    wb = load_workbook("info.xlsx")["NTI"]
+    image_loader = SheetImageLoader(wb)
 
-    stored_csv_data = []
-    with open(csv_data_path, "r", encoding="utf-8") as file:
-        csv_reader = csv.reader(file)
-        for row in csv_reader:
-            stored_csv_data.append(row)
+    stored_csv_data = list(csv.reader(open(csv_data_path, "r", encoding="utf-8")))
+    image_filename_col = stored_csv_data[0].index("FILNAMN")
+    image_col_number = [cell.value for cell in wb[1]].index("BILD") + 1
 
-    image_filename_column_index = stored_csv_data[0].index("FILNAMN")
-
-    for row in range(2, excel_spreadsheet.max_row + 1):
-        image_filename = stored_csv_data[row - 1][image_filename_column_index]
-        image_path = os.path.join(SITE_PROFILEPICS_PATH, image_filename)
+    for row in range(2, wb.max_row + 1):
+        image_filename = stored_csv_data[row - 1][image_filename_col]
         # Create image cell name from column and row numbers
-        image_cell_name = chr(ord("A") + image_column_number - 1) + str(row)
+        image_cell_name = chr(ord("A") + image_col_number - 1) + str(row)
         image = image_loader.get(image_cell_name)
-        image.save(image_path)
+        image.save(os.path.join(SITE_PROFILEPICS, image_filename))
 
     os.remove("info.xlsx")
 
-    for filename in os.listdir(SITE_PROFILEPICS_PATH):
-        src = os.path.join(SITE_PROFILEPICS_PATH, filename)
-        dst = os.path.join(SITE_OUTPUT_PATH, filename)
-        shutil.copy2(src, dst)
+    DEST_PROFILEPICS = "./_site/_profilepics"
+    os.makedirs(DEST_PROFILEPICS, exist_ok=True)
+
+    for filename in os.listdir(SITE_PROFILEPICS):
+        shutil.copy2(os.path.join(SITE_PROFILEPICS, filename), os.path.join(DEST_PROFILEPICS, filename))
