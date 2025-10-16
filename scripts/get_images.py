@@ -7,8 +7,8 @@ from credentials import get_access_token
 from openpyxl_image_loader import SheetImageLoader
 
 def get_images(sheet_id, csv_data_path):
-    SITE_PROFILEPICS_PATH = "./site/profilepics"
-    SITE_OUTPUT_PATH = "./_site/profilepics"
+    SITE_PROFILEPICS_PATH = "./site/_profilepics"
+    SITE_OUTPUT_PATH = "./_site/_profilepics"
 
     os.makedirs(SITE_PROFILEPICS_PATH, exist_ok=True)
     os.makedirs(SITE_OUTPUT_PATH, exist_ok=True)
@@ -18,7 +18,7 @@ def get_images(sheet_id, csv_data_path):
     mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     url = f"https://www.googleapis.com/drive/v3/files/{sheet_id}/export?mimeType={mime_type}"
     response = requests.get(url, headers={"Authorization": "Bearer " + access_token})
-    
+
     # This file is opened in binary write mode ("wb") because the response from Google API is in binary.
     # Read more about this at https://developers.google.com/drive/api/reference/rest/v3/files/export
     with open("info.xlsx", "wb") as file:
